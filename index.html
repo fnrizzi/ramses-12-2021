@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+	<html class="sl-root decks export offline loaded">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>For projection-based ROMs, is a &quot;large&quot; (POD) subspace always an enemy? No, sometimes, it can be your friend...</title>
+
+
+		<link rel="stylesheet" type="text/css" href="lib/offline-v2.css">
+
+
+
+	</head>
+	<body class="reveal-viewport theme-font-montserrat theme-color-white-blue">
+		<div class="reveal">
+			<div class="slides">
+				<section data-id="486356675084652d38f89699deec142f"><div class="sl-block" data-block-type="text" style="width: 960px; left: 0px; top: 59px; height: auto;" data-block-id="55c216998e0450c860d54cf002ed9a12" data-name="text-c35b63"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;" dir="ui">
+<h2><span style="font-size:1.0em"> For projection-based ROMs: </span></h2>
+<h2><span style="font-size:1.0em">is a "large" (POD) subspace always an "enemy"? </span></h2>
+</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-5086f0" data-block-id="27a075de08f7c3ab248e10625b106caf" style="height: auto; width: 639px; left: 161px; top: 313px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<h3 style="color:rgb(0, 0, 0)"><span style="color:#0000FF"><span style="font-size:0.9em"><em>Sometimes, it can be your friend...</em></span></span></h3>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 560px;" data-block-id="f7e2cd59450604c7e3da7b8e7c4386e1" data-name="text-3e57b0"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;" dir="ui"><p><span style="font-size:0.9em"><span style="color:#696969">RAMSES - Dec. 2021 SISSA, Italy</span></span></p></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-453dc9" style="height: auto; width: 960px; left: 0px; top: 630px;" data-block-id="8320434572319e2648ab826824ff897b"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 18; font-size: 50%;">
+<p><span style="font-size:0.5em">This paper describes objective technical results and analysis. Any subjective views or opinions that might be expressed in the paper do not necessarily represent the views of the U.S. Department of Energy or the United States Government. This work was funded by the Advanced Simulation and Computing program and the Laboratory Directed Research and Development program at Sandia National Laboratories, a multimission laboratory managed and operated by National Technology and Engineering Solutions of Sandia, LLC., a wholly owned subsidiary of Honeywell International, Inc., for the U.S. Department of Energy’s National Nuclear Security Administration under contract DE-NA-0003525 </span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-f326f2" data-block-id="82d82952902a2c5e3869926d562f455b" style="height: auto; width: 600px; left: 180.75px; top: 412px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;" dir="ui">
+<pre style="text-align:center"><span style="font-size:1.0em">Francesco Rizzi</span></pre>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 441px;" data-block-id="eaae54ab230f4fff316282ccd9e7d5d3" data-name="text-2f2f43"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15;" dir="ui">
+<p><span style="font-size:0.5em">(NexGen Analytics)</span></p>
+</div></div>
+<div class="sl-block sl-block-group" data-block-type="group" data-name="group-edbf1f" data-block-id="013d9c47f9785f185b7e2db5a84b1da0" style="height: auto;"><div class="sl-block-content sl-block-group-content" style="transform-origin: 480.75px 491px; z-index: 16;"><div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180.75px; top: 471.5px;" data-origin-id="eaae54ab230f4fff316282ccd9e7d5d3" data-block-id="7fd3e0b3dd2961300b7250bd71e9015a" data-name="text-3811e8"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 17;" dir="ui"><p><span style="font-size:0.5em">(in collaboration with E. Parish, P. Blonigan, J.Tencer - Sandia National Labs)</span></p></div></div></div></div></section><section class="stack" data-id="c97a36f5910b1eec70b708ebbec1036c"><section data-id="cae30e5cb43177305f841f9f62e12a45"><div class="sl-block" data-block-type="text" data-name="text-2bd3c1" style="height: auto; width: 960px; left: 0px; top: 33px;" data-block-id="d1f2501ebd4873f70f31dc6d11b7f732"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h2>Why projection-based ROMs?</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 960px; left: 0px; top: 146px;" data-block-id="764a393b38f5923bd957e06d95c83b0b" data-name="text-36f59d"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; border-width: 1px; text-align: left; color: rgb(0, 0, 0); line-height: 1.43;" data-has-line-height="">
+<ul>
+	<li class="fragment" data-fragment-index="0">
+<span style="color:rgb(0, 0, 0)">A priori training data and a projection process </span>
+	<ul>
+		<li class="fragment" data-fragment-index="0"><span style="color:rgb(0, 0, 0)">​leverages the governing equations</span></li>
+		<li>explainability, physics is already there</li>
+		<li>error bounds and models</li>
+	</ul>
+	</li>
+	<li class="fragment" data-fragment-index="0">To consider:
+	<ul>
+		<li>Intrusivity, hyper-reduction for nonlinear models </li>
+		<li>Linear time-invariant (LTI) systems: theory is quite mature</li>
+	</ul>
+	</li>
+	<li class="fragment" data-fragment-index="1">Various:
+	<ul>
+		<li>Interplay between DL and pROMs?</li>
+		<li>Can pROMs benefit from DL? Definitely, but must be practical</li>
+	</ul>
+	</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-a11064" style="height: auto; width: 780px; left: 90px; top: 648.5px;" data-block-id="f6ad80a64c51497e5b44144d2894ffe2"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; font-size: 80%;">
+<p>Follow along/slides at: <a href="https://fnrizzi.github.io/ramses-12-2021/" target="_blank">https://fnrizzi.github.io/ramses-12-2021/</a></p>
+</div></div></section><section data-id="c3bdad2a1c29c16f3506be4013061992"><div class="sl-block" data-block-type="text" data-name="text-ee58bc" style="height: auto; width: 960px; left: 0px; top: 107px;" data-block-id="4a2a086237776c743c1d76d7a80e0d6c"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; text-align: left; line-height: 1.365;" data-has-line-height="">
+<p> </p>
+
+<ul>
+	<li class="fragment" data-fragment-index="0">
+	<p><span style="font-size:1.0em">Historically, a key focus of pROMs work has been:<br>
+	<span style="color:#FF0000"><em>"finding the smallest subspace that can represent/solve a problem"</em></span></span><br>
+	 </p>
+	</li>
+	<li class="fragment" data-fragment-index="1">
+	<p><span style="font-size:1.0em"><span style="color:#0000FF">Intuitively          :</span> small system, more convenient to compute</span></p>
+	</li>
+	<li class="fragment" data-fragment-index="1">
+	<p><span style="font-size:1.0em"><span style="color:#0000FF">Mathematically:</span> intriguing but hard</span></p>
+	</li>
+	<li class="fragment" data-fragment-index="2">
+	<p><span style="font-size:1.0em"><span style="color:#0000FF">Computationally:</span> is this really the best approach?</span></p>
+
+	<ul>
+		<li>
+		<p><span style="font-size:1.0em">Do we always need to find the smallest?</span></p>
+		</li>
+		<li>
+		<p><span style="font-size:1.0em">What if there was a way to formulate a problem such that you don't need to reduce it so much?</span></p>
+		</li>
+	</ul>
+	</li>
+	<li class="fragment" data-fragment-index="2">
+	<p><em><span style="color:#008000"><span style="font-size:1.0em">This talk tries to provide a counterargument </span></span></em></p>
+	</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-04d305" style="height: auto; width: 600px; left: 180px; top: 33px;" data-block-id="411fcfd80be7c5cb5854830121d2100f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<h2><span style="color:rgb(0, 0, 0)">Why this talk?</span></h2>
+</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-a11064" style="height: auto; width: 780px; left: 90px; top: 648.5px;" data-block-id="279e51df1176f83a177fb159d023489c"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; font-size: 80%;">
+<p>Follow along/slides at: <a href="https://fnrizzi.github.io/ramses-12-2021/" target="_blank">https://fnrizzi.github.io/ramses-12-2021/</a></p>
+</div></div></section><section data-id="f8431099d03b3df573c90e5b7470f19a"><div class="sl-block" data-block-type="text" data-name="text-ee58bc" style="height: auto; width: 920px; left: 20px; top: 133px;" data-block-id="27d1c457d37bad1045bd1e3e26a48737"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; text-align: left; line-height: 1.56;" data-has-line-height="">
+<ul>
+	<li class="fragment" data-fragment-index="0">
+	<p><span style="font-size:0.9em">Focus on pROMs for LTI systems</span></p>
+
+	<ul>
+		<li>
+		<p><span style="font-size:0.9em">​Weren't they a solved problem...?</span></p>
+		</li>
+		<li>
+		<p><span style="font-size:0.9em">I will emphasize <em>computational</em> aspects​</span></p>
+		</li>
+		<li>
+		<p><span style="font-size:0.9em">​Little math, <s>error bounds</s>, <s>ML, and/or deep learning </s>(sorry!)</span></p>
+		</li>
+	</ul>
+	</li>
+	<li class="fragment" data-fragment-index="1">
+	<p><span style="font-size:0.9em">​<span style="color:#FF0000">Disclaimer</span>: this work might sound "obvious" (depending on whom you are talking to)</span></p>
+	</li>
+	<li class="fragment" data-fragment-index="2">
+	<p><span style="font-size:0.9em">Format: this is going to be a "story"</span></p>
+
+	<ul>
+		<li>
+		<p><span style="font-size:0.9em">walk through how this work started and developed</span></p>
+		</li>
+		<li>
+		<p><span style="font-size:0.9em">Finally, we talk about generalization</span></p>
+		</li>
+	</ul>
+	</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-04d305" style="height: auto; width: 600px; left: 180px; top: 33px;" data-block-id="fb3efc2e572eabc906252dfeb8090fd8"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<h2><span style="color:rgb(0, 0, 0)">Content and format</span></h2>
+</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-a11064" style="height: auto; width: 780px; left: 90px; top: 648.5px;" data-block-id="69c12855db1618c2f5020cb7480999f5"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; font-size: 80%;">
+<p>Follow along/slides at: <a href="https://fnrizzi.github.io/ramses-12-2021/" target="_blank">https://fnrizzi.github.io/ramses-12-2021/</a></p>
+</div></div></section></section><section class="stack" data-id="7e5d0a010b18bd31fd3f2b2fd145fb68"><section data-id="a0b9e597223cdec3a9e028b2a2ea5302"><div class="sl-block" data-block-type="text" data-name="text-04d305" style="height: auto; width: 773px; left: 93.5px; top: 32.5px;" data-block-id="a61d8f39cb9529641a97aceab808ea2c"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h2><span style="color:rgb(0, 0, 0)">About a year ago...</span></h2>
+</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-0eec39" data-block-id="d52264399c43a356392b041229c00e80" style="height: auto; width: 960px; left: 0px; top: 157px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; text-align: left; line-height: 1.56;" data-has-line-height="">
+<ul>
+	<li class="fragment" data-fragment-index="0"><span style="font-size:0.9em">Started reading about <em>seismic waves</em></span></li>
+	<li class="fragment" data-fragment-index="0" style="color:rgb(0, 0, 0)">
+	<p><span style="font-size:0.9em">​​This is obviously a very important topic</span></p>
+	</li>
+	<li class="fragment" data-fragment-index="1">
+	<p><span style="font-size:0.9em"><strong><span style="color:#FF8C00">Surface waves:</span></strong> travel at the Earth's surface</span></p>
+	</li>
+	<li class="fragment" data-fragment-index="1">
+	<p><span style="font-size:0.9em"><span style="color:#0000FF"><strong>Body waves:</strong></span> </span><span style="font-size:0.9em">travel through the Earth</span></p>
+
+	<ul>
+		<li>
+		<p><span style="font-size:0.9em">affected by the material properties (density, modulus)</span></p>
+		</li>
+		<li>
+		<p><span style="font-size:0.9em">Primary (P-waves): compressional, longitudinal</span></p>
+		</li>
+		<li>
+		<p><span style="font-size:0.9em">Secondary or shear (S-waves): transversal (particles oscillate perpendicularly to the direction of wave propagation)</span></p>
+		</li>
+	</ul>
+	</li>
+	<li class="fragment" data-fragment-index="2">
+	<p><span style="font-size:0.9em">Interesting field, no previous pROM work: w</span><span style="font-size:0.9em">e started on this</span></p>
+	</li>
+</ul>
+</div></div></section><section data-id="28b4c89cb4f6121a78845273ac139021"><div class="sl-block" data-block-type="text" data-name="text-04d305" style="height: auto; width: 773px; left: 93.5px; top: 32.5px;" data-block-id="92677fc942f78420b499d5224606dcf7"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h2><span style="color:rgb(0, 0, 0)"> Formulation</span></h2>
+</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-0eec39" style="height: auto; width: 785.5px; left: 45px; top: 132px;" data-block-id="69ae3d9369fc9e22904d05ef23b323e3"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left;">
+<ul>
+	<li style="" class="fragment" data-fragment-index="0"><span style="text-align:justify">Approximate the Earth as a sphere</span></li>
+	<li style="text-align: justify;" class="fragment" data-fragment-index="1">Simplify via axisymmetric approximation </li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="image" data-name="image-9a9520" style="width: 399.079px; height: 397px; left: 59px; top: 244.707px; min-width: 1px; min-height: 1px;" data-block-id="163e75a32706fce61cea29be03d79876"><div class="sl-block-content fragment" style="z-index: 12;" data-fragment-index="0"><img style="" data-natural-width="192" data-natural-height="191" data-lazy-loaded="" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/0177c327c0293779990a73809d1fe354.svg"></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-952ffb" style="height: auto; width: 75px; left: 579px; top: 560px;" data-origin-id="60cec2019d318626a67b034a6dbfbc58" data-block-id="4b6b01abc18f91534a45dbfcd354959a"><div class="sl-block-style" style="z-index: 13; transform: rotate(0deg);"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;" data-fragment-index="1">
+<p><span style="font-size:0.5em">Surface</span></p>
+</div></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 581px; top: 605px;" data-block-id="95cc9f73c7acebac3f054b535e73d722" data-name="line-170bf5"><div class="sl-block-content fragment" data-line-x1="0" data-line-y1="0" data-line-x2="73" data-line-y2="0" data-line-color="#000000" data-line-start-type="none" data-line-end-type="arrow" style="z-index: 14;" data-fragment-index="1"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="73" height="1" viewbox="0 0 73 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="69" y2="0"></line><line class="line-element" stroke="#000000" stroke-width="2" x1="0" y1="0" x2="69" y2="0"></line><polygon fill="#000000" transform="translate(69,0) rotate(90)" points="0,-4 4,4 -4,4"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="image" data-name="image-0354e3" data-block-id="67770009d6e9508d8a432f4e998d4d1f" style="width: 194.929px; height: 365.492px; left: 654px; top: 276.215px; min-width: 1px; min-height: 1px;"><div class="sl-block-content fragment" style="z-index: 15;" data-fragment-index="1"><img style="" data-natural-width="720" data-natural-height="1350" data-lazy-loaded="" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/7d11a36b862142c88aea09d2803e990f.png"></div></div>
+<div class="sl-block" data-block-type="line" data-name="line-a6365c" data-block-id="d6369c95caaf47ee4421d0110d1332f4" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 442.113px; top: 443.207px;"><div class="sl-block-content fragment" data-line-x1="0" data-line-y1="0" data-line-x2="162" data-line-y2="0" data-line-color="#cccccc" data-line-start-type="none" data-line-end-type="arrow" style="z-index: 16;" data-line-width="9px" data-fragment-index="1"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="162" height="1" viewbox="0 0 162 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0.5" y1="0.5" x2="149" y2="0.5"></line><line class="line-element" stroke="#cccccc" stroke-width="9" x1="0.5" y1="0.5" x2="149" y2="0.5"></line><polygon fill="#cccccc" transform="translate(148.5,0) rotate(90)" points="0,-13.5 13.5,13.5 -13.5,13.5"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="math" data-name="math-531fc4" data-block-id="89851e9c003842aa08366c9d565e85a8" style="width: auto; height: auto; left: 673px; top: 170px;"><div class="sl-block-content notranslate fragment" style="z-index: 17; font-size: 60%;" data-fragment-index="1"><div class="math-input">\partial / \partial \phi = 0</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 461.613px; top: 389px;" data-block-id="b9df79c4a49734725c5d69f13abccfad" data-name="math-11dc47"><div class="sl-block-content notranslate fragment" style="z-index: 18; font-size: 60%;" data-fragment-index="1"><div class="math-input">\partial / \partial \phi = 0</div></div></div></section><section data-id="13f28e9c24a4d0b4036729fbba58f74b"><div class="sl-block" data-block-type="text" data-name="text-04d305" style="height: auto; width: 773px; left: 93.5px; top: 32.5px;" data-block-id="9997a80e8423bd872e8c1d2aa4b6b697"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h2><span style="color:rgb(0, 0, 0)"> Elastic shear waves</span></h2>
+</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-0eec39" style="height: auto; width: 875px; left: 44.9865px; top: 134px;" data-block-id="21af200529af49b4781d62a7e02018d7"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left;">
+<ul>
+	<li class="fragment" data-fragment-index="0"><span style="font-size:0.9em">Velocity-stress <em>axisymmetric</em> formulation:</span></li>
+</ul>
+</div></div>
+
+<div class="sl-block sl-block-group" data-block-type="group" data-name="group-aec022" data-block-id="ce5404ade0c79ba66a005ac3cec848b7" style="width: auto; height: auto;"><div class="sl-block-content sl-block-group-content fragment" style="transform-origin: 344.986px 301.875px; z-index: 12;" data-fragment-index="0">
+<div class="sl-block" data-block-type="math" data-name="math-fd3701" style="width: auto; height: auto; left: 58.0137px; top: 213.875px;" data-block-id="5f4d762ba8e989584bb4cf2995e94ed0"><div class="sl-block-content notranslate" style="z-index: 13; font-size: 65%;"><div class="math-input">\newcommand{\spherCoords}{r, \theta, \phi}
+\newcommand{\axiCoords}{r, \theta}
+\newcommand{\coords}{r, \theta}
+\newcommand{\depVars}{t, \coords}
+\newcommand{\dens}{\rho}
+\newcommand{\shMod}{G}
+\newcommand{\stresses}{\sigma}
+\newcommand{\vp}{v}
+\newcommand{\dvpdt}{ \frac{\partial \vp}{\partial t} }
+\newcommand{\dvpdr}{ \frac{\partial \vp}{\partial r} }
+\newcommand{\dvpdtheta}{ \frac{\partial \vp}{\partial \theta} }
+\newcommand{\spp}{\sigma_{\phi\phi}}
+\newcommand{\dsppdp}{ \frac{\partial \spp}{\partial \phi} }
+\newcommand{\srp}{\sigma_{r\phi}}
+\newcommand{\dsrpdt}{ \frac{\partial \srp}{\partial t} }
+\newcommand{\dsrpdr}{ \frac{\partial \srp}{\partial r} }
+\newcommand{\stp}{\sigma_{\theta\phi}}
+\newcommand{\dstpdt}{ \frac{\partial \stp}{\partial t} }
+\newcommand{\dstpdtheta}{ \frac{\partial \stp}{\partial \theta} }
+\newcommand{\force}{f}
+
+\small{
+\dens \dvpdt = \dsrpdr + \frac{1}{r} \dstpdtheta + \frac{1}{r} \left(3 \srp + 2 \stp \cot{\theta} \right) + \force
+}
+</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 51.9592px; top: 343.875px;" data-name="math-f0e7a1" data-block-id="1d7d4b20c355bc464eb797fb314d3b1f"><div class="sl-block-content notranslate" style="z-index: 14; font-size: 65%;"><div class="math-input">\newcommand{\spherCoords}{r, \theta, \phi}
+\newcommand{\axiCoords}{r, \theta}
+\newcommand{\coords}{r, \theta}
+\newcommand{\depVars}{t, \coords}
+\newcommand{\dens}{\rho}
+\newcommand{\shMod}{G}
+\newcommand{\stresses}{\sigma}
+\newcommand{\vp}{v}
+\newcommand{\dvpdt}{ \frac{\partial \vp}{\partial t} }
+\newcommand{\dvpdr}{ \frac{\partial \vp}{\partial r} }
+\newcommand{\dvpdtheta}{ \frac{\partial \vp}{\partial \theta} }
+\newcommand{\spp}{\sigma_{\phi\phi}}
+\newcommand{\dsppdp}{ \frac{\partial \spp}{\partial \phi} }
+\newcommand{\srp}{\sigma_{r\phi}}
+\newcommand{\dsrpdt}{ \frac{\partial \srp}{\partial t} }
+\newcommand{\dsrpdr}{ \frac{\partial \srp}{\partial r} }
+\newcommand{\stp}{\sigma_{\theta\phi}}
+\newcommand{\dstpdt}{ \frac{\partial \stp}{\partial t} }
+\newcommand{\dstpdtheta}{ \frac{\partial \stp}{\partial \theta} }
+\newcommand{\force}{f}
+
+\small{
+\dstpdt = \shMod \left( \frac{1}{r}\dvpdtheta - \frac{\cot{\theta}}{r}\vp \right)
+}
+</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 51.9592px; top: 278.375px;" data-name="math-8b57b0" data-block-id="b42445815933946985e32b6da5ca1733"><div class="sl-block-content notranslate" style="z-index: 15; font-size: 65%;"><div class="math-input">\newcommand{\spherCoords}{r, \theta, \phi}
+\newcommand{\axiCoords}{r, \theta}
+\newcommand{\coords}{r, \theta}
+\newcommand{\depVars}{t, \coords}
+\newcommand{\dens}{\rho}
+\newcommand{\shMod}{G}
+\newcommand{\stresses}{\sigma}
+\newcommand{\vp}{v}
+\newcommand{\dvpdt}{ \frac{\partial \vp}{\partial t} }
+\newcommand{\dvpdr}{ \frac{\partial \vp}{\partial r} }
+\newcommand{\dvpdtheta}{ \frac{\partial \vp}{\partial \theta} }
+\newcommand{\spp}{\sigma_{\phi\phi}}
+\newcommand{\dsppdp}{ \frac{\partial \spp}{\partial \phi} }
+\newcommand{\srp}{\sigma_{r\phi}}
+\newcommand{\dsrpdt}{ \frac{\partial \srp}{\partial t} }
+\newcommand{\dsrpdr}{ \frac{\partial \srp}{\partial r} }
+\newcommand{\stp}{\sigma_{\theta\phi}}
+\newcommand{\dstpdt}{ \frac{\partial \stp}{\partial t} }
+\newcommand{\dstpdtheta}{ \frac{\partial \stp}{\partial \theta} }
+\newcommand{\force}{f}
+
+\small{
+\dsrpdt = \shMod \left( \dvpdr - \frac{1}{r}\vp \right)
+}</div></div></div>
+</div></div>
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 802px; left: 44.9865px; top: 606.5px;" data-block-id="ff79412ee626d03dc47490ee44d6f477" data-name="text-acc0d4"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 27; text-align: left;" data-fragment-index="1">
+<ul>
+	<li style="text-align:left" class="visible">
+	<p><span style="font-size:0.9em">Shear effects negligible in liquid, so core is not considered</span></p>
+	</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="image" data-name="image-28cf96" data-block-id="121b32de044dda4feb5ccaf828810b03" style="width: 226.261px; height: 416.147px; left: 712.098px; top: 153.5px; min-width: 1px; min-height: 1px;"><div class="sl-block-content fragment" style="z-index: 24;" data-fragment-index="1"><img style="" data-natural-width="734" data-natural-height="1350" data-lazy-loaded="" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/37aec226d125eb14a8358af1ba457625.png"></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-952ffb" data-block-id="60cec2019d318626a67b034a6dbfbc58" style="height: auto; width: 75px; left: 673.111px; top: 508.5px;"><div class="sl-block-style" style="z-index: 25; transform: rotate(0deg);"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 25;" data-fragment-index="1">
+<p><span style="font-size:0.5em">Surface</span></p>
+</div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 100.917px; left: 661.64px; top: 409.375px;" data-block-id="4483ddc5e49c36a5f06517ed7a31a996" data-name="text-8629df"><div class="sl-block-style" style="z-index: 26; transform: rotate(0deg);"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 26;" data-fragment-index="1">
+<p><span style="font-size:15px">Core-mantle</span></p>
+</div></div></div>
+<div class="sl-block sl-block-group" data-block-type="group" data-name="group-f0e35d" data-block-id="f2b523b2484aed506df3d79cb46f184a" style="width: auto; height: auto;"><div class="sl-block-content sl-block-group-content fragment" style="transform-origin: 165.473px 525.5px; z-index: 16;" data-fragment-index="0">
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 52.4728px; top: 549.875px;" data-origin-id="8985695535afc932ea3741c1c725692b" data-block-id="d69af707bdd3c4a5ab01fa5d4ee10e30" data-name="math-6381da"><div class="sl-block-content notranslate" style="z-index: 17; font-size: 45%;"><div class="math-input">\newcommand{\spherCoords}{r, \theta, \phi}
+\newcommand{\axiCoords}{r, \theta}
+\newcommand{\coords}{r, \theta}
+\newcommand{\depVars}{t, \coords}
+\newcommand{\dens}{\rho}
+\newcommand{\shMod}{G}
+\newcommand{\stresses}{\sigma}
+\newcommand{\vp}{v}
+\newcommand{\dvpdt}{ \frac{\partial \vp}{\partial t} }
+\newcommand{\dvpdr}{ \frac{\partial \vp}{\partial r} }
+\newcommand{\dvpdtheta}{ \frac{\partial \vp}{\partial \theta} }
+\newcommand{\spp}{\sigma_{\phi\phi}}
+\newcommand{\dsppdp}{ \frac{\partial \spp}{\partial \phi} }
+\newcommand{\srp}{\sigma_{r\phi}}
+\newcommand{\dsrpdt}{ \frac{\partial \srp}{\partial t} }
+\newcommand{\dsrpdr}{ \frac{\partial \srp}{\partial r} }
+\newcommand{\stp}{\sigma_{\theta\phi}}
+\newcommand{\dstpdt}{ \frac{\partial \stp}{\partial t} }
+\newcommand{\dstpdtheta}{ \frac{\partial \stp}{\partial \theta} }
+\newcommand{\force}{f}
+
+f(r, \theta, t): \text{forcing}
+</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 52.4728px; top: 469.125px;" data-block-id="e7478c848114f681f1aca2636bd4d169" data-name="math-8606ac"><div class="sl-block-content notranslate" style="z-index: 18; font-size: 45%;"><div class="math-input">\newcommand{\spherCoords}{r, \theta, \phi}
+\newcommand{\axiCoords}{r, \theta}
+\newcommand{\coords}{r, \theta}
+\newcommand{\depVars}{t, \coords}
+\newcommand{\dens}{\rho}
+\newcommand{\shMod}{G}
+\newcommand{\stresses}{\sigma}
+\newcommand{\vp}{v}
+\newcommand{\dvpdt}{ \frac{\partial \vp}{\partial t} }
+\newcommand{\dvpdr}{ \frac{\partial \vp}{\partial r} }
+\newcommand{\dvpdtheta}{ \frac{\partial \vp}{\partial \theta} }
+\newcommand{\spp}{\sigma_{\phi\phi}}
+\newcommand{\dsppdp}{ \frac{\partial \spp}{\partial \phi} }
+\newcommand{\srp}{\sigma_{r\phi}}
+\newcommand{\dsrpdt}{ \frac{\partial \srp}{\partial t} }
+\newcommand{\dsrpdr}{ \frac{\partial \srp}{\partial r} }
+\newcommand{\stp}{\sigma_{\theta\phi}}
+\newcommand{\dstpdt}{ \frac{\partial \stp}{\partial t} }
+\newcommand{\dstpdtheta}{ \frac{\partial \stp}{\partial \theta} }
+\newcommand{\force}{f}
+
+\shMod(r, \theta): \text{shear modulus}
+</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 52.4728px; top: 506.125px;" data-block-id="68844f9ebd78ff6a55e4ca3d1a0dd030" data-name="math-5042b4"><div class="sl-block-content notranslate" style="z-index: 19; font-size: 45%;"><div class="math-input">\newcommand{\spherCoords}{r, \theta, \phi}
+\newcommand{\axiCoords}{r, \theta}
+\newcommand{\coords}{r, \theta}
+\newcommand{\depVars}{t, \coords}
+\newcommand{\dens}{\rho}
+\newcommand{\shMod}{G}
+\newcommand{\stresses}{\sigma}
+\newcommand{\vp}{v}
+\newcommand{\dvpdt}{ \frac{\partial \vp}{\partial t} }
+\newcommand{\dvpdr}{ \frac{\partial \vp}{\partial r} }
+\newcommand{\dvpdtheta}{ \frac{\partial \vp}{\partial \theta} }
+\newcommand{\spp}{\sigma_{\phi\phi}}
+\newcommand{\dsppdp}{ \frac{\partial \spp}{\partial \phi} }
+\newcommand{\srp}{\sigma_{r\phi}}
+\newcommand{\dsrpdt}{ \frac{\partial \srp}{\partial t} }
+\newcommand{\dsrpdr}{ \frac{\partial \srp}{\partial r} }
+\newcommand{\stp}{\sigma_{\theta\phi}}
+\newcommand{\dstpdt}{ \frac{\partial \stp}{\partial t} }
+\newcommand{\dstpdtheta}{ \frac{\partial \stp}{\partial \theta} }
+\newcommand{\force}{f}
+
+\dens(r, \theta): \text{density}
+</div></div></div>
+</div></div>
+<div class="sl-block sl-block-group" data-block-type="group" data-name="group-66b8ae" data-block-id="3accec7aeea628d07f323857b9e9cad4" style="width: auto; height: auto;"><div class="sl-block-content sl-block-group-content fragment" style="transform-origin: 477px 505.125px; z-index: 20;" data-fragment-index="0">
+<div class="sl-block sl-block-group" data-block-type="group" style="width: auto; height: auto;" data-block-id="458afe85f69ad451d90794583a074cbd" data-name="group-45a4aa"><div class="sl-block-content sl-block-group-content" style="transform-origin: 414.5px 487.625px; z-index: 21;"><div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 327.5px; top: 471.125px;" data-origin-id="b42445815933946985e32b6da5ca1733" data-block-id="8985695535afc932ea3741c1c725692b" data-name="math-8bd8f4"><div class="sl-block-content notranslate" style="z-index: 22; font-size: 45%;"><div class="math-input">\newcommand{\spherCoords}{r, \theta, \phi}
+\newcommand{\axiCoords}{r, \theta}
+\newcommand{\coords}{r, \theta}
+\newcommand{\depVars}{t, \coords}
+\newcommand{\dens}{\rho}
+\newcommand{\shMod}{G}
+\newcommand{\stresses}{\sigma}
+\newcommand{\vp}{v}
+\newcommand{\dvpdt}{ \frac{\partial \vp}{\partial t} }
+\newcommand{\dvpdr}{ \frac{\partial \vp}{\partial r} }
+\newcommand{\dvpdtheta}{ \frac{\partial \vp}{\partial \theta} }
+\newcommand{\spp}{\sigma_{\phi\phi}}
+\newcommand{\dsppdp}{ \frac{\partial \spp}{\partial \phi} }
+\newcommand{\srp}{\sigma_{r\phi}}
+\newcommand{\dsrpdt}{ \frac{\partial \srp}{\partial t} }
+\newcommand{\dsrpdr}{ \frac{\partial \srp}{\partial r} }
+\newcommand{\stp}{\sigma_{\theta\phi}}
+\newcommand{\dstpdt}{ \frac{\partial \stp}{\partial t} }
+\newcommand{\dstpdtheta}{ \frac{\partial \stp}{\partial \theta} }
+\newcommand{\force}{f}
+
+\vp (r, \theta, t): \text{velocity}
+</div></div></div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 327.5px; top: 506.125px;" data-block-id="1a33531bedfd14cc64ef8b87d8283509" data-name="math-19d5cc"><div class="sl-block-content notranslate" style="z-index: 23; font-size: 45%;"><div class="math-input">\newcommand{\spherCoords}{r, \theta, \phi}
+\newcommand{\axiCoords}{r, \theta}
+\newcommand{\coords}{r, \theta}
+\newcommand{\depVars}{t, \coords}
+\newcommand{\dens}{\rho}
+\newcommand{\shMod}{G}
+\newcommand{\stresses}{\sigma}
+\newcommand{\vp}{v}
+\newcommand{\dvpdt}{ \frac{\partial \vp}{\partial t} }
+\newcommand{\dvpdr}{ \frac{\partial \vp}{\partial r} }
+\newcommand{\dvpdtheta}{ \frac{\partial \vp}{\partial \theta} }
+\newcommand{\spp}{\sigma_{\phi\phi}}
+\newcommand{\dsppdp}{ \frac{\partial \spp}{\partial \phi} }
+\newcommand{\srp}{\sigma_{r\phi}}
+\newcommand{\dsrpdt}{ \frac{\partial \srp}{\partial t} }
+\newcommand{\dsrpdr}{ \frac{\partial \srp}{\partial r} }
+\newcommand{\stp}{\sigma_{\theta\phi}}
+\newcommand{\dstpdt}{ \frac{\partial \stp}{\partial t} }
+\newcommand{\dstpdtheta}{ \frac{\partial \stp}{\partial \theta} }
+\newcommand{\force}{f}
+
+\srp(r,\theta,t), \stp(r,\theta,t): \text{stresses}
+</div></div></div>
+</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-8f27be" data-block-id="dcb28d33fab240e197d55934d6cf0008" style="height: auto; width: 144px; left: 20.9728px; top: 420px;"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 28;" data-fragment-index="0">
+<p>Given:</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 87.5px; left: 320px; top: 422px;" data-block-id="9f035fe6b01b76e35313ac0844290496" data-name="text-05e16e"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 29;" data-fragment-index="0">
+<p>Find:</p>
+</div></div></section><section data-id="c8d0e0bd16284fddd65021300963e09a"><div class="sl-block" data-block-type="text" data-name="text-04d305" style="height: auto; width: 773px; left: 93.5px; top: 32.5px;" data-block-id="0c01fa1183951a67aeeff26cebbecb01"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<h2><span style="color:rgb(0, 0, 0)">Semi-discrete system</span></h2>
+</div></div>
+<div class="sl-block" data-block-type="image" data-name="image-220f18" style="width: 269.167px; height: 403.75px; left: 690.833px; top: 156.25px; min-width: 1px; min-height: 1px;" data-block-id="b8685c8e01c71b494fd41f79f0c02302"><div class="sl-block-content" style="z-index: 13;"><img style="" data-natural-width="864" data-natural-height="1296" data-lazy-loaded="" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/e5627d56e047f508a3a87c783120700f.png"></div></div>
+<div class="sl-block" data-block-type="math" data-name="math-0ec408" style="width: auto; height: auto; left: 151.594px; top: 252px;" data-block-id="0cea8b664ec7fe21f99b9c4c29218b1c"><div class="sl-block-content notranslate" style="z-index: 10;"><div class="math-input">  
+%% FOM
+\newcommand{\state}{\boldsymbol x}
+\newcommand{\systemMat}{\mathbf{A}}
+\newcommand{\forcing}{\boldsymbol f}
+\newcommand{\fomDim}{N}
+
+\newcommand{\tfinal}{t_{final}}
+
+\newcommand{\paramsA}{\boldsymbol \eta}
+\newcommand{\paramsF}{\boldsymbol \mu}
+\newcommand{\paramDomainA}{\mathcal D_{\eta}}
+\newcommand{\paramDomainF}{\mathcal D_{\mu}}
+\newcommand{\nParamsA}{N_{\paramsA}}
+\newcommand{\nParamsF}{N_{\paramsF}}
+\newcommand{\paramsMat}{ \mathcal{M} }
+\newcommand{\stateRef}{\state_\text{ref}(\paramsA, \paramsF)}
+\newcommand{\stateRefNoPars}{\state_\text{ref}}
+
+%% ROM
+\newcommand{\romBasis}{\boldsymbol{\Phi}}
+
+\newcommand{\romState}{\hat{\state}}
+\newcommand{\romStateTensor}{\hat{\stateTensor}}
+\newcommand{\stateTensorRef}{{\stateTensor}_{\text{ref}}}
+\newcommand{\stateTensorRefWithPars}{{\stateTensor}_{\text{ref}}(\paramsA, \paramsMat)}
+\newcommand{\stateTensor}{\boldsymbol X}
+\newcommand{\approxStateTensor}{\tilde{\boldsymbol X}}
+
+\newcommand{\romSystemMat}{\hat{\systemMat}}
+\newcommand{\romDim}{K}
+\newcommand{\nRuns}{M}
+\newcommand{\forcingTensor}{\boldsymbol F}
+
+\newcommand{\approxState}{\tilde{\state}}
+%\newcommand{\stateRef}{{\state}_{\text{ref}}}
+\newcommand{\romBasisCol}{\boldsymbol \phi}
+\newcommand{\trialSubspace}{\mathcal{V}}
+
+\newcommand{\spherCoords}{r, \theta, \phi}
+\newcommand{\axiCoords}{r, \theta}
+\newcommand{\coords}{r, \theta}
+\newcommand{\depVars}{t, \coords}
+
+\newcommand{\dens}{\rho}
+\newcommand{\shMod}{G}
+
+\newcommand{\stresses}{\sigma}
+\newcommand{\vp}{v}
+\newcommand{\dvpdt}{ \frac{\partial \vp}{\partial t} }
+\newcommand{\dvpdr}{ \frac{\partial \vp}{\partial r} }
+\newcommand{\dvpdtheta}{ \frac{\partial \vp}{\partial \theta} }
+
+\newcommand{\spp}{\sigma_{\phi\phi}}
+\newcommand{\dsppdp}{ \frac{\partial \spp}{\partial \phi} }
+
+\newcommand{\srp}{\sigma_{r\phi}}
+\newcommand{\dsrpdt}{ \frac{\partial \srp}{\partial t} }
+\newcommand{\dsrpdr}{ \frac{\partial \srp}{\partial r} }
+
+\newcommand{\stp}{\sigma_{\theta\phi}}
+\newcommand{\dstpdt}{ \frac{\partial \stp}{\partial t} }
+\newcommand{\dstpdtheta}{ \frac{\partial \stp}{\partial \theta} }
+
+\newcommand{\force}{f}
+
+\frac{d \textcolor{red}{\state_{\vp}(t)}}{dt} = \systemMat_{\vp} \textcolor{gray}{\state_{\stresses}(t)} + \forcing_{\vp}(t)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 151.594px; top: 364.5px;" data-name="math-72f805" data-block-id="9ef1eb11df63cb175a996f6f55ec1f9c"><div class="sl-block-content notranslate" style="z-index: 11;"><div class="math-input">  
+%% FOM
+\newcommand{\state}{\boldsymbol x}
+\newcommand{\systemMat}{\mathbf{A}}
+\newcommand{\forcing}{\boldsymbol f}
+\newcommand{\fomDim}{N}
+
+\newcommand{\tfinal}{t_{final}}
+
+\newcommand{\paramsA}{\boldsymbol \eta}
+\newcommand{\paramsF}{\boldsymbol \mu}
+\newcommand{\paramDomainA}{\mathcal D_{\eta}}
+\newcommand{\paramDomainF}{\mathcal D_{\mu}}
+\newcommand{\nParamsA}{N_{\paramsA}}
+\newcommand{\nParamsF}{N_{\paramsF}}
+\newcommand{\paramsMat}{ \mathcal{M} }
+\newcommand{\stateRef}{\state_\text{ref}(\paramsA, \paramsF)}
+\newcommand{\stateRefNoPars}{\state_\text{ref}}
+
+%% ROM
+\newcommand{\romBasis}{\boldsymbol{\Phi}}
+
+\newcommand{\romState}{\hat{\state}}
+\newcommand{\romStateTensor}{\hat{\stateTensor}}
+\newcommand{\stateTensorRef}{{\stateTensor}_{\text{ref}}}
+\newcommand{\stateTensorRefWithPars}{{\stateTensor}_{\text{ref}}(\paramsA, \paramsMat)}
+\newcommand{\stateTensor}{\boldsymbol X}
+\newcommand{\approxStateTensor}{\tilde{\boldsymbol X}}
+
+\newcommand{\romSystemMat}{\hat{\systemMat}}
+\newcommand{\romDim}{K}
+\newcommand{\nRuns}{M}
+\newcommand{\forcingTensor}{\boldsymbol F}
+
+\newcommand{\approxState}{\tilde{\state}}
+%\newcommand{\stateRef}{{\state}_{\text{ref}}}
+\newcommand{\romBasisCol}{\boldsymbol \phi}
+\newcommand{\trialSubspace}{\mathcal{V}}
+
+\newcommand{\spherCoords}{r, \theta, \phi}
+\newcommand{\axiCoords}{r, \theta}
+\newcommand{\coords}{r, \theta}
+\newcommand{\depVars}{t, \coords}
+
+\newcommand{\dens}{\rho}
+\newcommand{\shMod}{G}
+
+\newcommand{\stresses}{\sigma}
+\newcommand{\vp}{v}
+\newcommand{\dvpdt}{ \frac{\partial \vp}{\partial t} }
+\newcommand{\dvpdr}{ \frac{\partial \vp}{\partial r} }
+\newcommand{\dvpdtheta}{ \frac{\partial \vp}{\partial \theta} }
+
+\newcommand{\spp}{\sigma_{\phi\phi}}
+\newcommand{\dsppdp}{ \frac{\partial \spp}{\partial \phi} }
+
+\newcommand{\srp}{\sigma_{r\phi}}
+\newcommand{\dsrpdt}{ \frac{\partial \srp}{\partial t} }
+\newcommand{\dsrpdr}{ \frac{\partial \srp}{\partial r} }
+
+\newcommand{\stp}{\sigma_{\theta\phi}}
+\newcommand{\dstpdt}{ \frac{\partial \stp}{\partial t} }
+\newcommand{\dstpdtheta}{ \frac{\partial \stp}{\partial \theta} }
+
+\newcommand{\force}{f}
+
+\frac{d \textcolor{gray}{\state_{\stresses}(t)}}{dt} = \systemMat_{\stresses} \textcolor{red}{\state_{\vp}(t)}</div></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-3574a4" data-block-id="74502416763672f6c83673130401dcf1" style="height: auto; width: 883px; left: 19.0625px; top: 140px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; text-align: left;">
+<ul>
+	<li><span style="font-size:0.7em">Staggered grid discretization, 2nd-order centered differences</span></li>
+	<li><span style="font-size:0.7em">Coupled system:</span></li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-671013" data-block-id="40ee5ff4f1d0934a01c885457a0b8945" style="height: auto; width: 423.406px; left: 93.391px; top: 479px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; font-size: 75%;">
+<p><em>Sparse</em> coefficient matrices</p>
+
+<p>(depend on material prop, not on time)</p>
+</div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 79px; top: 281px;" data-origin-id="092cbb0ea9ade22ada9aab983c2a734e" data-block-id="41e04f9cf80a401a008d6e2d288017c0" data-name="line-222572"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="72.594" data-line-y2="0" data-line-color="#000000" data-line-start-type="none" data-line-end-type="arrow" style="z-index: 16;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="72.594" height="1" viewbox="0 0 72.594 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="68.594" y2="0"></line><line class="line-element" stroke="#000000" stroke-width="2" x1="0" y1="0" x2="68.594" y2="0"></line><polygon fill="#000000" transform="translate(68.594,0) rotate(90)" points="0,-4 4,4 -4,4"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 116px; left: 21px; top: 252px;" data-block-id="e6ff46eb21418fc510914edb9f2e1ac9" data-name="text-ce16ea"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 17; font-size: 75%;">
+<p><span style="color:#FF0000">Velocities</span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 103px; left: 21px; top: 361px;" data-block-id="54627cb76acb7d037853d8c7b0bbc05e" data-name="text-3a30b6"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 18; font-size: 75%;">
+<p><span style="color:#696969">Stresses</span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 921px; left: 19.0625px; top: 577.5px;" data-block-id="b751d4857efff354e81573e2273064ed" data-name="text-79f344"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 19; text-align: left; font-size: 80%;">
+<ul>
+	<li><span style="font-size:0.9em">BC: reflective on surface and core-mantle boundary, zero stress on symmetry axes</span></li>
+	<li><span style="font-size:0.9em">This is a linear time-invariant system: good! LTI systems are well-known</span></li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="line" data-name="line-e73ed5" data-block-id="c2a9c70fd0c281275824f2d9acec71aa" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 305.094px; top: 310px;"><div class="sl-block-content" data-line-x1="0" data-line-y1="160.5" data-line-x2="46.28000000000003" data-line-y2="0" data-line-color="#000000" data-line-start-type="none" data-line-end-type="arrow" style="z-index: 20;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="46.28000000000003" height="160.5" viewbox="0 0 46.28000000000003 160.5"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="160.5" x2="45.17175702653212" y2="3.843409620604992"></line><line class="line-element" stroke="#000000" stroke-width="2" x1="0" y1="160.5" x2="45.17175702653212" y2="3.843409620604992"></line><polygon fill="#000000" transform="translate(45.17175702653212,3.843409620604992) rotate(16.085)" points="0,-4 4,4 -4,4"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 305.094px; top: 420px;" data-block-id="039159b19036660ba1e8ae07382e3eaf" data-name="line-83c00c"><div class="sl-block-content" data-line-x1="0" data-line-y1="50.5" data-line-x2="46.28000000000003" data-line-y2="0" data-line-color="#000000" data-line-start-type="none" data-line-end-type="arrow" style="z-index: 21;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="46.28000000000003" height="50.5" viewbox="0 0 46.28000000000003 50.5"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="50.5" x2="43.57747171055127" y2="2.9489558906041946"></line><line class="line-element" stroke="#000000" stroke-width="2" x1="0" y1="50.5" x2="43.57747171055127" y2="2.9489558906041946"></line><polygon fill="#000000" transform="translate(43.57747171055127,2.9489558906041946) rotate(42.503)" points="0,-4 4,4 -4,4"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 78.688px; top: 390px;" data-block-id="2abf054d63f12936015a78051ab3879d" data-name="line-30d0f7"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="72.90599999999999" data-line-y2="0" data-line-color="#000000" data-line-start-type="none" data-line-end-type="arrow" style="z-index: 22;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="72.90599999999999" height="1" viewbox="0 0 72.90599999999999 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="68.90599999999999" y2="0"></line><line class="line-element" stroke="#000000" stroke-width="2" x1="0" y1="0" x2="68.90599999999999" y2="0"></line><polygon fill="#000000" transform="translate(68.90599999999999,0) rotate(90)" points="0,-4 4,4 -4,4"></polygon></svg></div></div></section><section data-id="d2a80763cb950fa4af39f1c37f35e7cd"><div class="sl-block" data-block-type="text" data-name="text-23094f" data-block-id="fa2b48215709bac74ba8d831e65ff6d1" style="height: auto; width: 960px; left: 0px; top: 22.5px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h2>LTI but complex dynamics</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-84490a" data-block-id="afc9fd1054a241013a048e36e7602b55" style="height: auto; width: 854px; left: 57.4157px; top: 649.25px;"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;" data-fragment-index="0">
+<p><span style="font-size:0.7em">Contour plots of velocity field: Ricker wavelet source T = 60 sec, depth = 640 Km</span></p>
+</div></div>
+<div class="sl-block" data-block-type="image" data-name="image-6eaeaa" data-block-id="bdb9db5d600b367ea4ca58f8d6b40907" style="width: 278.92px; height: 513px; left: 359.195px; top: 127px; min-width: 1px; min-height: 1px;"><div class="sl-block-content fragment current-visible" style="z-index: 11;" data-fragment-index="0"><img style="" data-natural-width="734" data-natural-height="1350" data-lazy-loaded="" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/2fd35ec24fd63cce8b3e812a3d7d0c48.png"></div></div>
+<div class="sl-block" data-block-type="image" data-name="image-6871f7" data-block-id="690acf9843b8fcdb37319c3e3679ec03" style="width: 266.711px; height: 529.5px; left: 373.404px; top: 119.75px; min-width: 1px; min-height: 1px;"><div class="sl-block-content fragment fade-in-then-semi-out" style="z-index: 12;" data-fragment-index="1"><img style="" data-natural-width="680" data-natural-height="1350" data-lazy-loaded="" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/a6f1ab152feea3dec9d310f1ee50d933.png"></div></div>
+<div class="sl-block" data-block-type="image" data-name="image-115b77" data-block-id="5ce1c3a0bf942a5901e51b9c79aa52f0" style="width: 276.26px; height: 513px; left: 676.324px; top: 127px; min-width: 1px; min-height: 1px;"><div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="2"><img style="" data-natural-width="727" data-natural-height="1350" data-lazy-loaded="" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/073515d4d3db38f28f2121e6ff52353a.png"></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-967fa3" data-block-id="de6ff30c7d850325d418eb1612bfe73d" style="height: auto; width: 523px; left: 333.916px; top: 434px;"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; text-align: center; color: rgb(255, 0, 0);" data-fragment-index="2">
+<p style="color:rgb(0, 0, 0)"><span style="color:#0000FF">Interference</span></p>
+
+<p><span style="color:#0000FF">Reflection</span></p>
+
+<p style="color:rgb(0, 0, 0)"><span style="color:#0000FF">Refraction (from discontinuities)</span></p>
+</div></div>
+<div class="sl-block" data-block-type="line" data-name="line-c5c474" data-block-id="5b94c7618704e156983998c674a0d1fa" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 653.416px; top: 290px;"><div class="sl-block-content fragment" data-line-x1="0" data-line-y1="140" data-line-x2="140" data-line-y2="0" data-line-color="#0000ff" data-line-start-type="none" data-line-end-type="arrow" style="z-index: 16;" data-fragment-index="2"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="140" height="140" viewbox="0 0 140 140"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="140" x2="137.17157287525382" y2="2.82842712474619"></line><line class="line-element" stroke="#0000ff" stroke-width="2" x1="0" y1="140" x2="137.17157287525382" y2="2.82842712474619"></line><polygon fill="#0000ff" transform="translate(137.17157287525382,2.82842712474619) rotate(45)" points="0,-4 4,4 -4,4"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 653.416px; top: 369px;" data-block-id="84521d2a58ae29ff61c6fb0c3193fa3c" data-name="line-28e072"><div class="sl-block-content fragment" data-line-x1="0" data-line-y1="119.5" data-line-x2="151" data-line-y2="0" data-line-color="#0000ff" data-line-start-type="none" data-line-end-type="arrow" style="z-index: 17;" data-fragment-index="2"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="151" height="119.5" viewbox="0 0 151 119.5"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="119.5" x2="147.86339553908306" y2="2.482279689268706"></line><line class="line-element" stroke="#0000ff" stroke-width="2" x1="0" y1="119.5" x2="147.86339553908306" y2="2.482279689268706"></line><polygon fill="#0000ff" transform="translate(147.86339553908306,2.482279689268706) rotate(51.642)" points="0,-4 4,4 -4,4"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 653.416px; top: 400.5px;" data-block-id="ae772f9c862f893314b3764746e1697a" data-name="line-4fb436"><div class="sl-block-content fragment" data-line-x1="0" data-line-y1="138" data-line-x2="242" data-line-y2="0" data-line-color="#0000ff" data-line-start-type="none" data-line-end-type="arrow" style="z-index: 18;" data-fragment-index="2"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="242" height="138" viewbox="0 0 242 138"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="138" x2="238.52526161790001" y2="1.9814623831809783"></line><line class="line-element" stroke="#0000ff" stroke-width="2" x1="0" y1="138" x2="238.52526161790001" y2="1.9814623831809783"></line><polygon fill="#0000ff" transform="translate(238.52526161790001,1.9814623831809783) rotate(60.306)" points="0,-4 4,4 -4,4"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="image" data-name="image-5df361" style="width: 309.722px; height: 339.939px; left: 7.41625px; top: 213.421px; min-width: 1px; min-height: 1px;" data-block-id="11167376e4d66a8865b73376c71184b2"><div class="sl-block-content fragment" style="z-index: 19;" data-fragment-index="0"><img style="" data-natural-width="1230" data-natural-height="1350" data-lazy-loaded="" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/9db115c96f2f28465ecb9c52fb5958b7.png"></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-3a9d43" data-block-id="a525fb61c61569ee8155340e9a169db6" style="height: auto; width: 283px; left: 31.1382px; top: 160.5px;"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 20;" data-fragment-index="0">
+<p>PREM Earth model</p>
+</div></div>
+<div class="sl-block" data-block-type="line" data-name="line-3aaf13" data-block-id="702438d8849131082414e31e31e91edf" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 299.727px; top: 188.5px;"><div class="sl-block-content fragment" data-line-x1="0" data-line-y1="71" data-line-x2="88" data-line-y2="0" data-line-color="#000000" data-line-start-type="none" data-line-end-type="none" style="z-index: 21;" data-line-width="3px" data-line-style="dashed" data-fragment-index="0"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="88" height="71" viewbox="0 0 88 71"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0.5" y1="71.5" x2="88.5" y2="0.5"></line><line class="line-element" stroke="#000000" stroke-width="3" stroke-dasharray="8.672564524704633 8.672564524704633" x1="0.5" y1="71.5" x2="88.5" y2="0.5"></line></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 299.727px; top: 283px;" data-block-id="a7ba275a8006214eea57b502101b6e3f" data-name="line-98833b"><div class="sl-block-content fragment" data-line-x1="0" data-line-y1="86" data-line-x2="88" data-line-y2="0" data-line-color="#000000" data-line-start-type="none" data-line-end-type="none" style="z-index: 22;" data-line-style="dashed" data-line-width="3px" data-fragment-index="0"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="88" height="86" viewbox="0 0 88 86"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0.5" y1="86.5" x2="88.5" y2="0.5"></line><line class="line-element" stroke="#000000" stroke-width="3" stroke-dasharray="8.146050523012585 8.146050523012585" x1="0.5" y1="86.5" x2="88.5" y2="0.5"></line></svg></div></div>
+<div class="sl-block" data-block-type="line" data-name="line-43663c" data-block-id="e2a09450a585ed323a2493c3c4c26f0e" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 394.416px; top: 220px;"><div class="sl-block-content fragment current-visible" data-line-x1="180" data-line-y1="437" data-line-x2="0" data-line-y2="0" data-line-color="#000000" data-line-start-type="none" data-line-end-type="arrow" style="z-index: 23;" data-fragment-index="0"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="180" height="437" viewbox="0 0 180 437"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="180" y1="437" x2="1.5234248884967403" y2="3.698537090405975"></line><line class="line-element" stroke="#000000" stroke-width="2" x1="180" y1="437" x2="1.5234248884967403" y2="3.698537090405975"></line><polygon fill="#000000" transform="translate(1.5234248884967403,3.698537090405975) rotate(-22.387)" points="0,-4 4,4 -4,4"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-8bb073" data-block-id="ed08dc28e5c61dc67f1a850e7f38b4cf" style="height: auto; width: 221px; left: 373.404px; top: 130.5px;"><div class="sl-block-content fragment current-visible" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 24; text-align: left;" data-fragment-index="0">
+<p>time = 250 sec</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 221px; left: 373.404px; top: 130.5px;" data-block-id="4da7204c4c8a891c6c2636b9aec20ad3" data-name="text-99f3b3"><div class="sl-block-content fragment fade-in-then-semi-out" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 25; text-align: left;" data-fragment-index="1">
+<p>time = 1000 sec</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 221px; left: 693.916px; top: 127px;" data-block-id="1514dcc4fc840ef7f568e0c2acf64306" data-name="text-fd2d27"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 26; text-align: left;" data-fragment-index="2">
+<p>time = 2000 sec</p>
+</div></div></section><section data-id="5085047683cbe1b08c3de53dbe1293b2">
+
+<div class="sl-block" data-block-type="math" data-name="math-0ec408" style="width: auto; height: auto; left: 50px; top: 228.5px;" data-block-id="11d8a9a906e33fd5e35b9d8ea8d3b477"><div class="sl-block-content notranslate fragment" style="z-index: 10; font-size: 90%;" data-fragment-index="1"><div class="math-input">  
+%% FOM
+\newcommand{\state}{\boldsymbol x}
+\newcommand{\systemMat}{\mathbf{A}}
+\newcommand{\forcing}{\boldsymbol f}
+\newcommand{\fomDim}{N}
+
+\newcommand{\tfinal}{t_{final}}
+
+\newcommand{\paramsA}{\boldsymbol \eta}
+\newcommand{\paramsF}{\boldsymbol \mu}
+\newcommand{\paramDomainA}{\mathcal D_{\eta}}
+\newcommand{\paramDomainF}{\mathcal D_{\mu}}
+\newcommand{\nParamsA}{N_{\paramsA}}
+\newcommand{\nParamsF}{N_{\paramsF}}
+\newcommand{\paramsMat}{ \mathcal{M} }
+\newcommand{\stateRef}{\state_\text{ref}(\paramsA, \paramsF)}
+\newcommand{\stateRefNoPars}{\state_\text{ref}}
+
+%% ROM
+\newcommand{\romBasis}{\boldsymbol{\Phi}}
+
+\newcommand{\romState}{\hat{\state}}
+\newcommand{\romStateTensor}{\hat{\stateTensor}}
+\newcommand{\stateTensorRef}{{\stateTensor}_{\text{ref}}}
+\newcommand{\stateTensorRefWithPars}{{\stateTensor}_{\text{ref}}(\paramsA, \paramsMat)}
+\newcommand{\stateTensor}{\boldsymbol X}
+\newcommand{\approxStateTensor}{\tilde{\boldsymbol X}}
+
+\newcommand{\romSystemMat}{\hat{\systemMat}}
+\newcommand{\romDim}{K}
+\newcommand{\nRuns}{M}
+\newcommand{\forcingTensor}{\boldsymbol F}
+
+\newcommand{\approxState}{\tilde{\state}}
+%\newcommand{\stateRef}{{\state}_{\text{ref}}}
+\newcommand{\romBasisCol}{\boldsymbol \phi}
+\newcommand{\trialSubspace}{\mathcal{V}}
+
+\newcommand{\spherCoords}{r, \theta, \phi}
+\newcommand{\axiCoords}{r, \theta}
+\newcommand{\coords}{r, \theta}
+\newcommand{\depVars}{t, \coords}
+
+\newcommand{\dens}{\rho}
+\newcommand{\shMod}{G}
+
+\newcommand{\stresses}{\sigma}
+\newcommand{\vp}{v}
+\newcommand{\dvpdt}{ \frac{\partial \vp}{\partial t} }
+\newcommand{\dvpdr}{ \frac{\partial \vp}{\partial r} }
+\newcommand{\dvpdtheta}{ \frac{\partial \vp}{\partial \theta} }
+
+\newcommand{\spp}{\sigma_{\phi\phi}}
+\newcommand{\dsppdp}{ \frac{\partial \spp}{\partial \phi} }
+
+\newcommand{\srp}{\sigma_{r\phi}}
+\newcommand{\dsrpdt}{ \frac{\partial \srp}{\partial t} }
+\newcommand{\dsrpdr}{ \frac{\partial \srp}{\partial r} }
+
+\newcommand{\stp}{\sigma_{\theta\phi}}
+\newcommand{\dstpdt}{ \frac{\partial \stp}{\partial t} }
+\newcommand{\dstpdtheta}{ \frac{\partial \stp}{\partial \theta} }
+
+\newcommand{\force}{f}
+
+\frac{d \romState_{\vp}(t)}{dt} = \romBasis_{\vp}^T \systemMat_{\vp} \romBasis_{\stresses} \romState_{\stresses}(t) + \romBasis_{\vp}^T \forcing_{\vp}(t)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 50px; top: 316.5px;" data-name="math-72f805" data-block-id="a728b87bfae6e56744db0eb5bd7946cf"><div class="sl-block-content notranslate fragment" style="z-index: 11; font-size: 90%;" data-fragment-index="1"><div class="math-input">  
+%% FOM
+\newcommand{\state}{\boldsymbol x}
+\newcommand{\systemMat}{\mathbf{A}}
+\newcommand{\forcing}{\boldsymbol f}
+\newcommand{\fomDim}{N}
+
+\newcommand{\tfinal}{t_{final}}
+
+\newcommand{\paramsA}{\boldsymbol \eta}
+\newcommand{\paramsF}{\boldsymbol \mu}
+\newcommand{\paramDomainA}{\mathcal D_{\eta}}
+\newcommand{\paramDomainF}{\mathcal D_{\mu}}
+\newcommand{\nParamsA}{N_{\paramsA}}
+\newcommand{\nParamsF}{N_{\paramsF}}
+\newcommand{\paramsMat}{ \mathcal{M} }
+\newcommand{\stateRef}{\state_\text{ref}(\paramsA, \paramsF)}
+\newcommand{\stateRefNoPars}{\state_\text{ref}}
+
+%% ROM
+\newcommand{\romBasis}{\boldsymbol{\Phi}}
+
+\newcommand{\romState}{\hat{\state}}
+\newcommand{\romStateTensor}{\hat{\stateTensor}}
+\newcommand{\stateTensorRef}{{\stateTensor}_{\text{ref}}}
+\newcommand{\stateTensorRefWithPars}{{\stateTensor}_{\text{ref}}(\paramsA, \paramsMat)}
+\newcommand{\stateTensor}{\boldsymbol X}
+\newcommand{\approxStateTensor}{\tilde{\boldsymbol X}}
+
+\newcommand{\romSystemMat}{\hat{\systemMat}}
+\newcommand{\romDim}{K}
+\newcommand{\nRuns}{M}
+\newcommand{\forcingTensor}{\boldsymbol F}
+
+\newcommand{\approxState}{\tilde{\state}}
+%\newcommand{\stateRef}{{\state}_{\text{ref}}}
+\newcommand{\romBasisCol}{\boldsymbol \phi}
+\newcommand{\trialSubspace}{\mathcal{V}}
+
+\newcommand{\spherCoords}{r, \theta, \phi}
+\newcommand{\axiCoords}{r, \theta}
+\newcommand{\coords}{r, \theta}
+\newcommand{\depVars}{t, \coords}
+
+\newcommand{\dens}{\rho}
+\newcommand{\shMod}{G}
+
+\newcommand{\stresses}{\sigma}
+\newcommand{\vp}{v}
+\newcommand{\dvpdt}{ \frac{\partial \vp}{\partial t} }
+\newcommand{\dvpdr}{ \frac{\partial \vp}{\partial r} }
+\newcommand{\dvpdtheta}{ \frac{\partial \vp}{\partial \theta} }
+
+\newcommand{\spp}{\sigma_{\phi\phi}}
+\newcommand{\dsppdp}{ \frac{\partial \spp}{\partial \phi} }
+
+\newcommand{\srp}{\sigma_{r\phi}}
+\newcommand{\dsrpdt}{ \frac{\partial \srp}{\partial t} }
+\newcommand{\dsrpdr}{ \frac{\partial \srp}{\partial r} }
+
+\newcommand{\stp}{\sigma_{\theta\phi}}
+\newcommand{\dstpdt}{ \frac{\partial \stp}{\partial t} }
+\newcommand{\dstpdtheta}{ \frac{\partial \stp}{\partial \theta} }
+
+\newcommand{\force}{f}
+
+\frac{d \romState_{\stresses}(t)}{dt} = \romBasis_{\stresses}^T \systemMat_{\stresses} \romBasis_{\vp} \romState_{\vp}(t)</div></div></div>
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" data-name="text-04d305" style="height: auto; width: 960px; left: 0px; top: 32.5px;" data-block-id="0ef92da63aba2021e7d177d3bd4d0cd6"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: center;">
+<h2>Galerkin ROM formulation</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 328.312px; left: 629.688px; top: 404.5px;" data-block-id="03e90b3b946f739378414b77e6bc9402" data-name="text-89df73"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 18; text-align: left;" data-fragment-index="2">
+<p>For simplicity, assume same # of modes = K for velocity/stresses</p>
+
+<p> </p>
+
+<p>K &lt;&lt; FOM # dofs</p>
+</div></div>
+<div class="sl-block" data-block-type="image" data-name="image-35b0aa" data-block-id="4906a20fbb208a507fb76909bf087b71" style="width: 547.639px; height: 365.815px; left: 34.6805px; top: 316.5px; min-width: 1px; min-height: 1px;"><div class="sl-block-content fragment" style="z-index: 19;" data-fragment-index="2"><img style="" data-natural-width="2021" data-natural-height="1350" data-lazy-loaded="" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/13d0eef6d6bf41b42c75a4484efbb2ec.png"></div></div>
+<div class="sl-block" data-block-type="line" data-name="line-8bf519" data-block-id="d2ceacbd049c6c22c4efb3ab2b4b904a" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 292.25px; top: 296.5px;"><div class="sl-block-content fragment" data-line-x1="70.5" data-line-y1="157.90800000000002" data-line-x2="0" data-line-y2="0" data-line-color="#000000" data-line-start-type="none" data-line-end-type="arrow" style="z-index: 20;" data-fragment-index="2"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="70.5" height="157.90800000000002" viewbox="0 0 70.5 157.90800000000002"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="70.5" y1="157.90800000000002" x2="1.6307066828141588" y2="3.6525054024087686"></line><line class="line-element" stroke="#000000" stroke-width="2" x1="70.5" y1="157.90800000000002" x2="1.6307066828141588" y2="3.6525054024087686"></line><polygon fill="#000000" transform="translate(1.6307066828141588,3.6525054024087686) rotate(-24.059)" points="0,-4 4,4 -4,4"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="shape" data-name="shape-d8db8b" data-block-id="288d4acfe0e2e463d14f6de84f60d899" style="width: 181.5px; height: 77.5px; left: 201.5px; top: 219px;"><div class="sl-block-content fragment" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 21;" data-shape-corner-radius="10px" data-shape-stroke-color="#000000" data-shape-stroke-width="3px" data-fragment-index="2"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 182 78"><defs><clippath id="shape-mask-2-1638267596229"><rect width="181.5" height="77.5" rx="10" ry="10" fill="rgba(0, 0, 0, 0)" stroke="#000000" stroke-width="6"></rect></clippath></defs><rect width="181.5" height="77.5" rx="10" ry="10" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#000000" stroke-width="6" clip-path="url(#shape-mask-2-1638267596229)"></rect></svg></div></div>
+<div class="sl-block sl-block-group" data-block-type="group" data-name="group-bb92ae" data-block-id="ab98365ae4ccbe27b5a2057466dda834" style="width: auto; height: auto;"><div class="sl-block-content sl-block-group-content" style="transform-origin: 371.625px 159.5px; z-index: 13;">
+<div class="sl-block sl-block-group" data-block-type="group" data-name="group-58b95f" data-block-id="f5d3708b4ca45f926fd30bd8a09c95f2" style="width: auto; height: auto;"><div class="sl-block-content sl-block-group-content" style="transform-origin: 505px 159.5px; z-index: 14;">
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 283.25px; top: 137.5px;" data-block-id="b172ffabf1cbe13d484b99446b498dab" data-name="math-e01cda"><div class="sl-block-content notranslate fragment" style="z-index: 15; font-size: 60%;" data-fragment-index="0"><div class="math-input">  
+%% FOM
+\newcommand{\state}{\boldsymbol x}
+\newcommand{\systemMat}{\mathbf{A}}
+\newcommand{\forcing}{\boldsymbol f}
+\newcommand{\fomDim}{N}
+
+\newcommand{\tfinal}{t_{final}}
+
+\newcommand{\paramsA}{\boldsymbol \eta}
+\newcommand{\paramsF}{\boldsymbol \mu}
+\newcommand{\paramDomainA}{\mathcal D_{\eta}}
+\newcommand{\paramDomainF}{\mathcal D_{\mu}}
+\newcommand{\nParamsA}{N_{\paramsA}}
+\newcommand{\nParamsF}{N_{\paramsF}}
+\newcommand{\paramsMat}{ \mathcal{M} }
+\newcommand{\stateRef}{\state_\text{ref}(\paramsA, \paramsF)}
+\newcommand{\stateRefNoPars}{\state_\text{ref}}
+
+%% ROM
+\newcommand{\romBasis}{\boldsymbol{\Phi}}
+
+\newcommand{\romState}{\hat{\state}}
+\newcommand{\romStateTensor}{\hat{\stateTensor}}
+\newcommand{\stateTensorRef}{{\stateTensor}_{\text{ref}}}
+\newcommand{\stateTensorRefWithPars}{{\stateTensor}_{\text{ref}}(\paramsA, \paramsMat)}
+\newcommand{\stateTensor}{\boldsymbol X}
+\newcommand{\approxStateTensor}{\tilde{\boldsymbol X}}
+
+\newcommand{\romSystemMat}{\hat{\systemMat}}
+\newcommand{\romDim}{K}
+\newcommand{\nRuns}{M}
+\newcommand{\forcingTensor}{\boldsymbol F}
+
+\newcommand{\approxState}{\tilde{\state}}
+%\newcommand{\stateRef}{{\state}_{\text{ref}}}
+\newcommand{\romBasisCol}{\boldsymbol \phi}
+\newcommand{\trialSubspace}{\mathcal{V}}
+
+\newcommand{\spherCoords}{r, \theta, \phi}
+\newcommand{\axiCoords}{r, \theta}
+\newcommand{\coords}{r, \theta}
+\newcommand{\depVars}{t, \coords}
+
+\newcommand{\dens}{\rho}
+\newcommand{\shMod}{G}
+
+\newcommand{\stresses}{\sigma}
+\newcommand{\vp}{v}
+\newcommand{\dvpdt}{ \frac{\partial \vp}{\partial t} }
+\newcommand{\dvpdr}{ \frac{\partial \vp}{\partial r} }
+\newcommand{\dvpdtheta}{ \frac{\partial \vp}{\partial \theta} }
+
+\newcommand{\spp}{\sigma_{\phi\phi}}
+\newcommand{\dsppdp}{ \frac{\partial \spp}{\partial \phi} }
+
+\newcommand{\srp}{\sigma_{r\phi}}
+\newcommand{\dsrpdt}{ \frac{\partial \srp}{\partial t} }
+\newcommand{\dsrpdr}{ \frac{\partial \srp}{\partial r} }
+
+\newcommand{\stp}{\sigma_{\theta\phi}}
+\newcommand{\dstpdt}{ \frac{\partial \stp}{\partial t} }
+\newcommand{\dstpdtheta}{ \frac{\partial \stp}{\partial \theta} }
+
+\newcommand{\force}{f}
+
+\state_{\vp}(t) \approx \romBasis_{\vp} \hat{\state}_{\vp}(t), 
+</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 513.75px; top: 137.5px;" data-block-id="9bbe8a0540544225d07cc11220feb387" data-name="math-070180"><div class="sl-block-content notranslate fragment" style="z-index: 16; font-size: 60%;" data-fragment-index="0"><div class="math-input">  
+%% FOM
+\newcommand{\state}{\boldsymbol x}
+\newcommand{\systemMat}{\mathbf{A}}
+\newcommand{\forcing}{\boldsymbol f}
+\newcommand{\fomDim}{N}
+
+\newcommand{\tfinal}{t_{final}}
+
+\newcommand{\paramsA}{\boldsymbol \eta}
+\newcommand{\paramsF}{\boldsymbol \mu}
+\newcommand{\paramDomainA}{\mathcal D_{\eta}}
+\newcommand{\paramDomainF}{\mathcal D_{\mu}}
+\newcommand{\nParamsA}{N_{\paramsA}}
+\newcommand{\nParamsF}{N_{\paramsF}}
+\newcommand{\paramsMat}{ \mathcal{M} }
+\newcommand{\stateRef}{\state_\text{ref}(\paramsA, \paramsF)}
+\newcommand{\stateRefNoPars}{\state_\text{ref}}
+
+%% ROM
+\newcommand{\romBasis}{\boldsymbol{\Phi}}
+
+\newcommand{\romState}{\hat{\state}}
+\newcommand{\romStateTensor}{\hat{\stateTensor}}
+\newcommand{\stateTensorRef}{{\stateTensor}_{\text{ref}}}
+\newcommand{\stateTensorRefWithPars}{{\stateTensor}_{\text{ref}}(\paramsA, \paramsMat)}
+\newcommand{\stateTensor}{\boldsymbol X}
+\newcommand{\approxStateTensor}{\tilde{\boldsymbol X}}
+
+\newcommand{\romSystemMat}{\hat{\systemMat}}
+\newcommand{\romDim}{K}
+\newcommand{\nRuns}{M}
+\newcommand{\forcingTensor}{\boldsymbol F}
+
+\newcommand{\approxState}{\tilde{\state}}
+%\newcommand{\stateRef}{{\state}_{\text{ref}}}
+\newcommand{\romBasisCol}{\boldsymbol \phi}
+\newcommand{\trialSubspace}{\mathcal{V}}
+
+\newcommand{\spherCoords}{r, \theta, \phi}
+\newcommand{\axiCoords}{r, \theta}
+\newcommand{\coords}{r, \theta}
+\newcommand{\depVars}{t, \coords}
+
+\newcommand{\dens}{\rho}
+\newcommand{\shMod}{G}
+
+\newcommand{\stresses}{\sigma}
+\newcommand{\vp}{v}
+\newcommand{\dvpdt}{ \frac{\partial \vp}{\partial t} }
+\newcommand{\dvpdr}{ \frac{\partial \vp}{\partial r} }
+\newcommand{\dvpdtheta}{ \frac{\partial \vp}{\partial \theta} }
+
+\newcommand{\spp}{\sigma_{\phi\phi}}
+\newcommand{\dsppdp}{ \frac{\partial \spp}{\partial \phi} }
+
+\newcommand{\srp}{\sigma_{r\phi}}
+\newcommand{\dsrpdt}{ \frac{\partial \srp}{\partial t} }
+\newcommand{\dsrpdr}{ \frac{\partial \srp}{\partial r} }
+
+\newcommand{\stp}{\sigma_{\theta\phi}}
+\newcommand{\dstpdt}{ \frac{\partial \stp}{\partial t} }
+\newcommand{\dstpdtheta}{ \frac{\partial \stp}{\partial \theta} }
+
+\newcommand{\force}{f}
+
+\state_{\stresses}(t) \approx \romBasis_{\stresses} \hat{\state}_{\stresses}(t)
+</div></div></div>
+</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-e16e8d" data-block-id="a1e7e752f1ba1b028b86097f6b8f4cab" style="height: auto; width: 303.5px; left: 16.5px; top: 140px;"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 17;" data-fragment-index="0">
+<p>Approximation:</p>
+</div></div>
+</div></div></section><section data-id="a6442f5f578e2362690ab4005b6ed801"><div class="sl-block" data-block-type="text" style="width: 960px; left: 0px; top: 32.5px; height: auto;" data-block-id="3f178acf49c6d606eb0abccdaaae5d14" data-name="text-738233"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>
+<em>Predictive</em> ROM: quantitative</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-2ba7bb" data-block-id="0c603026ab6f144ec514c68ce5b49beb" style="height: auto; width: 926.325px; left: 16.8375px; top: 140px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left;">
+<ul>
+	<li>Forcing: <span style="color:rgb(0, 0, 0)">Ricker wavelet with </span>period T ∈ [31, 69], depth = 150 Km</li>
+	<li>Earth, total simulation 2000 (sec)</li>
+	<li>Relative L2 norm of error over domain at final time</li>
+</ul>
+</div></div>
+
+
+<div class="sl-block" data-block-type="text" data-name="text-374801" data-block-id="040e031f60027eb2243982be909ab182" style="height: auto; width: 223.163px; left: 720px; top: 311px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;">
+<p><span style="font-size:0.7em">Many modes!<br>
+Not surprising!</span></p>
+</div></div>
+<div class="sl-block" data-block-type="image" data-name="image-85803c" data-block-id="ddaf780aca0e1616ccc56f45299f14d0" style="width: 520.815px; height: 408px; left: 139.592px; top: 280px; min-width: 1px; min-height: 1px;"><div class="sl-block-content" style="z-index: 12;"><img style="left: 0px; top: 0px; width: 1129px; height: 408px;" data-natural-width="2064" data-natural-height="746" data-lazy-loaded="" data-crop-x="0" data-crop-y="0" data-crop-width="0.461373" data-crop-height="1" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/2867cb8f3108cf5f6f32e6d92ad2bafc.png"></div></div>
+<div class="sl-block" data-block-type="shape" data-name="shape-8709f2" data-block-id="fe6abbcd6d4b703c447962f30f260395" style="width: 225.774px; height: 139.73px; left: 435px; top: 277.27px;"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 13;" data-shape-stroke-color="#000000" data-shape-stroke-width="3px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 226 140"><defs><clippath id="shape-mask-1-1638371006133"><ellipse rx="112.887" ry="69.865" cx="112.887" cy="69.865" fill="rgba(0, 0, 0, 0)" stroke="#000000" stroke-width="6"></ellipse></clippath></defs><ellipse rx="112.887" ry="69.865" cx="112.887" cy="69.865" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#000000" stroke-width="6" clip-path="url(#shape-mask-1-1638371006133)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" data-name="shape-bb3698" data-block-id="e3bd69610cc42fea3903694c42bdce84" style="width: 83px; height: 55.135px; left: 669px; top: 319.567px;"><div class="sl-block-content" data-shape-type="arrow-left" data-shape-fill-color="#000000" data-shape-stretch="true" style="z-index: 15;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 83 55"><polygon points="83,16.540499999999998 41.5,16.540499999999998 41.5,0 0,27.5675 41.5,55.135 41.5,38.5945 83,38.5945 83,16.540499999999998" class="shape-element" fill="#000000"></polygon></svg></div></div></section><section data-id="8f46f1b22a5f6a20054cda3dd4bfe963"><div class="sl-block" data-block-type="text" style="width: 807px; left: 76.5px; top: 33px; height: auto;" data-name="text-738233" data-block-id="990c481e5fbf45f253297e53554eaea7"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>
+<em>Predictive</em> ROM: qualitative</h2>
+</div></div>
+
+<div class="sl-block" data-block-type="text" data-name="text-828685" data-block-id="aa079df47269794d6542eee388f6181e" style="height: auto; width: 825.5px; left: 67.25px; top: 595px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left;">
+<p><span style="font-size:0.7em">Velocity field at final time = 2000 secs computed for <span style="color:rgb(0, 0, 0)">the <em>extrapolation</em> period T = 69.</span></span></p>
+
+<p><span style="font-size:0.7em">ROM using <strong>436 modes</strong> for velocity and <strong>417 modes</strong> for stresses</span></p>
+</div></div>
+<div class="sl-block" data-block-type="image" data-name="image-9d2467" data-block-id="722ef606d9f5d08c2f10b58012417fa4" style="width: 240.379px; height: 465px; left: 76.5px; top: 140px; min-width: 1px; min-height: 1px;"><div class="sl-block-content" style="z-index: 12;"><img style="left: -98px; top: 0px; width: 492px; height: 465px;" data-natural-width="1427" data-natural-height="1350" data-crop-x="0.198905" data-crop-y="0" data-crop-width="0.489051" data-crop-height="1" data-lazy-loaded="" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/6bc9a2f04a5228848a644f81438e60aa.png"></div></div>
+<div class="sl-block" data-block-type="image" data-name="image-c37696" data-block-id="fefd0d8ca9d5be323000f3dd5ce8c36c" style="width: 240.474px; height: 465px; left: 360.775px; top: 140px; min-width: 1px; min-height: 1px;"><div class="sl-block-content" style="z-index: 13;"><img style="left: -101px; top: -5px; width: 497px; height: 470px;" data-natural-width="1427" data-natural-height="1350" data-crop-x="0.202555" data-crop-y="0.011583" data-crop-width="0.483577" data-crop-height="0.988417" data-lazy-loaded="" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/051bba5da67e9139e7d9525ad874b553.png"></div></div>
+<div class="sl-block" data-block-type="image" data-name="image-ccdf8d" data-block-id="e95760f975297ffe8bb598bc85126fa8" style="width: 238.072px; height: 464px; left: 645.428px; top: 141px; min-width: 1px; min-height: 1px;"><div class="sl-block-content" style="z-index: 14;"><img style="left: -99px; top: 0px; width: 490px; height: 464px;" data-natural-width="1427" data-natural-height="1350" data-crop-x="0.202555" data-crop-y="0" data-crop-width="0.485401" data-crop-height="1" data-lazy-loaded="" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/79aec19a4b06beb5f20126d56bdcf7f6.png"></div></div></section><section data-id="3bf6db122281e7e03298970dcbdc7832"><div class="sl-block" data-block-type="text" style="width: 807px; left: 80px; top: 21.5px; height: auto;" data-block-id="378758b97b18775983f91331969f6231"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>Observations</h1>
+</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-f4fa3f" data-block-id="6126275609f364e57f4ec8d06ea61dd4" style="height: auto; width: 960px; left: 0px; top: 350.75px;"><div class="sl-block-style" style="z-index: 11; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left; line-height: 1.56;" dir="ui" data-has-line-height="">
+<ul>
+	<li class="fragment fade-in-then-semi-out" data-fragment-index="1" style="color:rgb(0, 0, 0)">Key point: we <strong><em>need</em></strong> many modes or ROM is useless</li>
+	<li class="fragment fade-in-then-semi-out" data-fragment-index="1" style="color:rgb(0, 0, 0)">Speedup: ROM is 10X faster</li>
+	<li class="fragment fade-in-then-semi-out" data-fragment-index="1">O(1000) reduction in dofs, O(10) in runtime... something wrong?
+	<ul>
+		<li class="fragment" data-fragment-index="2">You might say: "limited" speedup due to 850 modes.</li>
+	</ul>
+	</li>
+	<li class="fragment" data-fragment-index="2"><span style="color:#0000CD">Is 850 too much or is it too much for <em>this</em> formulation? </span></li>
+</ul>
+</div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 640px; left: 0px; top: 179.25px;" data-block-id="93cee0afaae803bf894ada9054d8c162" data-name="text-2713d5"><div class="sl-block-style" style="z-index: 12; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: left; line-height: 1.56;" dir="ui" data-has-line-height="">
+<ul>
+	<li class="fragment fade-in-then-semi-out" data-fragment-index="0">High-fidelity: <span style="color:#FF0000"><strong>~3,150,000</strong></span> spatial dofs</li>
+	<li class="fragment fade-in-then-semi-out" data-fragment-index="0">ROM: <span style="color:#0000FF"><strong>~850</strong></span> modes (velocity+stresses)<br>
+	Lots of modes, this is expected.</li>
+</ul>
+</div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 301px; left: 618px; top: 193.25px;" data-block-id="d442da4f7f3270d2625802c4ec8a7135" data-name="text-68eb68"><div class="sl-block-style" style="z-index: 13; transform: rotate(0deg);"><div class="sl-block-content fragment fade-in-then-semi-out" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; text-align: center; line-height: 1.56;" dir="ui" data-has-line-height="" data-fragment-index="0">
+<p><span style="font-size:1.2em"><strong><span style="color:#008000">~3700X</span></strong> reduction in # dofs!</span></p>
+</div></div></div></section></section><section class="stack" data-id="38b3bdfbb541746a607b8eba47c95fa9"><section data-id="f6407e52dbed166d288aa6685624a7bd">
+<div class="sl-block" data-block-type="text" data-name="text-b5b35f" data-block-id="5284600458868f9fbaf70e88e1407496" style="height: auto; width: 960px; left: 0px; top: 32.5px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h2><span style="color:rgb(0, 0, 0)">ROM formulation: Analysis</span></h2>
+</div></div>
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 356.96px; left: 60.3345px; top: 242.979px;" data-block-id="ca120646f6268cac499f51433053d192" data-name="text-056c06"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left;">
+<ul>
+	<li>
+<em>Dense</em> system<br>
+	 </li>
+	<li>
+<span style="font-size:0.9em">General matrix-vector product<em> (<span style="color:#FF0000">gemv</span>)</em> kernel</span><br>
+	 </li>
+	<li><span style="font-size:0.9em">BLAS level-2 kernel</span></li>
+</ul>
+</div></div>
+<div class="sl-block sl-block-group" data-block-type="group" data-name="group-d7b990" data-block-id="aea6723c4f3e2083d59b01e07d5daa36"><div class="sl-block-content sl-block-group-content" style="transform-origin: 690.813px 330.51px; z-index: 12;">
+<div class="sl-block" data-block-type="image" data-name="image-35b0aa" style="width: 417.705px; height: 279.021px; left: 481.961px; top: 191px; min-width: 1px; min-height: 1px;" data-block-id="51ce007310343ac48854bad3084457e7"><div class="sl-block-content" style="z-index: 13;"><img style="" data-natural-width="2021" data-natural-height="1350" data-lazy-loaded="" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/13d0eef6d6bf41b42c75a4484efbb2ec.png"></div></div>
+<div class="sl-block" data-block-type="shape" data-name="shape-ed91da" data-block-id="6ad891648a96c7bb59d11089887f6d4a" style="width: 192.619px; height: 263.456px; left: 647.337px; top: 192.459px;"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 14;" data-shape-stroke-color="#ff0000" data-shape-stroke-width="5px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 193 263"><defs><clippath id="shape-mask-2-1638300818074"><rect width="192.619" height="263.456" rx="0" ry="0" fill="rgba(0, 0, 0, 0)" stroke="#ff0000" stroke-width="10"></rect></clippath></defs><rect width="192.619" height="263.456" rx="0" ry="0" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#ff0000" stroke-width="10" clip-path="url(#shape-mask-2-1638300818074)"></rect></svg></div></div>
+</div></div>
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 787.919px; left: 94.0415px; top: 552px;" data-block-id="d9235689741e9412280b05c3ad8f83da" data-name="text-a99ddc"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; text-align: left; line-height: 1.43;" data-has-line-height="">
+<p>How do we evaluate the efficiency of this kernel?</p>
+</div></div>
+<div class="sl-block" data-block-type="line" data-name="line-11c81f" data-block-id="2f0ec7eed6125e80ea2761229bbee645" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 210.961px; top: 404px;"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="431" data-line-y2="0" data-line-color="#000000" data-line-start-type="none" data-line-end-type="arrow" style="z-index: 17;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="431" height="1" viewbox="0 0 431 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="427" y2="0"></line><line class="line-element" stroke="#000000" stroke-width="2" x1="0" y1="0" x2="427" y2="0"></line><polygon fill="#000000" transform="translate(427,0) rotate(90)" points="0,-4 4,4 -4,4"></polygon></svg></div></div></section><section data-id="f30e6fe2842b6f1c82fd9fb0f7d2f373"><div class="sl-block" data-block-type="text" style="width: 807px; left: 76.5px; top: 32.5px; height: auto;" data-block-id="4cefa71c821af186645df6bdca37e857"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>Arithmetic Intensity</h2>
+</div></div>
+<div class="sl-block" data-block-type="math" data-name="math-8b4072" data-block-id="21bae8ed70f4ea47da6db1302ec6304e" style="width: auto; height: auto; left: 152px; top: 201px;"><div class="sl-block-content notranslate" style="z-index: 11; font-size: 75%;"><div class="math-input">\text{arithmetic intensity} = \frac{\text{minimal FLOP-count}}{\text{minimal data movement}}
+</div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 864.234px; left: 81.766px; top: 376px;" data-block-id="22477a942085e73aa726fd8047c648f1" data-name="text-4335b2"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; text-align: left;">
+<ul>
+	<li>
+	<p><span style="font-size:1.0em">Assuming a square system of size K for simplicity</span></p>
+	</li>
+	<li>
+	<p><span style="font-size:1.0em">Data movement: K^2 (read A) + 2K (read x,b) + K (write y) </span></p>
+	</li>
+	<li>
+	<p><span style="font-size:1.0em">FLOPS: 2K^2</span></p>
+	</li>
+	<li>
+	<p><em><strong><span style="font-size:1.0em">ai ~1/4</span></strong></em></p>
+	</li>
+	<li>
+	<p><span style="font-size:1.0em">Spoiler alert: this is memory bandwidth-bound (MBB)!</span></p>
+	</li>
+</ul>
+</div></div>
+<div class="sl-block sl-block-group" data-block-type="group" data-name="group-de44ba" data-block-id="cd7d151224fad5dc6f610e46f94e360b" style="width: auto; height: auto;"><div class="sl-block-content sl-block-group-content" style="transform-origin: 324.016px 350px; z-index: 12;">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 262.234px; left: 81.766px; top: 330.5px;" data-name="text-056c06" data-block-id="639e446125db9e102491b724ad28c2f1"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; text-align: left;">
+<ul>
+	<li>
+	<p><span style="font-size:1.0em">gemv kernel:</span></p>
+	</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="math" data-name="math-680fff" data-block-id="fa0e1f2e5ec308d459c3d80b72d9bdaa" style="width: auto; height: auto; left: 324.266px; top: 313.5px;"><div class="sl-block-content notranslate" style="z-index: 14;"><div class="math-input">y = A x + b</div></div></div>
+</div></div></section><section data-id="0af0e2275107a859976da50a5a7e1390"><div class="sl-block" data-block-type="text" data-name="text-5d3178" data-block-id="ad4dd51285c8fe51f08c9a5784883480" style="height: auto; width: 536px; left: 0px; top: 234.25px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; text-align: left; line-height: 1.56;" dir="ui" data-has-line-height="">
+<ul>
+	<li><span style="font-size:0.9em">BLAS level-1 traces back to <strong>1979 </strong></span></li>
+	<li><span style="font-size:0.9em">“Level 2” kernels matrix-vector in 1988</span></li>
+	<li><span style="font-size:0.9em">“Level 3” matrix-matrix in 1990</span></li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 960px; left: 0px; top: 33px; height: auto;" data-name="text-104f29" data-block-id="1015fd2fa7fb61f4c0c30db297d3b87e"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11;">
+<h2>Memory BW-bound: so what? </h2>
+</div></div>
+<div class="sl-block" data-block-type="image" data-name="image-1f24a8" data-block-id="f4c25afd256738a4725ffa58f4dcdd73" style="width: 400px; height: 355.14px; left: 560px; top: 197.68px; min-width: 1px; min-height: 1px;"><div class="sl-block-content" style="z-index: 12;"><img style="" data-natural-width="1498" data-natural-height="1330" data-lazy-loaded="" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/c3e80c5a0d0a5a45a21855cf47013268.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 496px; left: 20px; top: 490px;" data-block-id="56079c10c6d43160585175ab5ba739a9" data-name="text-5fb360"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; text-align: left; line-height: 1.56;" dir="ui" data-has-line-height="">
+<p><span style="font-size:0.9em">Hardware has changed from the 80's!</span></p>
+</div></div></section><section data-id="f98bea3d6b2d04a72969eff5e105a230"><div class="sl-block" data-block-type="text" style="width: 756px; left: 102px; top: 33px; height: auto;" data-block-id="a86c523aa2456b68c386e88400bd1fc5" data-name="text-104f29"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>Strive for compute-bound</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 807px; left: 76.5px; top: 170px; height: auto;" data-block-id="2fc3ce07277aa8ba9a4e166fe7be76b1" data-name="text-e2f47b"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left;">
+<ul>
+	<li>
+	<p>MBB kernels: not ideal for modern many cores arch</p>
+	</li>
+	<li>
+	<p><span style="color:rgb(0, 0, 0)">Best when:</span></p>
+
+	<ul>
+		<li>
+		<p><span style="color:rgb(0, 0, 0)">​cores </span><span style="color:rgb(0, 0, 0)">are kept busy, </span>data is local</p>
+		</li>
+		<li>
+		<p><span style="color:rgb(0, 0, 0)">access patterns are optimal for the targeted arch</span></p>
+		</li>
+	</ul>
+	</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="image" data-name="image-f070bb" style="width: 583.048px; height: 219.637px; left: 189.476px; top: 465px; min-width: 1px; min-height: 1px;" data-block-id="f00c210e5507269c83d4b22517fc166d"><div class="sl-block-content" style="z-index: 12;"><img style="" data-natural-width="1906" data-natural-height="718" data-lazy-loaded="" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/97534229aca9174e70b4a3913e00ffee.png"></div></div>
+<div class="sl-block" data-block-type="shape" data-name="shape-0bbf1c" style="width: 52px; height: 74px; left: 295px; top: 446.5px;" data-block-id="f6e4b9754fda46b16dc967366381b316"><div class="sl-block-content" data-shape-type="arrow-down" data-shape-fill-color="#000000" data-shape-stretch="true" style="z-index: 13;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 52 74"><polygon points="26,74 52,37 36.4,37 36.4,0 15.6,0 15.6,37 0,37 26,74" class="shape-element" fill="#000000"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 347px; left: 171px; top: 407.5px;" data-name="text-5833d1" data-block-id="5322f263f74faf3cf1ed6e0f088a88d3"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;">
+<p>Standard Galerkin ROM </p>
+</div></div>
+<div class="sl-block" data-block-type="shape" data-name="shape-25acba" style="width: 86.3115px; height: 90px; left: 66px; top: 490px;" data-block-id="d9b6a038ec46c06fc543627aaff8cde2"><div class="sl-block-content" data-shape-type="symbol-sad" data-shape-fill-color="#000000" data-shape-stretch="true" style="z-index: 15;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 32 32"><g class="shape-element" fill="#000000" data-viewbox="0 0 32 32"><path d="M16 32c8.837 0 16-7.163 16-16s-7.163-16-16-16-16 7.163-16 16 7.163 16 16 16zM16 3c7.18 0 13 5.82 13 13s-5.82 13-13 13-13-5.82-13-13 5.82-13 13-13zM8 10c0-1.105 0.895-2 2-2s2 0.895 2 2c0 1.105-0.895 2-2 2-1.105 0-2-0.895-2-2zM20 10c0-1.105 0.895-2 2-2s2 0.895 2 2c0 1.105-0.895 2-2 2-1.105 0-2-0.895-2-2zM9.997 24.398l-2.573-1.544c1.749-2.908 4.935-4.855 8.576-4.855 3.641 0 6.827 1.946 8.576 4.855l-2.573 1.544c-1.224-2.036-3.454-3.398-6.003-3.398-2.549 0-4.779 1.362-6.003 3.398z"></path></g></svg></div></div></section><section data-id="d3529f42579328dff6691e8ecd314c8d"><div class="sl-block" data-block-type="text" style="width: 807px; left: 76.5px; top: 33px; height: auto;" data-block-id="72090bc10c906c7a04e63cb59bdeec5e" data-name="text-aa72c4"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>Roofline Model</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 918px; left: 21px; top: 191.5px; height: auto;" data-block-id="ea5c58f9556bfd27b02655275d2485cf" data-name="text-194228"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left; line-height: 1.56;" data-has-line-height="">
+<ul>
+	<li>
+	<p><span style="font-size:0.9em">Visual performance model obtained by p<span style="font-size:0.9em">lotting:</span></span></p>
+
+	<ul>
+		<li>
+		<p><span style="font-size:0.9em">​performance (in GFLOPs/s) against their arithmetic intensity</span></p>
+		</li>
+		<li><span style="font-size:0.9em">two lines to indicate the theoretically attainable performance depending on the arithmetic intensity<span style="font-size:0.9em">​</span></span></li>
+	</ul>
+	</li>
+	<li style="color:rgb(0, 0, 0)">
+	<p><span style="font-size:0.9em">Evaluate resource efficiency by relating its algorithm’s arithmetic intensity relative to the hardware’s peak main-memory bandwidth and floating-point performance</span></p>
+	</li>
+	<li>
+	<p><span style="font-size:0.9em">Hardware limitations for a given kernel, prioritize optimizations​</span></p>
+	</li>
+</ul>
+</div></div></section><section data-id="1b11401253521230799d2a8d80a8fbd3"><div class="sl-block" data-block-type="image" data-name="image-7a7459" data-block-id="7755a5a0d079fdbe405bb8c28d17690f" style="width: 761.567px; height: 643px; left: 99.2165px; top: 28.5px; min-width: 1px; min-height: 1px;"><div class="sl-block-content" style="z-index: 10;"><img style="" data-natural-width="1336" data-natural-height="1128" data-lazy-loaded="" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/7f7296f271d3303319d47eee344af0aa.png"></div></div>
+<div class="sl-block" data-block-type="shape" data-name="shape-ec042c" data-block-id="4841cf937a240219f12edbf9af96d3f8" style="width: 87px; height: 139.15px; left: 400px; top: 199.85px;"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 11;" data-shape-stroke-color="#ff0000" data-shape-stroke-width="3px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 87 139"><defs><clippath id="shape-mask-1-1638621632555"><rect width="87" height="139.15" rx="0" ry="0" fill="rgba(0, 0, 0, 0)" stroke="#ff0000" stroke-width="6"></rect></clippath></defs><rect width="87" height="139.15" rx="0" ry="0" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#ff0000" stroke-width="6" clip-path="url(#shape-mask-1-1638621632555)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="line" data-name="line-aa6b07" data-block-id="d492697cdc38c181d0e2eec29fda7eea" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 431px; top: 339px;"><div class="sl-block-content" data-line-x1="0" data-line-y1="81" data-line-x2="0" data-line-y2="0" data-line-color="#ff0000" data-line-start-type="none" data-line-end-type="none" style="z-index: 12;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="1" height="81" viewbox="0 0 1 81"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="81" x2="0" y2="0"></line><line class="line-element" stroke="#ff0000" stroke-width="2" x1="0" y1="81" x2="0" y2="0"></line></svg></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-1e5734" data-block-id="394d96bb8a2d42501a746149bf5ecb8d" style="height: auto; width: 132px; left: 365px; top: 414.5px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; color: rgb(255, 0, 0);">
+<p>1/4</p>
+</div></div></section><section data-id="c7500dd131a6413baa3e570f80e7bc0a"><div class="sl-block" data-block-type="text" style="width: 926px; left: 17px; top: 252.5px; height: auto;" data-block-id="d37e422b83090b70eefbc505e78731f1"><div class="sl-block-style" style="z-index: 10; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>Can we improve Galerkin pROMs for LTI?</h1>
+</div></div></div></section><section data-id="5e8b22ac1818fabe673425764c98acb6"><div class="sl-block" data-block-type="text" style="width: 960px; left: 0px; top: 33px; height: auto;" data-block-id="769fd9013e80cbbce65cb979274f28ac"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>Galerkin Rank-2 formulation</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 807px; left: 58px; top: 560px; height: auto;" data-block-id="e1d4700d6197232e5575aa3302587305"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left;">
+<ul>
+	<li>
+	<p>This is useful when we need many solves</p>
+	</li>
+	<li>
+	<p>Having a "large" K now becomes an advantage</p>
+	</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="image" data-name="image-f02742" data-block-id="fe7714ba3545ce3ffa3d80b16f6c0f06" style="width: 584.784px; height: 229.92px; left: 187.608px; top: 280px; min-width: 1px; min-height: 1px;"><div class="sl-block-content" style="z-index: 12;"><img style="left: 0px; top: 0px; width: 719px; height: 230px;" data-natural-width="2500" data-natural-height="800" data-lazy-loaded="" data-crop-x="0" data-crop-y="0" data-crop-width="0.813896" data-crop-height="1" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/4be8778c2539af88b4066e2d62786bd6.png"></div></div>
+<div class="sl-block" data-block-type="text" style="width: 807px; left: 58px; top: 183px; height: auto;" data-block-id="1d6ac0d09cfa2ab0dc4b512ae18f0136" data-name="text-ecf260"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; text-align: left;">
+<ul>
+	<li>
+	<p>Let's consider M trajectories simultaneously<br>
+	e.g. different forcing evaluations</p>
+	</li>
+</ul>
+</div></div></section><section data-id="bbc2b6f1c16cebf456d97f4ca30f80f1"><div class="sl-block" data-block-type="text" style="width: 807px; left: 76.5px; top: 42.5px; height: auto;" data-block-id="af4cb2ca2dbdda4152e9f664aa5a2006" data-name="text-e248f1"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>Arithmetic Intensity</h2>
+</div></div>
+<div class="sl-block" data-block-type="math" data-name="math-8b4072" style="width: auto; height: auto; left: 35px; top: 479.5px;" data-block-id="19df5122dfccfd031b2e13513a6abc75"><div class="sl-block-content notranslate" style="z-index: 11; font-size: 75%;"><div class="math-input">\text{arithmetic intensity} = \frac{\text{minimal FLOP-count}}{\text{minimal data movement}}
+</div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 139px; left: 709px; top: 482px;" data-name="text-056c06" data-origin-id="639e446125db9e102491b724ad28c2f1" data-block-id="4e34afd9c3c301e1b9c71d99b87cc0d9"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: left;">
+<p><span style="font-size:1.2em"><span style="color:#008000"><strong>~ K / 16</strong></span></span></p>
+</div></div>
+<div class="sl-block" data-block-type="image" data-name="image-f02742" style="width: 483.047px; height: 189.92px; left: 238.476px; top: 210px; min-width: 1px; min-height: 1px;" data-block-id="c82888361db4251a5ba37efd6349b0b0"><div class="sl-block-content" style="z-index: 13;"><img style="left: 0px; top: 0px; width: 593px; height: 190px;" data-natural-width="2500" data-natural-height="800" data-lazy-loaded="" data-crop-x="0" data-crop-y="0" data-crop-width="0.813896" data-crop-height="1" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/4be8778c2539af88b4066e2d62786bd6.png"></div></div></section><section data-id="845cc544052da2587af73173f40769a8"><div class="sl-block" data-block-type="text" style="width: 807px; left: 76.5px; top: 33px; height: auto;" data-block-id="f84602b86e91b0db0e455579b75591b7" data-name="text-9af2f5"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>Rank-2: why is it good?</h2>
+</div></div>
+<div class="sl-block" data-block-type="image" data-name="image-f070bb" style="width: 580px; height: 161.72px; left: 190px; top: 479.14px; min-width: 1px; min-height: 1px;" data-block-id="40a42313c96fe66f074ff71d546703d5"><div class="sl-block-content" style="z-index: 11;"><img style="left: 0px; top: -58px; width: 583px; height: 220px;" data-natural-width="1906" data-natural-height="718" data-lazy-loaded="" data-crop-x="0" data-crop-y="0.263636" data-crop-width="0.994854" data-crop-height="0.736364" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/97534229aca9174e70b4a3913e00ffee.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 347px; left: 53px; top: 164px;" data-name="text-5833d1" data-block-id="c6b6e70fc77b879a96e338758f5d8f01"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p>Standard formulation</p>
+</div></div>
+<div class="sl-block" data-block-type="image" data-name="image-35b0aa" style="width: 241.054px; height: 161.021px; left: 105.973px; top: 210px; min-width: 1px; min-height: 1px;" data-origin-id="51ce007310343ac48854bad3084457e7" data-block-id="685fd3e66966b4fea7d007be61e8d890"><div class="sl-block-content" style="z-index: 13;"><img style="" data-natural-width="2021" data-natural-height="1350" data-lazy-loaded="" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/13d0eef6d6bf41b42c75a4484efbb2ec.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 347px; left: 577.772px; top: 164px;" data-block-id="e2a99b2dd10a62f3acadf25490fd7183" data-name="text-939e1b"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;">
+<p>Rank-2 formulation</p>
+</div></div>
+<div class="sl-block" data-block-type="line" data-name="line-ba5c6d" data-block-id="99874eb39e2583e5143b28bcb2592e42" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 226.5px; top: 383.682px;"><div class="sl-block-content" data-line-x1="93.5" data-line-y1="95.45799999999997" data-line-x2="0" data-line-y2="0" data-line-color="#000000" data-line-start-type="arrow" data-line-end-type="none" style="z-index: 15;" data-line-width="5px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="93.5" height="95.45799999999997" viewbox="0 0 93.5 95.45799999999997"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="88.75193416999086" y1="90.60003349731535" x2="0.5" y2="0.5"></line><line class="line-element" stroke="#000000" stroke-width="5" x1="88.75193416999086" y1="90.60003349731535" x2="0.5" y2="0.5"></line><polygon fill="#000000" transform="translate(88.25193416999086,90.10003349731535) rotate(-44.406)" points="0,7.5 7.5,-7.5 -7.5,-7.5"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 640px; top: 383.682px;" data-block-id="be01689833365a58a25ea788cdda6ce5" data-name="line-9af448"><div class="sl-block-content" data-line-x1="0" data-line-y1="95.45799999999997" data-line-x2="120.27200000000005" data-line-y2="0" data-line-color="#000000" data-line-start-type="arrow" data-line-end-type="none" style="z-index: 16;" data-line-width="5px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="120.27200000000005" height="95.45799999999997" viewbox="0 0 120.27200000000005 95.45799999999997"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="6.374570880562922" y1="91.2954452315021" x2="120.77200000000005" y2="0.5"></line><line class="line-element" stroke="#000000" stroke-width="5" x1="6.374570880562922" y1="91.2954452315021" x2="120.77200000000005" y2="0.5"></line><polygon fill="#000000" transform="translate(5.874570880562922,90.7954452315021) rotate(51.562)" points="0,7.5 7.5,-7.5 -7.5,-7.5"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="image" data-name="image-f02742" style="width: 409.545px; height: 161.021px; left: 515.227px; top: 210px; min-width: 1px; min-height: 1px;" data-block-id="e987226476432a341e3671ac78ac6ced"><div class="sl-block-content" style="z-index: 17;"><img style="left: 0px; top: 0px; width: 503px; height: 161px;" data-natural-width="2500" data-natural-height="800" data-lazy-loaded="" data-crop-x="0" data-crop-y="0" data-crop-width="0.813896" data-crop-height="1" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/4be8778c2539af88b4066e2d62786bd6.png"></div></div>
+<div class="sl-block" data-block-type="shape" data-name="shape-757b9f" data-block-id="ef23b6faebac304ff4f88d115b018689" style="width: 89px; height: 89px; left: 115.5px; top: 404.086px;"><div class="sl-block-content" data-shape-type="symbol-sad" data-shape-fill-color="rgb(255, 0, 0)" data-shape-stretch="true" style="z-index: 18;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 32 32"><g class="shape-element" fill="rgb(255, 0, 0)" data-viewbox="0 0 32 32"><path d="M16 32c8.837 0 16-7.163 16-16s-7.163-16-16-16-16 7.163-16 16 7.163 16 16 16zM16 3c7.18 0 13 5.82 13 13s-5.82 13-13 13-13-5.82-13-13 5.82-13 13-13zM8 10c0-1.105 0.895-2 2-2s2 0.895 2 2c0 1.105-0.895 2-2 2-1.105 0-2-0.895-2-2zM20 10c0-1.105 0.895-2 2-2s2 0.895 2 2c0 1.105-0.895 2-2 2-1.105 0-2-0.895-2-2zM9.997 24.398l-2.573-1.544c1.749-2.908 4.935-4.855 8.576-4.855 3.641 0 6.827 1.946 8.576 4.855l-2.573 1.544c-1.224-2.036-3.454-3.398-6.003-3.398-2.549 0-4.779 1.362-6.003 3.398z"></path></g></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 89px; height: 89px; left: 794.5px; top: 405.682px;" data-block-id="ed46179c4d746789cc87d3faa602a7f7" data-name="shape-bac90b"><div class="sl-block-content" data-shape-type="symbol-smiley" data-shape-fill-color="rgb(106, 168, 79)" data-shape-stretch="true" style="z-index: 19;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 32 32"><g class="shape-element" fill="rgb(106, 168, 79)" data-viewbox="0 0 32 32"><path d="M16 32c8.837 0 16-7.163 16-16s-7.163-16-16-16-16 7.163-16 16 7.163 16 16 16zM16 3c7.18 0 13 5.82 13 13s-5.82 13-13 13-13-5.82-13-13 5.82-13 13-13zM8 10c0-1.105 0.895-2 2-2s2 0.895 2 2c0 1.105-0.895 2-2 2-1.105 0-2-0.895-2-2zM20 10c0-1.105 0.895-2 2-2s2 0.895 2 2c0 1.105-0.895 2-2 2-1.105 0-2-0.895-2-2zM22.003 19.602l2.573 1.544c-1.749 2.908-4.935 4.855-8.576 4.855s-6.827-1.946-8.576-4.855l2.573-1.544c1.224 2.036 3.454 3.398 6.003 3.398s4.779-1.362 6.003-3.398z"></path></g></svg></div></div></section></section><section class="stack" data-id="fffa021b9cd991d7b0271f8d25784274"><section data-id="f80c5905a58d3eccb5b476163c51b892"><div class="sl-block" data-block-type="text" style="width: 891px; left: 34.5px; top: 20px; height: auto;" data-block-id="ce27e0c6952a078e12f31cf3229e7a26" data-name="text-0e19aa"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>Results: performance</h2>
+</div></div>
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 362.25px; left: 538.875px; top: 523.5px;" data-block-id="aa4a0dfa1895364dc57a20e774cdb3d1" data-name="text-2afcf8"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; text-align: left;" dir="ui" data-fragment-index="1">
+<p style="text-align:center"><span style="font-size:0.5em">Kokkos impl with OpenMP backend; machine with two 18-core Intel(R) Xeon(R) Gold 6154 CPU @ 3.00 GHz (24.75MB L3 cache, 125GB total mem)</span></p>
+</div></div>
+
+<div class="sl-block" data-block-type="image" data-name="image-f74333" data-block-id="970d278cb42cba35d69cc3c49f64dbf1" style="width: 548.5px; height: 365.667px; left: 411.5px; top: 146px; min-width: 1px; min-height: 1px;"><div class="sl-block-content fragment" style="z-index: 15;" data-fragment-index="1"><img style="" data-natural-width="2025" data-natural-height="1350" data-lazy-loaded="" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/c2b9ea6d5daf0b65f9b7c063a2af672e.png"></div></div>
+<div class="sl-block" data-block-type="image" data-name="image-f02742" style="width: 349.271px; height: 137.352px; left: 23.5px; top: 175.553px; min-width: 1px; min-height: 1px;" data-block-id="209ef22a520b0108d8ca795a27086432"><div class="sl-block-content fragment" style="z-index: 16;" data-fragment-index="0"><img style="left: 0px; top: 0px; width: 429px; height: 137px;" data-natural-width="2500" data-natural-height="800" data-lazy-loaded="" data-crop-x="0" data-crop-y="0" data-crop-width="0.813725" data-crop-height="1" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/4be8778c2539af88b4066e2d62786bd6.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 459px; left: 10.5px; top: 491px;" data-block-id="3798c1032c7f34ecfcb12a23b2f9de03" data-name="text-ec1f7e"><div class="sl-block-style" style="z-index: 17; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 17; text-align: left;">
+<ul>
+	<li class="fragment" data-fragment-index="2">
+	<p><span style="color:#FF0000"><span style="font-size:0.7em">M=1: quite limited</span></span></p>
+	</li>
+	<li class="fragment" data-fragment-index="2">
+	<p><span style="color:#0000FF"><span style="font-size:0.7em">M&gt;1: increasing # of threads helps</span></span></p>
+	</li>
+	<li class="fragment" data-fragment-index="2">
+	<p><span style="color:#0000FF"><span style="font-size:0.7em">We can handle large K</span></span></p>
+	</li>
+</ul>
+</div></div></div>
+<div class="sl-block sl-block-group" data-block-type="group" data-name="group-678c94" data-block-id="9916cf1dcf52ad609ad1742a09cdc87c" style="height: auto;"><div class="sl-block-content sl-block-group-content" style="transform-origin: 214px 394.333px; z-index: 11;">
+<div class="sl-block" data-block-type="text" data-name="text-28c219" data-block-id="7d1f8c81f6ec405dbeaf3a13f52e84fc" style="height: auto; width: 413px; left: 7.5px; top: 328.833px;"><div class="sl-block-style" style="z-index: 12; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: left;">
+<ul>
+	<li class="fragment" data-fragment-index="0">
+	<p><span style="font-size:0.7em">M = # of <span style="color:rgb(0, 0, 0)">simultaneous </span>trajectories </span></p>
+	</li>
+</ul>
+</div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 329px; left: 52.5px; top: 374.833px;" data-block-id="d9f53b5bbf07e5c3ef191bab5663611a" data-name="text-8abeb8"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; text-align: left;" data-fragment-index="0">
+<p><span style="font-size:0.7em">M = 1  : standard Galerkin ROM </span></p>
+
+<p><span style="font-size:0.7em">M &gt;= 2: rank-2 ROM formulation</span></p>
+</div></div>
+</div></div></section><section data-id="52592dc387cdfaf5c1dc04414b6b4bd6"><div class="sl-block" data-block-type="text" data-name="text-b1af4f" data-block-id="fc231882474c3dc34b3b1072a9dd7ba3" style="height: auto; width: 960px; left: 0px; top: 40.5px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h2>When to prefer the Rank2ROM?</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-70df42" data-block-id="334ff80b48d4941878b1b057987c0f9d" style="height: auto; width: 866px; left: 31px; top: 469px;"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left;" data-fragment-index="1">
+<p>What combination of thread count (n) and number of simultaneous trajectories, M, would be the most efficient to obtain those P samples while satisfying the given constraints?</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 866px; left: 31px; top: 196px;" data-block-id="c459ae33e83b6a1438aeee093ec6e3c6" data-name="text-d598d6"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: left; line-height: 1.495;" data-has-line-height="" data-fragment-index="0">
+<ul>
+	<li>Suppose: we have a single compute node with 36 cores</li>
+	<li>Want P (large) samples (e.g. forcing realizations)</li>
+	<li>1024 is the maximum feasible # of trajectories that can <em>simultaneously</em> be processed on the node
+	<ul>
+		<li>e.g. due to memory constraints (saving data, etc)</li>
+	</ul>
+	</li>
+</ul>
+</div></div></section><section data-id="119906244c48e31b91dce3e3f5ce4201"><div class="sl-block" data-block-type="image" data-name="image-375e6f" data-block-id="2cab0670e3bcdf6e5169de25d37d753a" style="width: 504.545px; height: 389px; left: 227.349px; top: 210px; min-width: 1px; min-height: 1px;"><div class="sl-block-content" style="z-index: 10;"><img style="" data-natural-width="524" data-natural-height="404" data-lazy-loaded="" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/4d310bf80c1a25ddfca59600630d5e72.png"></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-9b1b48" data-block-id="075a9289ecefb5c20a8b9a59b220a314" style="height: auto; width: 759px; left: 100.5px; top: 70px;"><div class="sl-block-content fragment current-visible" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;" data-fragment-index="0">
+<p>Launch 36 single-thread ROM runs each using M=1</p>
+
+<p>and repeat until all my P samples are done</p>
+</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-29acbe" data-block-id="1e9141dfd09107e98e2c173259bd9057" style="height: auto; width: 275px; left: 207.25px; top: 608px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>CPU 0</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 275px; left: 477.75px; top: 608px;" data-block-id="503ecc9b35848d55e59be21a7d7aca4a" data-name="text-ce4c43"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p>CPU 1</p>
+</div></div>
+<div class="sl-block sl-block-group" data-block-type="group" data-name="group-e717ed" data-block-id="203c8da69aea58fc834950ae789c511b"><div class="sl-block-content sl-block-group-content fragment current-visible" style="transform-origin: 344.75px 401.774px; z-index: 14;" data-fragment-index="0">
+<div class="sl-block" data-block-type="shape" data-name="shape-8323a8" data-block-id="350cd6a4fcab4b0527aa92edde47da10" style="width: 44px; height: 44px; left: 261.75px; top: 231.453px;"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(153, 0, 255)" data-shape-stretch="true" style="z-index: 15;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 44 44"><ellipse rx="22" ry="22" cx="22" cy="22" class="shape-element" fill="rgb(153, 0, 255)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 44px; height: 44px; left: 322.75px; top: 231.453px;" data-block-id="a088e5e034a3428649147ba914379b3c" data-name="shape-728551"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(153, 0, 255)" data-shape-stretch="true" style="z-index: 16;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 44 44"><ellipse rx="22" ry="22" cx="22" cy="22" class="shape-element" fill="rgb(153, 0, 255)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 44px; height: 44px; left: 384.75px; top: 230.905px;" data-block-id="540bb438223b96f3243d732915458415" data-name="shape-7e9127"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(153, 0, 255)" data-shape-stretch="true" style="z-index: 17;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 44 44"><ellipse rx="22" ry="22" cx="22" cy="22" class="shape-element" fill="rgb(153, 0, 255)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 44px; height: 44px; left: 261.75px; top: 290.969px;" data-block-id="4454c0217b49a9844a5c8f8aaa8f325d" data-name="shape-664f5f"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(153, 0, 255)" data-shape-stretch="true" style="z-index: 18;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 44 44"><ellipse rx="22" ry="22" cx="22" cy="22" class="shape-element" fill="rgb(153, 0, 255)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 44px; height: 44px; left: 322.75px; top: 290.969px;" data-block-id="b66a13605159d00b9055776e26906bf1" data-name="shape-2c9da9"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(153, 0, 255)" data-shape-stretch="true" style="z-index: 19;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 44 44"><ellipse rx="22" ry="22" cx="22" cy="22" class="shape-element" fill="rgb(153, 0, 255)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 44px; height: 44px; left: 384.75px; top: 290.421px;" data-block-id="237786e86d39ca4719cc3c16844601db" data-name="shape-3c3726"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(153, 0, 255)" data-shape-stretch="true" style="z-index: 20;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 44 44"><ellipse rx="22" ry="22" cx="22" cy="22" class="shape-element" fill="rgb(153, 0, 255)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 44px; height: 44px; left: 261.25px; top: 350.095px;" data-block-id="62292090381cada9112ab74d7d3556a7" data-name="shape-2169f0"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(153, 0, 255)" data-shape-stretch="true" style="z-index: 21;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 44 44"><ellipse rx="22" ry="22" cx="22" cy="22" class="shape-element" fill="rgb(153, 0, 255)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 44px; height: 44px; left: 322.25px; top: 350.095px;" data-block-id="eff34404438f11b20725cc83fc081fa8" data-name="shape-2a974d"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(153, 0, 255)" data-shape-stretch="true" style="z-index: 22;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 44 44"><ellipse rx="22" ry="22" cx="22" cy="22" class="shape-element" fill="rgb(153, 0, 255)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 44px; height: 44px; left: 384.25px; top: 349.547px;" data-block-id="731dffae224041265b2e5a7f4e5f0559" data-name="shape-96b841"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(153, 0, 255)" data-shape-stretch="true" style="z-index: 23;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 44 44"><ellipse rx="22" ry="22" cx="22" cy="22" class="shape-element" fill="rgb(153, 0, 255)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 44px; height: 44px; left: 261.25px; top: 409.274px;" data-block-id="52055d8e766ff864178186d6b826f125" data-name="shape-519d72"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(153, 0, 255)" data-shape-stretch="true" style="z-index: 24;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 44 44"><ellipse rx="22" ry="22" cx="22" cy="22" class="shape-element" fill="rgb(153, 0, 255)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 44px; height: 44px; left: 322.25px; top: 409.274px;" data-block-id="527a8590c4261f58a5bd76ea4c88020d" data-name="shape-e7d586"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(153, 0, 255)" data-shape-stretch="true" style="z-index: 25;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 44 44"><ellipse rx="22" ry="22" cx="22" cy="22" class="shape-element" fill="rgb(153, 0, 255)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 44px; height: 44px; left: 384.25px; top: 408.726px;" data-block-id="9d1d49970374d5fcff51fef8f6978eb1" data-name="shape-566679"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(153, 0, 255)" data-shape-stretch="true" style="z-index: 26;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 44 44"><ellipse rx="22" ry="22" cx="22" cy="22" class="shape-element" fill="rgb(153, 0, 255)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 44px; height: 44px; left: 260.75px; top: 469.516px;" data-block-id="d915e8e8c0ad94076e81bfccf3198c37" data-name="shape-490df4"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(153, 0, 255)" data-shape-stretch="true" style="z-index: 27;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 44 44"><ellipse rx="22" ry="22" cx="22" cy="22" class="shape-element" fill="rgb(153, 0, 255)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 44px; height: 44px; left: 321.75px; top: 469.516px;" data-block-id="ebd0cd28aca1f1f4af47e1fc9e4ea68f" data-name="shape-0eeb0c"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(153, 0, 255)" data-shape-stretch="true" style="z-index: 28;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 44 44"><ellipse rx="22" ry="22" cx="22" cy="22" class="shape-element" fill="rgb(153, 0, 255)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 44px; height: 44px; left: 383.75px; top: 468.968px;" data-block-id="022fa8ba0c027bc7d1531613f85b01a9" data-name="shape-e64d50"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(153, 0, 255)" data-shape-stretch="true" style="z-index: 29;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 44 44"><ellipse rx="22" ry="22" cx="22" cy="22" class="shape-element" fill="rgb(153, 0, 255)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 44px; height: 44px; left: 261.25px; top: 528.643px;" data-block-id="665156ea90c45e4fc26faf7877842841" data-name="shape-9fc1df"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(153, 0, 255)" data-shape-stretch="true" style="z-index: 30;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 44 44"><ellipse rx="22" ry="22" cx="22" cy="22" class="shape-element" fill="rgb(153, 0, 255)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 44px; height: 44px; left: 322.25px; top: 528.643px;" data-block-id="aaba59b5d90dc1e0846cfd5b104ef5e6" data-name="shape-6d7f25"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(153, 0, 255)" data-shape-stretch="true" style="z-index: 31;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 44 44"><ellipse rx="22" ry="22" cx="22" cy="22" class="shape-element" fill="rgb(153, 0, 255)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 44px; height: 44px; left: 384.25px; top: 528.095px;" data-block-id="0b83c074952d91a3874cae7eb1ab716a" data-name="shape-54108c"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(153, 0, 255)" data-shape-stretch="true" style="z-index: 32;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 44 44"><ellipse rx="22" ry="22" cx="22" cy="22" class="shape-element" fill="rgb(153, 0, 255)"></ellipse></svg></div></div>
+</div></div>
+<div class="sl-block sl-block-group" data-block-type="group" data-block-id="5ec1e7ab03c81fe316be8ec4b6272b21" data-name="group-fab185"><div class="sl-block-content sl-block-group-content fragment current-visible" style="transform-origin: 615.25px 402.226px; z-index: 33;" data-fragment-index="0">
+<div class="sl-block" data-block-type="shape" style="width: 44px; height: 44px; left: 532.25px; top: 231.905px;" data-origin-id="350cd6a4fcab4b0527aa92edde47da10" data-block-id="9c5c01211372e77db39955234669ab0b" data-name="shape-2b342d"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(153, 0, 255)" data-shape-stretch="true" style="z-index: 34;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 44 44"><ellipse rx="22" ry="22" cx="22" cy="22" class="shape-element" fill="rgb(153, 0, 255)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 44px; height: 44px; left: 593.25px; top: 231.905px;" data-origin-id="a088e5e034a3428649147ba914379b3c" data-block-id="9a4ea572c0426f5d514b16ec0fca2bdf" data-name="shape-aee240"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(153, 0, 255)" data-shape-stretch="true" style="z-index: 35;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 44 44"><ellipse rx="22" ry="22" cx="22" cy="22" class="shape-element" fill="rgb(153, 0, 255)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 44px; height: 44px; left: 655.25px; top: 231.357px;" data-origin-id="540bb438223b96f3243d732915458415" data-block-id="2b14ac2faf2bc4360108a5f37edf4ba6" data-name="shape-1897c6"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(153, 0, 255)" data-shape-stretch="true" style="z-index: 36;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 44 44"><ellipse rx="22" ry="22" cx="22" cy="22" class="shape-element" fill="rgb(153, 0, 255)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 44px; height: 44px; left: 532.25px; top: 291.421px;" data-origin-id="4454c0217b49a9844a5c8f8aaa8f325d" data-block-id="bfd20a68548089f15fce03fb9b8db6b9" data-name="shape-9f8a82"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(153, 0, 255)" data-shape-stretch="true" style="z-index: 37;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 44 44"><ellipse rx="22" ry="22" cx="22" cy="22" class="shape-element" fill="rgb(153, 0, 255)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 44px; height: 44px; left: 593.25px; top: 291.421px;" data-origin-id="b66a13605159d00b9055776e26906bf1" data-block-id="c8f232526032000cf5ef5cf808898be6" data-name="shape-bdac2b"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(153, 0, 255)" data-shape-stretch="true" style="z-index: 38;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 44 44"><ellipse rx="22" ry="22" cx="22" cy="22" class="shape-element" fill="rgb(153, 0, 255)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 44px; height: 44px; left: 655.25px; top: 290.873px;" data-origin-id="237786e86d39ca4719cc3c16844601db" data-block-id="6760c9996d8a852a40660702340398cc" data-name="shape-71505f"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(153, 0, 255)" data-shape-stretch="true" style="z-index: 39;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 44 44"><ellipse rx="22" ry="22" cx="22" cy="22" class="shape-element" fill="rgb(153, 0, 255)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 44px; height: 44px; left: 531.75px; top: 350.547px;" data-origin-id="62292090381cada9112ab74d7d3556a7" data-block-id="c96a396cecbb46b548c84b2ca883b5ca" data-name="shape-dcf698"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(153, 0, 255)" data-shape-stretch="true" style="z-index: 40;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 44 44"><ellipse rx="22" ry="22" cx="22" cy="22" class="shape-element" fill="rgb(153, 0, 255)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 44px; height: 44px; left: 592.75px; top: 350.547px;" data-origin-id="eff34404438f11b20725cc83fc081fa8" data-block-id="5e05f49a0130f482df3e7ae58d410760" data-name="shape-73fc1d"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(153, 0, 255)" data-shape-stretch="true" style="z-index: 41;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 44 44"><ellipse rx="22" ry="22" cx="22" cy="22" class="shape-element" fill="rgb(153, 0, 255)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 44px; height: 44px; left: 654.75px; top: 349.999px;" data-origin-id="731dffae224041265b2e5a7f4e5f0559" data-block-id="f6c99269968531293d0ebca11bdc29f6" data-name="shape-b63f34"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(153, 0, 255)" data-shape-stretch="true" style="z-index: 42;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 44 44"><ellipse rx="22" ry="22" cx="22" cy="22" class="shape-element" fill="rgb(153, 0, 255)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 44px; height: 44px; left: 531.75px; top: 409.726px;" data-origin-id="52055d8e766ff864178186d6b826f125" data-block-id="e608a8e55d2b4fe8df8ccbe574622e52" data-name="shape-955f3a"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(153, 0, 255)" data-shape-stretch="true" style="z-index: 43;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 44 44"><ellipse rx="22" ry="22" cx="22" cy="22" class="shape-element" fill="rgb(153, 0, 255)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 44px; height: 44px; left: 592.75px; top: 409.726px;" data-origin-id="527a8590c4261f58a5bd76ea4c88020d" data-block-id="754acc9a5404d50162e7854c58cc30d6" data-name="shape-4a5ecb"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(153, 0, 255)" data-shape-stretch="true" style="z-index: 44;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 44 44"><ellipse rx="22" ry="22" cx="22" cy="22" class="shape-element" fill="rgb(153, 0, 255)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 44px; height: 44px; left: 654.75px; top: 409.178px;" data-origin-id="9d1d49970374d5fcff51fef8f6978eb1" data-block-id="fb928f588721e39cea9e61e4fccfc87d" data-name="shape-d10397"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(153, 0, 255)" data-shape-stretch="true" style="z-index: 45;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 44 44"><ellipse rx="22" ry="22" cx="22" cy="22" class="shape-element" fill="rgb(153, 0, 255)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 44px; height: 44px; left: 531.25px; top: 469.968px;" data-origin-id="d915e8e8c0ad94076e81bfccf3198c37" data-block-id="11d9a2544d5a4d5b4c0620236960f9e2" data-name="shape-299561"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(153, 0, 255)" data-shape-stretch="true" style="z-index: 46;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 44 44"><ellipse rx="22" ry="22" cx="22" cy="22" class="shape-element" fill="rgb(153, 0, 255)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 44px; height: 44px; left: 592.25px; top: 469.968px;" data-origin-id="ebd0cd28aca1f1f4af47e1fc9e4ea68f" data-block-id="55c34e2d2c12ed0890c1f8c3ce6a652a" data-name="shape-3df13d"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(153, 0, 255)" data-shape-stretch="true" style="z-index: 47;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 44 44"><ellipse rx="22" ry="22" cx="22" cy="22" class="shape-element" fill="rgb(153, 0, 255)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 44px; height: 44px; left: 654.25px; top: 469.42px;" data-origin-id="022fa8ba0c027bc7d1531613f85b01a9" data-block-id="64ad3cd0a5d958dd5181ea2889f73524" data-name="shape-cc7143"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(153, 0, 255)" data-shape-stretch="true" style="z-index: 48;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 44 44"><ellipse rx="22" ry="22" cx="22" cy="22" class="shape-element" fill="rgb(153, 0, 255)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 44px; height: 44px; left: 531.75px; top: 529.095px;" data-origin-id="665156ea90c45e4fc26faf7877842841" data-block-id="7fedb592dcb3b8573ea8fa4cd4bf39a2" data-name="shape-ec7116"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(153, 0, 255)" data-shape-stretch="true" style="z-index: 49;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 44 44"><ellipse rx="22" ry="22" cx="22" cy="22" class="shape-element" fill="rgb(153, 0, 255)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 44px; height: 44px; left: 592.75px; top: 529.095px;" data-origin-id="aaba59b5d90dc1e0846cfd5b104ef5e6" data-block-id="f768aea5d96651469615b63aab8f108f" data-name="shape-9605ed"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(153, 0, 255)" data-shape-stretch="true" style="z-index: 50;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 44 44"><ellipse rx="22" ry="22" cx="22" cy="22" class="shape-element" fill="rgb(153, 0, 255)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 44px; height: 44px; left: 654.75px; top: 528.547px;" data-origin-id="0b83c074952d91a3874cae7eb1ab716a" data-block-id="3491fe2440d9e6a9d4dc03babcf6c23e" data-name="shape-139185"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(153, 0, 255)" data-shape-stretch="true" style="z-index: 51;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 44 44"><ellipse rx="22" ry="22" cx="22" cy="22" class="shape-element" fill="rgb(153, 0, 255)"></ellipse></svg></div></div>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 734px; left: 113px; top: 70px;" data-block-id="7ea1503a000c71b0c9608dd8ab2cb562" data-name="text-b67805"><div class="sl-block-content fragment current-visible" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 52;" data-fragment-index="1">
+<p>Launch 18 two-threaded ROM runs each using M=1</p>
+
+<p>and repeat until all my P samples are done</p>
+</div></div>
+<div class="sl-block sl-block-group" data-block-type="group" data-name="group-aec21b" data-block-id="017b45d92e0a6adcb104397246f49f03"><div class="sl-block-content sl-block-group-content fragment current-visible" style="transform-origin: 345.75px 402px; z-index: 53;" data-fragment-index="1">
+<div class="sl-block" data-block-type="shape" data-name="shape-91d753" data-block-id="f0ea9c480fd31d327edafc51631cf00d" style="width: 45px; height: 102.516px; left: 261.75px; top: 231.905px;"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(255, 153, 0)" data-shape-stretch="true" style="z-index: 54;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 45 103"><ellipse rx="22.5" ry="51.258" cx="22.5" cy="51.258" class="shape-element" fill="rgb(255, 153, 0)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 45px; height: 102.516px; left: 262.75px; top: 351.21px;" data-block-id="9a1101655594162794e4a57fce6db12b" data-name="shape-687b31"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(255, 153, 0)" data-shape-stretch="true" style="z-index: 55;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 45 103"><ellipse rx="22.5" ry="51.258" cx="22.5" cy="51.258" class="shape-element" fill="rgb(255, 153, 0)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 45px; height: 102.516px; left: 262.75px; top: 470.579px;" data-block-id="0ee28ccc8a23fc799f60b36ca68e6e4b" data-name="shape-02f498"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(255, 153, 0)" data-shape-stretch="true" style="z-index: 56;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 45 103"><ellipse rx="22.5" ry="51.258" cx="22.5" cy="51.258" class="shape-element" fill="rgb(255, 153, 0)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 45px; height: 102.516px; left: 322.75px; top: 470.579px;" data-block-id="210fe929dcf2337fca08cc05603b4961" data-name="shape-6d6f14"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(255, 153, 0)" data-shape-stretch="true" style="z-index: 57;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 45 103"><ellipse rx="22.5" ry="51.258" cx="22.5" cy="51.258" class="shape-element" fill="rgb(255, 153, 0)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 45px; height: 102.516px; left: 321.75px; top: 350.547px;" data-block-id="4fd5b529f5617784301dd1faf86151df" data-name="shape-4c7bd6"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(255, 153, 0)" data-shape-stretch="true" style="z-index: 58;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 45 103"><ellipse rx="22.5" ry="51.258" cx="22.5" cy="51.258" class="shape-element" fill="rgb(255, 153, 0)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 45px; height: 102.516px; left: 322.75px; top: 230.905px;" data-block-id="df3144fdf8676764550177b36c99b8d7" data-name="shape-d4b336"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(255, 153, 0)" data-shape-stretch="true" style="z-index: 59;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 45 103"><ellipse rx="22.5" ry="51.258" cx="22.5" cy="51.258" class="shape-element" fill="rgb(255, 153, 0)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 45px; height: 102.516px; left: 383.75px; top: 230.905px;" data-block-id="56d003f7c59ea4728ae5f791e8ca5950" data-name="shape-40c933"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(255, 153, 0)" data-shape-stretch="true" style="z-index: 60;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 45 103"><ellipse rx="22.5" ry="51.258" cx="22.5" cy="51.258" class="shape-element" fill="rgb(255, 153, 0)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 45px; height: 102.516px; left: 384.75px; top: 349.547px;" data-block-id="f926c33aca1ea23b8308e87d49ce7e37" data-name="shape-7233a6"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(255, 153, 0)" data-shape-stretch="true" style="z-index: 61;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 45 103"><ellipse rx="22.5" ry="51.258" cx="22.5" cy="51.258" class="shape-element" fill="rgb(255, 153, 0)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 45px; height: 102.516px; left: 383.75px; top: 468.968px;" data-block-id="ed97c476321ff075ac2f7261194f39c3" data-name="shape-d9c9b9"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(255, 153, 0)" data-shape-stretch="true" style="z-index: 62;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 45 103"><ellipse rx="22.5" ry="51.258" cx="22.5" cy="51.258" class="shape-element" fill="rgb(255, 153, 0)"></ellipse></svg></div></div>
+</div></div>
+<div class="sl-block sl-block-group" data-block-type="group" data-block-id="8b018cfb8af2bf81bd23b1b2bd2ddf66" data-name="group-8c7330"><div class="sl-block-content sl-block-group-content fragment current-visible" style="transform-origin: 615.75px 402px; z-index: 63;" data-fragment-index="1">
+<div class="sl-block" data-block-type="shape" style="width: 45px; height: 102.516px; left: 531.75px; top: 231.905px;" data-origin-id="f0ea9c480fd31d327edafc51631cf00d" data-block-id="418d2325ebf809517338de2446feed45" data-name="shape-bda799"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(255, 153, 0)" data-shape-stretch="true" style="z-index: 64;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 45 103"><ellipse rx="22.5" ry="51.258" cx="22.5" cy="51.258" class="shape-element" fill="rgb(255, 153, 0)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 45px; height: 102.516px; left: 532.75px; top: 351.21px;" data-origin-id="9a1101655594162794e4a57fce6db12b" data-block-id="16ce07becd4ede40188e61ed27fab112" data-name="shape-76928b"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(255, 153, 0)" data-shape-stretch="true" style="z-index: 65;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 45 103"><ellipse rx="22.5" ry="51.258" cx="22.5" cy="51.258" class="shape-element" fill="rgb(255, 153, 0)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 45px; height: 102.516px; left: 532.75px; top: 470.579px;" data-origin-id="0ee28ccc8a23fc799f60b36ca68e6e4b" data-block-id="6a879457f6a92ddae755df2634dbc80d" data-name="shape-c72b92"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(255, 153, 0)" data-shape-stretch="true" style="z-index: 66;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 45 103"><ellipse rx="22.5" ry="51.258" cx="22.5" cy="51.258" class="shape-element" fill="rgb(255, 153, 0)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 45px; height: 102.516px; left: 592.75px; top: 470.579px;" data-origin-id="210fe929dcf2337fca08cc05603b4961" data-block-id="c1126414ffa2cc7f43baa70eefd69dce" data-name="shape-226f42"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(255, 153, 0)" data-shape-stretch="true" style="z-index: 67;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 45 103"><ellipse rx="22.5" ry="51.258" cx="22.5" cy="51.258" class="shape-element" fill="rgb(255, 153, 0)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 45px; height: 102.516px; left: 591.75px; top: 350.547px;" data-origin-id="4fd5b529f5617784301dd1faf86151df" data-block-id="6be3adb513a3956ef3da601066abd49f" data-name="shape-fff705"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(255, 153, 0)" data-shape-stretch="true" style="z-index: 68;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 45 103"><ellipse rx="22.5" ry="51.258" cx="22.5" cy="51.258" class="shape-element" fill="rgb(255, 153, 0)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 45px; height: 102.516px; left: 592.75px; top: 230.905px;" data-origin-id="df3144fdf8676764550177b36c99b8d7" data-block-id="7259cbac5ebf7e3c1d4ec16c6fc1df53" data-name="shape-5418bd"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(255, 153, 0)" data-shape-stretch="true" style="z-index: 69;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 45 103"><ellipse rx="22.5" ry="51.258" cx="22.5" cy="51.258" class="shape-element" fill="rgb(255, 153, 0)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 45px; height: 102.516px; left: 653.75px; top: 230.905px;" data-origin-id="56d003f7c59ea4728ae5f791e8ca5950" data-block-id="be66a5bb8b766d347d3a35e257e26deb" data-name="shape-ebe8bf"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(255, 153, 0)" data-shape-stretch="true" style="z-index: 70;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 45 103"><ellipse rx="22.5" ry="51.258" cx="22.5" cy="51.258" class="shape-element" fill="rgb(255, 153, 0)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 45px; height: 102.516px; left: 654.75px; top: 349.547px;" data-origin-id="f926c33aca1ea23b8308e87d49ce7e37" data-block-id="bc6e78c6dc60bfe59cac4ace2ecd025d" data-name="shape-2d15ab"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(255, 153, 0)" data-shape-stretch="true" style="z-index: 71;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 45 103"><ellipse rx="22.5" ry="51.258" cx="22.5" cy="51.258" class="shape-element" fill="rgb(255, 153, 0)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 45px; height: 102.516px; left: 653.75px; top: 468.968px;" data-origin-id="ed97c476321ff075ac2f7261194f39c3" data-block-id="eb10c32bc744944374b7dced247e8a69" data-name="shape-c2b531"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(255, 153, 0)" data-shape-stretch="true" style="z-index: 72;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 45 103"><ellipse rx="22.5" ry="51.258" cx="22.5" cy="51.258" class="shape-element" fill="rgb(255, 153, 0)"></ellipse></svg></div></div>
+</div></div></section><section data-id="619f33b95b2fb93b895be8b4dae7cf93"><div class="sl-block" data-block-type="text" data-name="text-b25005" data-block-id="0810a4cebc0e2251106d1d1c581a20f9" style="height: auto; width: 960px; left: 0px; top: 15px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h2>If M changes...</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-4c6a9b" data-block-id="44b12ffdeddb12e9546712c9abb92531" style="height: auto; width: 689.846px; left: 71px; top: 158.5px;"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left;" data-fragment-index="1">
+<p><span style="font-size:27px">If we increase # of modes (K), things </span><em>improve!</em></p>
+</div></div>
+<div class="sl-block" data-block-type="image" data-name="image-47a911" data-block-id="2efbb3a4e0d90639834001bd88fe147b" style="width: 422.617px; height: 384.622px; left: 28.6915px; top: 231.378px; min-width: 1px; min-height: 1px;"><div class="sl-block-content fragment" style="z-index: 12;" data-fragment-index="0"><img style="left: 0px; top: 0px; width: 507px; height: 385px;" data-natural-width="1778" data-natural-height="1350" data-lazy-loaded="" data-crop-x="0" data-crop-y="0" data-crop-width="0.834286" data-crop-height="1" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/a7568fba19ecdfc6a1fbc343cd651974.png"></div></div>
+<div class="sl-block" data-block-type="image" data-name="image-e01897" data-block-id="98756ecbd55dfb03f2b6cf7d52bbdfe2" style="width: 454.839px; height: 384.622px; left: 492.581px; top: 231.378px; min-width: 1px; min-height: 1px;"><div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="1"><img style="left: -26px; top: -1px; width: 509px; height: 386px;" data-natural-width="1778" data-natural-height="1350" data-crop-x="0.05132" data-crop-y="0.003861" data-crop-width="0.894428" data-crop-height="0.996139" data-lazy-loaded="" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/a629c7b19346952bbdcb84647bc015be.png"></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-1969cf" data-block-id="6b75ad8d168f07a06ebb3cdd98da479f" style="height: auto; width: 296px; left: 92px; top: 638px;"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;" data-fragment-index="0">
+<p># of modes (K) = 512</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 375.42px; left: 532.29px; top: 638px;" data-block-id="a8b0214aeb723cb17cc6707c398ac0b0" data-name="text-b8b04d"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15;" data-fragment-index="1">
+<p># of modes (K) = 2048</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 700px; left: 71px; top: 108.5px;" data-block-id="cdb8953d22b3046e66b53d610585271c" data-name="text-5aca74"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16; text-align: left;" data-fragment-index="0">
+<p><span style="font-size:0.9em">Compute speedup wrt standard Galerkin ROM (M=1)</span></p>
+</div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 320px; top: 197.5px;" data-block-id="fc242ebac3ec0f87fd09ec8de4f1d5bf" data-name="line-1464e0"><div class="sl-block-content fragment" data-line-x1="254" data-line-y1="0" data-line-x2="0" data-line-y2="164" data-line-color="#000000" data-line-start-type="none" data-line-end-type="arrow" style="z-index: 18;" data-fragment-index="1"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="254" height="164" viewbox="0 0 254 164"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="254" y1="0" x2="3.360408715892493" y2="161.8302872858017"></line><line class="line-element" stroke="#000000" stroke-width="2" x1="254" y1="0" x2="3.360408715892493" y2="161.8302872858017"></line><polygon fill="#000000" transform="translate(3.360408715892493,161.8302872858017) rotate(237.151)" points="0,-4 4,4 -4,4"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 574px; top: 197.5px;" data-block-id="dcc7a1eade9630da069b38cedc4a63ce" data-name="line-a2ae83"><div class="sl-block-content fragment" data-line-x1="0" data-line-y1="0" data-line-x2="218" data-line-y2="206" data-line-color="#000000" data-line-start-type="none" data-line-end-type="arrow" style="z-index: 19;" data-fragment-index="1"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="218" height="206" viewbox="0 0 218 206"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="215.09268719201899" y2="203.25272275943078"></line><line class="line-element" stroke="#000000" stroke-width="2" x1="0" y1="0" x2="215.09268719201899" y2="203.25272275943078"></line><polygon fill="#000000" transform="translate(215.09268719201899,203.25272275943078) rotate(133.379)" points="0,-4 4,4 -4,4"></polygon></svg></div></div></section></section><section class="stack" data-id="1f7af5bbff64a322fba022cf49a602f4"><section data-id="c03b21d909231e0d53e840b66c42f79a"><div class="sl-block" data-block-type="text" style="width: 960px; left: 0px; top: 33px; height: auto;" data-block-id="3fca91528994839aae477bd2c3110340"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>Applicable to other LTI systems</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-1e6ac8" data-block-id="69823f31016b0c727d9415a46757ebaa" style="height: auto; width: 960px; left: 0px; top: 195px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left; line-height: 1.56;" data-has-line-height="">
+<ul>
+	<li>
+	<p><span style="color:rgb(0, 0, 0)">Aeroelasticity: d</span>eforming structures modeled as linear, with a nonlinear load; temperature often modeled with the linear heat equations and boundary conditions set by nonlinear temperature distributions and/or heat loads</p>
+	</li>
+	<li>
+	<p>Neutral particle (neutron, photon, etc.) transport</p>
+	</li>
+	<li>
+	<p>Acoustic waves: modeled with a linear PDE, but can have a number of nonlinear sources (turbulent shear layers from wakes)</p>
+	</li>
+	<li>
+	<p>Linear circuit models</p>
+	</li>
+</ul>
+</div></div></section><section data-id="f53417a494a6ca8d555ec07dfe18391d"><div class="sl-block" data-block-type="text" style="width: 807px; left: 76.5px; top: 32.5px; height: auto;" data-block-id="415ff6d62dbb08c303ba22b71cf916c8"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>Challenges/outlook</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-1e6ac8" style="height: auto; width: 960px; left: 0px; top: 178px;" data-block-id="5bd6b93aa4c93263b841e64660844827"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left;">
+<ul>
+	<li>
+	<p>What about if the matrix A changes?</p>
+	</li>
+	<li>
+	<p>What about nonlinear problems?</p>
+	</li>
+	<li>
+	<p style="color:rgb(0, 0, 0)">Tensors are getting more attention due to DeepLearning</p>
+
+	<ul>
+		<li>
+		<p style="color:rgb(0, 0, 0)">ROMs for LTI can benefit from them</p>
+		</li>
+		<li style="color:rgb(0, 0, 0)">
+		<p style="color:rgb(0, 0, 0)">Leverage hardware evolution: CUDA tensor cores</p>
+		</li>
+	</ul>
+	</li>
+</ul>
+</div></div>
+
+<div class="sl-block" data-block-type="text" data-name="text-b48fa2" data-block-id="b621f590a895ad366620f04099229a4a" style="height: auto; width: 214.5px; left: 692.75px; top: 457.017px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<h3><span style="font-size:1.0em">Rank-3 Galerkin ROM?</span></h3>
+</div></div>
+<div class="sl-block" data-block-type="image" data-name="image-16dbf3" data-block-id="1a3cef082534cd3cf8d0aa7af3381700" style="width: 534.656px; height: 239.966px; left: 132.672px; top: 432.017px; min-width: 1px; min-height: 1px;"><div class="sl-block-content" style="z-index: 13;"><img style="" data-natural-width="1954" data-natural-height="877" data-lazy-loaded="" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/76a7469277b3a6d9284098312f707f46.png"></div></div></section><section data-id="9df5b2be6b19fc59f81748d300648c1b"><div class="sl-block" data-block-type="text" style="width: 807px; left: 76.5px; top: 33px; height: auto;" data-block-id="2e7640fd8db2512de3f65512c377feda"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>Conclusions/references</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 960px; left: 0px; top: 140px; height: auto;" data-block-id="7ed8386137011337cc9be9ea47e27661"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left; line-height: 1.56;" data-has-line-height="">
+<ul>
+	<li style="color:rgb(0, 0, 0)">(Sometimes) many modes are necessary for accuracy but also provide a computational <span style="color:rgb(0, 0, 0)">advantage</span>
+</li>
+	<li>pROMs can benefit from more work, not just theoretically
+	<ul>
+		<li>Previous formulations can be revisited</li>
+	</ul>
+	</li>
+	<li>Leverage advances in <span style="color:rgb(0, 0, 0)">computing, keeping an eye on hardware</span>
+</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-f39e5a" data-block-id="eff2cfa0e4c6985154ffebbc9fea71bc" style="height: auto; width: 960px; left: 0px; top: 404px;"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: left;" data-fragment-index="0">
+<ul>
+	<li><span style="color:#0000FF"><em><strong><span style="font-size:0.7em">A compute-bound formulation of Galerkin model reduction for linear time-invariant dynamical systems, F.Rizzi et al, CMAME, 2021</span></strong></em></span></li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 960px; left: 0px; top: 490px;" data-block-id="04b58c66783dc4caaaf9cb8a76b78a74" data-name="text-3c5dc7"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; text-align: left;" data-fragment-index="1">
+<ul>
+	<li><span style="font-size:0.7em">V. Pereyra et al., Electron. Trans. Numer. Anal. Vol. 30 (2008) 406–41</span></li>
+	<li><span style="font-size:0.7em">E. Phipps et al, ArXiv, 2015 </span></li>
+	<li><span style="font-size:0.7em">M. Gunzburger et al., SIAM J. Numer. Anal. 55 (1) (2017) 286–304 </span></li>
+	<li><span style="font-size:0.7em">M. Gunzburger et al., IMA J. Numer. Anal. 39 (3) (2018) 1180–1205</span></li>
+</ul>
+</div></div></section><section data-id="b813cfa0a17c1dcf945961878b513a81" data-background-image="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/57a095072966906dd0ab3d906fb099db.png" data-background-size="contain" data-background-position="100% 0%"><div class="sl-block" data-block-type="text" style="width: 960px; left: 0px; top: 70px; height: auto;" data-block-id="1a5d81e1946fe6a976f988db645760f6"><div class="sl-block-style" style="z-index: 10; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>Thanks!</h1>
+
+<p> </p>
+
+<p>Wave code is open-source: <span style="color:rgb(255, 0, 0)"><strong>https://github.com/Pressio/SHAW</strong></span><br>
+<span style="font-size:0.9em">(part of the Exascale Computing Project [ECP] Proxy apps suite)</span></p>
+
+<p> </p>
+
+<p>Questions? </p>
+
+<p> </p>
+
+<p>Happy to talk offline too:<br>
+<span style="color:#0000FF">francesco.rizzi@ng-analytics.com</span></p>
+
+<p><span style="color:#0000FF">fnrizzi@sandia.gov</span></p>
+</div></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-a11064" style="height: auto; width: 780px; left: 90px; top: 630px;" data-block-id="eaff86b374c7dbf23263ee4dc7e2f119"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; font-size: 80%;">
+<p>Slides at: <a href="https://fnrizzi.github.io/ramses-12-2021/" target="_blank">https://fnrizzi.github.io/ramses-12-2021/</a></p>
+</div></div></section></section><section class="stack" data-id="e51ea0d4d593f18ce11cf6a5c74a7757"><section data-id="c4448b447354f925536f677b80065f7d"><div class="sl-block" data-block-type="text" data-name="text-dd42f1" data-block-id="cee5704142b711c40e368d1a3ec76a17" style="height: auto; width: 600px; left: 180px; top: 301.5px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h1>Backup</h1>
+</div></div></section><section data-id="b582979ccd31a148256fd2078a117655"><div class="sl-block" data-block-type="text" data-name="text-2bd3c1" data-block-id="9a4de1dc9186e49bab57572437e42460" style="height: auto; width: 960px; left: 0px; top: 32.5px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h2>Why surrogates?</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-20690f" data-block-id="dcd7f359490ded2f71aff0449150cdeb" style="height: auto; width: 960px; left: 0px; top: 175.5px;"><div class="sl-block-style" style="z-index: 11; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; border-width: 1px; text-align: left;">
+<ul>
+	<li style="text-align:left">
+	<p><span style="font-size:0.9em">If you are here today, likely you use and/or study and/or believe in surrogate modeling. So I <span style="color:rgb(0, 0, 0)">could spend minutes on this but...</span></span><br>
+	 </p>
+	</li>
+	<li>
+	<p><span style="font-size:0.9em">Computing/hardware progresses and changes quickly</span></p>
+
+	<ul>
+		<li>
+		<p><span style="font-size:0.9em"><span style="color:rgb(0, 0, 0)">Exascale is </span><em>already</em><span style="color:rgb(0, 0, 0)"> here: </span><a href="https://www.nextplatform.com/2021/10/26/china-has-already-reached-exascale-on-two-separate-systems/" target="_blank">China has two machines</a></span></p>
+		</li>
+		<li>
+		<p><span style="font-size:0.9em">How does this </span><em>impact</em><span style="font-size:0.9em"> surrogates (if at all)?</span></p>
+		</li>
+		<li>
+		<p><span style="font-size:0.9em">Can we/how to <em>leverage</em> this for surrogate modeling?</span></p>
+
+		<ul>
+			<li>
+			<p><span style="font-size:0.9em">​"It allows me to run my <em>same</em> <em>old</em> surrogate faster": not ideal!</span><br>
+			 </p>
+			</li>
+		</ul>
+		</li>
+	</ul>
+	</li>
+	<li>
+	<p><span style="font-size:0.9em">More synergistic development of surrogates and computing?</span></p>
+	</li>
+</ul>
+</div></div></div></section><section data-id="67f34fff9a0640fea97f5a8946dfb8ed"><div class="sl-block" data-block-type="text" data-name="text-b25005" style="height: auto; width: 960px; left: 0px; top: 15px;" data-block-id="305579ebd63fc91e5cbf48578e5936e5"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h2>Monte Carlo study</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 809px; left: 71px; top: 108.5px;" data-name="text-5aca74" data-block-id="978ca0bd0e3620ef060aba295570a7ff"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left;">
+<p><span style="font-size:0.9em">MC study: 512 trajectories sampling the forcing period T</span></p>
+
+<p><span style="font-size:0.9em">Rank-2 ROM is 950 times faster than FOM </span></p>
+
+<p><span style="font-size:0.9em">Rank-2 ROM is 15 times faster than rank-1 ROM</span></p>
+</div></div>
+<div class="sl-block" data-block-type="image" data-name="image-94f10e" data-block-id="dd9f23ec266f782b8f0c33d7718f54f8" style="width: 575.624px; height: 431px; left: 192.188px; top: 258px; min-width: 1px; min-height: 1px;"><div class="sl-block-content" style="z-index: 12;"><img style="" data-natural-width="1803" data-natural-height="1350" data-lazy-loaded="" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/c7477ab45ab7858a091c8ccde069fa85.png"></div></div></section></section>
+			</div>
+		</div>
+
+		<script>
+			var SLConfig = {"deck": {"id":2289236,"slug":"for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend","title":"For projection-based ROMs, is a \"large\" (POD) subspace always an enemy? No, sometimes, it can be your friend...","description":"","width":960,"height":700,"margin":0.05,"visibility":"all","published_at":"2021-11-23T09:51:16.245Z","sanitize_messages":null,"thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/a109d11a2eda6e5ea4d666d3e93f6366/thumb.jpg?1638801362","view_count":0,"user":{"id":1300184,"username":"francescorizzi","name":null,"description":null,"thumbnail_url":"https://www.gravatar.com/avatar/1acc77bbeb199d9d87e3ea2120279e56?s=140\u0026d=https%3A%2F%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png","account_type":"lite","team_id":null,"settings":{"id":5147769,"present_controls":true,"present_upsizing":true,"present_pointer":false,"present_notes":true,"default_deck_tag_id":null}},"background_transition":"slide","transition":"slide","theme_id":null,"theme_font":"montserrat","theme_color":"white-blue","auto_slide_interval":0,"comments_enabled":true,"forking_enabled":true,"rolling_links":false,"center":false,"shuffle":false,"should_loop":false,"share_notes":false,"slide_number":true,"slide_count":40,"rtl":false,"version":2,"collaborative":null,"deck_user_editor_limit":1,"data_updated_at":1638801362126,"font_typekit":null,"font_google":null,"time_limit":null,"navigation_mode":"default","upsizing_enabled":true,"notes":{}}};
+
+
+			// Use local fonts
+			SLConfig.fonts_url = 'lib/fonts/';
+		</script>
+
+		<script src="lib/reveal.js"></script>
+		<script src="lib/reveal-plugins.js"></script>
+		<script src="lib/offline.js"></script>
+
+		<!-- Initialize the presentation -->
+		<script>
+			Reveal.initialize({
+				width: 960,
+				height: 700,
+				margin: 0.05,
+				
+
+				hash: true,
+				controls: true,
+				progress: true,
+				mouseWheel: false,
+				showNotes: false,
+				slideNumber: true,
+				fragmentInURL: true,
+
+				autoSlide: 0,
+				autoSlideStoppable: true,
+
+				autoAnimateMatcher: SL.deck.AutoAnimate.matcher,
+
+				center: false,
+				shuffle: false,
+				loop: false,
+				rtl: false,
+				navigationMode: "default",
+
+				transition: "slide",
+				backgroundTransition: "slide",
+
+				highlight: {
+					escapeHTML: false
+				},
+
+				plugins: [ RevealZoom, RevealNotes, RevealMarkdown, RevealHighlight ]
+			});
+		</script>
+
+		
+
+	</body>
+</html>
