@@ -61,7 +61,7 @@
 </div></div>
 <div class="sl-block" data-block-type="text" data-name="text-a11064" style="height: auto; width: 780px; left: 90px; top: 648.5px;" data-block-id="f6ad80a64c51497e5b44144d2894ffe2"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; font-size: 80%;">
 <p>Follow along/slides at: <a href="https://fnrizzi.github.io/ramses-12-2021/" target="_blank">https://fnrizzi.github.io/ramses-12-2021/</a></p>
-</div></div></section><section data-id="c3bdad2a1c29c16f3506be4013061992"><div class="sl-block" data-block-type="text" data-name="text-ee58bc" style="height: auto; width: 960px; left: 0px; top: 107px;" data-block-id="4a2a086237776c743c1d76d7a80e0d6c"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; text-align: left; line-height: 1.365;" data-has-line-height="">
+</div></div></section><section data-id="c3bdad2a1c29c16f3506be4013061992"><div class="sl-block" data-block-type="text" data-name="text-ee58bc" style="height: auto; width: 960px; left: 0px; top: 91px;" data-block-id="4a2a086237776c743c1d76d7a80e0d6c"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; text-align: left; line-height: 1.365;" data-has-line-height="">
 <p> </p>
 
 <ul>
@@ -71,25 +71,25 @@
 	 </p>
 	</li>
 	<li class="fragment" data-fragment-index="1">
-	<p><span style="font-size:1.0em"><span style="color:#0000FF">Intuitively          :</span> small system, more convenient to compute</span></p>
+	<p><span style="font-size:1.0em"><span style="color:#0000FF">Intuitively            :</span> small system, more convenient to compute</span></p>
 	</li>
 	<li class="fragment" data-fragment-index="1">
-	<p><span style="font-size:1.0em"><span style="color:#0000FF">Mathematically:</span> intriguing but hard</span></p>
+	<p><span style="font-size:1.0em"><span style="color:#0000FF">Mathematically  :</span> intriguing but hard</span></p>
 	</li>
 	<li class="fragment" data-fragment-index="2">
 	<p><span style="font-size:1.0em"><span style="color:#0000FF">Computationally:</span> is this really the best approach?</span></p>
 
 	<ul>
 		<li>
-		<p><span style="font-size:1.0em">Do we always need to find the smallest?</span></p>
+		<p><span style="font-size:1.0em">Do we always need to aim for the smallest?</span></p>
 		</li>
 		<li>
-		<p><span style="font-size:1.0em">What if there was a way to formulate a problem such that you don't need to reduce it so much?</span></p>
+		<p><span style="font-size:1.0em">What if we can formulate the problem such that we don't need to reduce it so much while being efficient?</span></p>
 		</li>
 	</ul>
 	</li>
 	<li class="fragment" data-fragment-index="2">
-	<p><em><span style="color:#008000"><span style="font-size:1.0em">This talk tries to provide a counterargument </span></span></em></p>
+	<p><em><span style="color:#008000"><span style="font-size:1.0em">This talk aims to provide a counterargument </span></span></em></p>
 	</li>
 </ul>
 </div></div>
@@ -108,22 +108,22 @@
 		<p><span style="font-size:0.9em">​Weren't they a solved problem...?</span></p>
 		</li>
 		<li>
-		<p><span style="font-size:0.9em">I will emphasize <em>computational</em> aspects​</span></p>
+		<p><span style="font-size:0.9em">Emphasis on <em>computational</em> aspects​</span></p>
 		</li>
 		<li>
-		<p><span style="font-size:0.9em">​Little math, <s>error bounds</s>, <s>ML, and/or deep learning </s>(sorry!)</span></p>
+		<p><span style="font-size:0.9em">​Little math, <s>error bounds</s>, <s>ML, deep learning </s>(sorry!)</span></p>
 		</li>
 	</ul>
 	</li>
 	<li class="fragment" data-fragment-index="1">
-	<p><span style="font-size:0.9em">​<span style="color:#FF0000">Disclaimer</span>: this work might sound "obvious" (depending on whom you are talking to)</span></p>
+	<p><span style="font-size:0.9em">​<span style="color:#FF0000">Disclaimer</span>: this work might seem "obvious" (depending on whom you are talking to)</span></p>
 	</li>
 	<li class="fragment" data-fragment-index="2">
 	<p><span style="font-size:0.9em">Format: this is going to be a "story"</span></p>
 
 	<ul>
 		<li>
-		<p><span style="font-size:0.9em">walk through how this work started and developed</span></p>
+		<p><span style="font-size:0.9em">Walk through how this work started and developed</span></p>
 		</li>
 		<li>
 		<p><span style="font-size:0.9em">Finally, we talk about generalization</span></p>
@@ -144,7 +144,13 @@
 <ul>
 	<li class="fragment" data-fragment-index="0"><span style="font-size:0.9em">Started reading about <em>seismic waves</em></span></li>
 	<li class="fragment" data-fragment-index="0" style="color:rgb(0, 0, 0)">
-	<p><span style="font-size:0.9em">​​This is obviously a very important topic</span></p>
+	<p><span style="font-size:0.9em">​​Obviously a very important topic, no pROMs work on this</span></p>
+
+	<ul>
+		<li class="fragment" data-fragment-index="0" style="color:rgb(0, 0, 0)">
+		<p><span style="color:#808080"><span style="font-size:0.5em">​Relevant: pROMs for acoustic waves: V. Pereyra et al., Electron. Trans. Numer. Anal. (2008)</span></span></p>
+		</li>
+	</ul>
 	</li>
 	<li class="fragment" data-fragment-index="1">
 	<p><span style="font-size:0.9em"><strong><span style="color:#FF8C00">Surface waves:</span></strong> travel at the Earth's surface</span></p>
@@ -160,12 +166,12 @@
 		<p><span style="font-size:0.9em">Primary (P-waves): compressional, longitudinal</span></p>
 		</li>
 		<li>
-		<p><span style="font-size:0.9em">Secondary or shear (S-waves): transversal (particles oscillate perpendicularly to the direction of wave propagation)</span></p>
+		<p><span style="font-size:0.9em">Secondary or shear (<strong>S-waves</strong>): transversal (particles oscillate perpendicularly to the direction of wave propagation)</span></p>
 		</li>
 	</ul>
 	</li>
 	<li class="fragment" data-fragment-index="2">
-	<p><span style="font-size:0.9em">Interesting field, no previous pROM work: w</span><span style="font-size:0.9em">e started on this</span></p>
+	<p><span style="font-size:0.9em">Interesting topic, so w</span><span style="font-size:0.9em">e started on this</span></p>
 	</li>
 </ul>
 </div></div></section><section data-id="28b4c89cb4f6121a78845273ac139021"><div class="sl-block" data-block-type="text" data-name="text-04d305" style="height: auto; width: 773px; left: 93.5px; top: 32.5px;" data-block-id="92677fc942f78420b499d5224606dcf7"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
@@ -190,7 +196,7 @@
 </div></div>
 <div class="sl-block" data-block-type="text" data-name="text-0eec39" style="height: auto; width: 875px; left: 44.9865px; top: 134px;" data-block-id="21af200529af49b4781d62a7e02018d7"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left;">
 <ul>
-	<li class="fragment" data-fragment-index="0"><span style="font-size:0.9em">Velocity-stress <em>axisymmetric</em> formulation:</span></li>
+	<li class="fragment" data-fragment-index="0"><span style="font-size:0.9em">Velocity-stress <em>axisymmetric</em> formulation*:</span></li>
 </ul>
 </div></div>
 
@@ -410,6 +416,9 @@ f(r, \theta, t): \text{forcing}
 </div></div>
 <div class="sl-block" data-block-type="text" style="height: auto; width: 87.5px; left: 320px; top: 422px;" data-block-id="9f035fe6b01b76e35313ac0844290496" data-name="text-05e16e"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 29;" data-fragment-index="0">
 <p>Find:</p>
+</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-b805ea" data-block-id="96200b790ca475741cc4fb445c4d5def" style="height: auto; width: 401px; left: 281.986px; top: 652.5px;"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 30;" data-fragment-index="0">
+<p><span style="font-size:0.5em">* H. Igel, M. Weber,  Geophys. Res. Lett. 22 (6) (1995)  </span></p>
 </div></div></section><section data-id="c8d0e0bd16284fddd65021300963e09a"><div class="sl-block" data-block-type="text" data-name="text-04d305" style="height: auto; width: 773px; left: 93.5px; top: 32.5px;" data-block-id="0c01fa1183951a67aeeff26cebbecb01"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
 <h2><span style="color:rgb(0, 0, 0)">Semi-discrete system</span></h2>
 </div></div>
@@ -594,7 +603,7 @@ f(r, \theta, t): \text{forcing}
 <div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 653.416px; top: 369px;" data-block-id="84521d2a58ae29ff61c6fb0c3193fa3c" data-name="line-28e072"><div class="sl-block-content fragment" data-line-x1="0" data-line-y1="119.5" data-line-x2="151" data-line-y2="0" data-line-color="#0000ff" data-line-start-type="none" data-line-end-type="arrow" style="z-index: 17;" data-fragment-index="2"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="151" height="119.5" viewbox="0 0 151 119.5"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="119.5" x2="147.86339553908306" y2="2.482279689268706"></line><line class="line-element" stroke="#0000ff" stroke-width="2" x1="0" y1="119.5" x2="147.86339553908306" y2="2.482279689268706"></line><polygon fill="#0000ff" transform="translate(147.86339553908306,2.482279689268706) rotate(51.642)" points="0,-4 4,4 -4,4"></polygon></svg></div></div>
 <div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 653.416px; top: 400.5px;" data-block-id="ae772f9c862f893314b3764746e1697a" data-name="line-4fb436"><div class="sl-block-content fragment" data-line-x1="0" data-line-y1="138" data-line-x2="242" data-line-y2="0" data-line-color="#0000ff" data-line-start-type="none" data-line-end-type="arrow" style="z-index: 18;" data-fragment-index="2"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="242" height="138" viewbox="0 0 242 138"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="138" x2="238.52526161790001" y2="1.9814623831809783"></line><line class="line-element" stroke="#0000ff" stroke-width="2" x1="0" y1="138" x2="238.52526161790001" y2="1.9814623831809783"></line><polygon fill="#0000ff" transform="translate(238.52526161790001,1.9814623831809783) rotate(60.306)" points="0,-4 4,4 -4,4"></polygon></svg></div></div>
 <div class="sl-block" data-block-type="image" data-name="image-5df361" style="width: 309.722px; height: 339.939px; left: 7.41625px; top: 213.421px; min-width: 1px; min-height: 1px;" data-block-id="11167376e4d66a8865b73376c71184b2"><div class="sl-block-content fragment" style="z-index: 19;" data-fragment-index="0"><img style="" data-natural-width="1230" data-natural-height="1350" data-lazy-loaded="" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/9db115c96f2f28465ecb9c52fb5958b7.png"></div></div>
-<div class="sl-block" data-block-type="text" data-name="text-3a9d43" data-block-id="a525fb61c61569ee8155340e9a169db6" style="height: auto; width: 283px; left: 31.1382px; top: 160.5px;"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 20;" data-fragment-index="0">
+<div class="sl-block" data-block-type="text" data-name="text-3a9d43" data-block-id="a525fb61c61569ee8155340e9a169db6" style="height: auto; width: 283px; left: 20.7772px; top: 166px;"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 20;" data-fragment-index="0">
 <p>PREM Earth model</p>
 </div></div>
 <div class="sl-block" data-block-type="line" data-name="line-3aaf13" data-block-id="702438d8849131082414e31e31e91edf" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 299.727px; top: 188.5px;"><div class="sl-block-content fragment" data-line-x1="0" data-line-y1="71" data-line-x2="88" data-line-y2="0" data-line-color="#000000" data-line-start-type="none" data-line-end-type="none" style="z-index: 21;" data-line-width="3px" data-line-style="dashed" data-fragment-index="0"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="88" height="71" viewbox="0 0 88 71"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0.5" y1="71.5" x2="88.5" y2="0.5"></line><line class="line-element" stroke="#000000" stroke-width="3" stroke-dasharray="8.672564524704633 8.672564524704633" x1="0.5" y1="71.5" x2="88.5" y2="0.5"></line></svg></div></div>
@@ -610,7 +619,7 @@ f(r, \theta, t): \text{forcing}
 <p>time = 2000 sec</p>
 </div></div></section><section data-id="5085047683cbe1b08c3de53dbe1293b2">
 
-<div class="sl-block" data-block-type="math" data-name="math-0ec408" style="width: auto; height: auto; left: 50px; top: 228.5px;" data-block-id="11d8a9a906e33fd5e35b9d8ea8d3b477"><div class="sl-block-content notranslate fragment" style="z-index: 10; font-size: 90%;" data-fragment-index="1"><div class="math-input">  
+<div class="sl-block" data-block-type="math" data-name="math-0ec408" style="width: auto; height: auto; left: 114px; top: 219.5px;" data-block-id="11d8a9a906e33fd5e35b9d8ea8d3b477"><div class="sl-block-content notranslate fragment" style="z-index: 10; font-size: 90%;" data-fragment-index="1"><div class="math-input">  
 %% FOM
 \newcommand{\state}{\boldsymbol x}
 \newcommand{\systemMat}{\mathbf{A}}
@@ -677,7 +686,7 @@ f(r, \theta, t): \text{forcing}
 \newcommand{\force}{f}
 
 \frac{d \romState_{\vp}(t)}{dt} = \romBasis_{\vp}^T \systemMat_{\vp} \romBasis_{\stresses} \romState_{\stresses}(t) + \romBasis_{\vp}^T \forcing_{\vp}(t)</div></div></div>
-<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 50px; top: 316.5px;" data-name="math-72f805" data-block-id="a728b87bfae6e56744db0eb5bd7946cf"><div class="sl-block-content notranslate fragment" style="z-index: 11; font-size: 90%;" data-fragment-index="1"><div class="math-input">  
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 114px; top: 307.5px;" data-name="math-72f805" data-block-id="a728b87bfae6e56744db0eb5bd7946cf"><div class="sl-block-content notranslate fragment" style="z-index: 11; font-size: 90%;" data-fragment-index="1"><div class="math-input">  
 %% FOM
 \newcommand{\state}{\boldsymbol x}
 \newcommand{\systemMat}{\mathbf{A}}
@@ -755,16 +764,17 @@ f(r, \theta, t): \text{forcing}
 <div class="sl-block" data-block-type="text" data-name="text-04d305" style="height: auto; width: 960px; left: 0px; top: 32.5px;" data-block-id="0ef92da63aba2021e7d177d3bd4d0cd6"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: center;">
 <h2>Galerkin ROM formulation</h2>
 </div></div>
-<div class="sl-block" data-block-type="text" style="height: auto; width: 328.312px; left: 629.688px; top: 404.5px;" data-block-id="03e90b3b946f739378414b77e6bc9402" data-name="text-89df73"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 18; text-align: left;" data-fragment-index="2">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 328.312px; left: 620.25px; top: 335.908px;" data-block-id="03e90b3b946f739378414b77e6bc9402" data-name="text-89df73"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 18; text-align: left;" data-fragment-index="2">
 <p>For simplicity, assume same # of modes = K for velocity/stresses</p>
 
 <p> </p>
 
-<p>K &lt;&lt; FOM # dofs</p>
+<p><span style="font-size:0.7em">Typical LTI system form see e.g.: </span><br>
+<span style="font-size:8.000000pt">P. Benner, S. Gugercin, K. Willcox, SIAM, 2015</span></p>
 </div></div>
-<div class="sl-block" data-block-type="image" data-name="image-35b0aa" data-block-id="4906a20fbb208a507fb76909bf087b71" style="width: 547.639px; height: 365.815px; left: 34.6805px; top: 316.5px; min-width: 1px; min-height: 1px;"><div class="sl-block-content fragment" style="z-index: 19;" data-fragment-index="2"><img style="" data-natural-width="2021" data-natural-height="1350" data-lazy-loaded="" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/13d0eef6d6bf41b42c75a4484efbb2ec.png"></div></div>
-<div class="sl-block" data-block-type="line" data-name="line-8bf519" data-block-id="d2ceacbd049c6c22c4efb3ab2b4b904a" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 292.25px; top: 296.5px;"><div class="sl-block-content fragment" data-line-x1="70.5" data-line-y1="157.90800000000002" data-line-x2="0" data-line-y2="0" data-line-color="#000000" data-line-start-type="none" data-line-end-type="arrow" style="z-index: 20;" data-fragment-index="2"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="70.5" height="157.90800000000002" viewbox="0 0 70.5 157.90800000000002"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="70.5" y1="157.90800000000002" x2="1.6307066828141588" y2="3.6525054024087686"></line><line class="line-element" stroke="#000000" stroke-width="2" x1="70.5" y1="157.90800000000002" x2="1.6307066828141588" y2="3.6525054024087686"></line><polygon fill="#000000" transform="translate(1.6307066828141588,3.6525054024087686) rotate(-24.059)" points="0,-4 4,4 -4,4"></polygon></svg></div></div>
-<div class="sl-block" data-block-type="shape" data-name="shape-d8db8b" data-block-id="288d4acfe0e2e463d14f6de84f60d899" style="width: 181.5px; height: 77.5px; left: 201.5px; top: 219px;"><div class="sl-block-content fragment" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 21;" data-shape-corner-radius="10px" data-shape-stroke-color="#000000" data-shape-stroke-width="3px" data-fragment-index="2"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 182 78"><defs><clippath id="shape-mask-2-1638267596229"><rect width="181.5" height="77.5" rx="10" ry="10" fill="rgba(0, 0, 0, 0)" stroke="#000000" stroke-width="6"></rect></clippath></defs><rect width="181.5" height="77.5" rx="10" ry="10" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#000000" stroke-width="6" clip-path="url(#shape-mask-2-1638267596229)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="image" data-name="image-35b0aa" data-block-id="4906a20fbb208a507fb76909bf087b71" style="width: 547.639px; height: 365.815px; left: 37.6805px; top: 295.5px; min-width: 1px; min-height: 1px;"><div class="sl-block-content fragment" style="z-index: 19;" data-fragment-index="2"><img style="" data-natural-width="2021" data-natural-height="1350" data-lazy-loaded="" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/13d0eef6d6bf41b42c75a4484efbb2ec.png"></div></div>
+<div class="sl-block" data-block-type="line" data-name="line-8bf519" data-block-id="d2ceacbd049c6c22c4efb3ab2b4b904a" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 356.25px; top: 287.5px;"><div class="sl-block-content fragment" data-line-x1="0" data-line-y1="172.90800000000002" data-line-x2="0" data-line-y2="0" data-line-color="#000000" data-line-start-type="none" data-line-end-type="arrow" style="z-index: 20;" data-fragment-index="2"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="1" height="172.90800000000002" viewbox="0 0 1 172.90800000000002"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="172.90800000000002" x2="0" y2="4"></line><line class="line-element" stroke="#000000" stroke-width="2" x1="0" y1="172.90800000000002" x2="0" y2="4"></line><polygon fill="#000000" transform="translate(0,4) rotate(0)" points="0,-4 4,4 -4,4"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="shape" data-name="shape-d8db8b" data-block-id="288d4acfe0e2e463d14f6de84f60d899" style="width: 181.5px; height: 77.5px; left: 265.5px; top: 210px;"><div class="sl-block-content fragment" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 21;" data-shape-corner-radius="10px" data-shape-stroke-color="#000000" data-shape-stroke-width="3px" data-fragment-index="2"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 182 78"><defs><clippath id="shape-mask-2-1638267596229"><rect width="181.5" height="77.5" rx="10" ry="10" fill="rgba(0, 0, 0, 0)" stroke="#000000" stroke-width="6"></rect></clippath></defs><rect width="181.5" height="77.5" rx="10" ry="10" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#000000" stroke-width="6" clip-path="url(#shape-mask-2-1638267596229)"></rect></svg></div></div>
 <div class="sl-block sl-block-group" data-block-type="group" data-name="group-bb92ae" data-block-id="ab98365ae4ccbe27b5a2057466dda834" style="width: auto; height: auto;"><div class="sl-block-content sl-block-group-content" style="transform-origin: 371.625px 159.5px; z-index: 13;">
 <div class="sl-block sl-block-group" data-block-type="group" data-name="group-58b95f" data-block-id="f5d3708b4ca45f926fd30bd8a09c95f2" style="width: auto; height: auto;"><div class="sl-block-content sl-block-group-content" style="transform-origin: 505px 159.5px; z-index: 14;">
 <div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 283.25px; top: 137.5px;" data-block-id="b172ffabf1cbe13d484b99446b498dab" data-name="math-e01cda"><div class="sl-block-content notranslate fragment" style="z-index: 15; font-size: 60%;" data-fragment-index="0"><div class="math-input">  
@@ -911,7 +921,7 @@ f(r, \theta, t): \text{forcing}
 <h2>
 <em>Predictive</em> ROM: quantitative</h2>
 </div></div>
-<div class="sl-block" data-block-type="text" data-name="text-2ba7bb" data-block-id="0c603026ab6f144ec514c68ce5b49beb" style="height: auto; width: 926.325px; left: 16.8375px; top: 140px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left;">
+<div class="sl-block" data-block-type="text" data-name="text-2ba7bb" data-block-id="0c603026ab6f144ec514c68ce5b49beb" style="height: auto; width: 926.325px; left: 16.8375px; top: 140px;"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left;" data-fragment-index="0">
 <ul>
 	<li>Forcing: <span style="color:rgb(0, 0, 0)">Ricker wavelet with </span>period T ∈ [31, 69], depth = 150 Km</li>
 	<li>Earth, total simulation 2000 (sec)</li>
@@ -920,19 +930,19 @@ f(r, \theta, t): \text{forcing}
 </div></div>
 
 
-<div class="sl-block" data-block-type="text" data-name="text-374801" data-block-id="040e031f60027eb2243982be909ab182" style="height: auto; width: 223.163px; left: 720px; top: 311px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;">
+<div class="sl-block" data-block-type="text" data-name="text-374801" data-block-id="040e031f60027eb2243982be909ab182" style="height: auto; width: 223.163px; left: 720px; top: 311px;"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;" data-fragment-index="2">
 <p><span style="font-size:0.7em">Many modes!<br>
 Not surprising!</span></p>
 </div></div>
-<div class="sl-block" data-block-type="image" data-name="image-85803c" data-block-id="ddaf780aca0e1616ccc56f45299f14d0" style="width: 520.815px; height: 408px; left: 139.592px; top: 280px; min-width: 1px; min-height: 1px;"><div class="sl-block-content" style="z-index: 12;"><img style="left: 0px; top: 0px; width: 1129px; height: 408px;" data-natural-width="2064" data-natural-height="746" data-lazy-loaded="" data-crop-x="0" data-crop-y="0" data-crop-width="0.461373" data-crop-height="1" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/2867cb8f3108cf5f6f32e6d92ad2bafc.png"></div></div>
-<div class="sl-block" data-block-type="shape" data-name="shape-8709f2" data-block-id="fe6abbcd6d4b703c447962f30f260395" style="width: 225.774px; height: 139.73px; left: 435px; top: 277.27px;"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 13;" data-shape-stroke-color="#000000" data-shape-stroke-width="3px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 226 140"><defs><clippath id="shape-mask-1-1638371006133"><ellipse rx="112.887" ry="69.865" cx="112.887" cy="69.865" fill="rgba(0, 0, 0, 0)" stroke="#000000" stroke-width="6"></ellipse></clippath></defs><ellipse rx="112.887" ry="69.865" cx="112.887" cy="69.865" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#000000" stroke-width="6" clip-path="url(#shape-mask-1-1638371006133)"></ellipse></svg></div></div>
-<div class="sl-block" data-block-type="shape" data-name="shape-bb3698" data-block-id="e3bd69610cc42fea3903694c42bdce84" style="width: 83px; height: 55.135px; left: 669px; top: 319.567px;"><div class="sl-block-content" data-shape-type="arrow-left" data-shape-fill-color="#000000" data-shape-stretch="true" style="z-index: 15;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 83 55"><polygon points="83,16.540499999999998 41.5,16.540499999999998 41.5,0 0,27.5675 41.5,55.135 41.5,38.5945 83,38.5945 83,16.540499999999998" class="shape-element" fill="#000000"></polygon></svg></div></div></section><section data-id="8f46f1b22a5f6a20054cda3dd4bfe963"><div class="sl-block" data-block-type="text" style="width: 807px; left: 76.5px; top: 33px; height: auto;" data-name="text-738233" data-block-id="990c481e5fbf45f253297e53554eaea7"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<div class="sl-block" data-block-type="image" data-name="image-85803c" data-block-id="ddaf780aca0e1616ccc56f45299f14d0" style="width: 520.815px; height: 408px; left: 139.592px; top: 280px; min-width: 1px; min-height: 1px;"><div class="sl-block-content fragment" style="z-index: 12;" data-fragment-index="1"><img style="left: 0px; top: 0px; width: 1129px; height: 408px;" data-natural-width="2064" data-natural-height="746" data-lazy-loaded="" data-crop-x="0" data-crop-y="0" data-crop-width="0.461373" data-crop-height="1" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/2867cb8f3108cf5f6f32e6d92ad2bafc.png"></div></div>
+<div class="sl-block" data-block-type="shape" data-name="shape-8709f2" data-block-id="fe6abbcd6d4b703c447962f30f260395" style="width: 225.774px; height: 139.73px; left: 435px; top: 277.27px;"><div class="sl-block-content fragment" data-shape-type="circle" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 13;" data-shape-stroke-color="#000000" data-shape-stroke-width="3px" data-fragment-index="2"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 226 140"><defs><clippath id="shape-mask-1-1639134400211"><ellipse rx="112.887" ry="69.865" cx="112.887" cy="69.865" fill="rgba(0, 0, 0, 0)" stroke="#000000" stroke-width="6"></ellipse></clippath></defs><ellipse rx="112.887" ry="69.865" cx="112.887" cy="69.865" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#000000" stroke-width="6" clip-path="url(#shape-mask-1-1639134400211)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="shape" data-name="shape-bb3698" data-block-id="e3bd69610cc42fea3903694c42bdce84" style="width: 83px; height: 55.135px; left: 669px; top: 319.567px;"><div class="sl-block-content fragment" data-shape-type="arrow-left" data-shape-fill-color="#000000" data-shape-stretch="true" style="z-index: 15;" data-fragment-index="2"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 83 55"><polygon points="83,16.540499999999998 41.5,16.540499999999998 41.5,0 0,27.5675 41.5,55.135 41.5,38.5945 83,38.5945 83,16.540499999999998" class="shape-element" fill="#000000"></polygon></svg></div></div></section><section data-id="8f46f1b22a5f6a20054cda3dd4bfe963"><div class="sl-block" data-block-type="text" style="width: 807px; left: 76.5px; top: 33px; height: auto;" data-name="text-738233" data-block-id="990c481e5fbf45f253297e53554eaea7"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
 <h2>
 <em>Predictive</em> ROM: qualitative</h2>
 </div></div>
 
 <div class="sl-block" data-block-type="text" data-name="text-828685" data-block-id="aa079df47269794d6542eee388f6181e" style="height: auto; width: 825.5px; left: 67.25px; top: 595px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left;">
-<p><span style="font-size:0.7em">Velocity field at final time = 2000 secs computed for <span style="color:rgb(0, 0, 0)">the <em>extrapolation</em> period T = 69.</span></span></p>
+<p><span style="font-size:0.7em">Velocity field at final time = 2000 secs computed for <span style="color:rgb(0, 0, 0)">the T=69 (</span><strong><span style="color:#008000"><em>extrapolation point)</em></span></strong></span></p>
 
 <p><span style="font-size:0.7em">ROM using <strong>436 modes</strong> for velocity and <strong>417 modes</strong> for stresses</span></p>
 </div></div>
@@ -945,9 +955,9 @@ Not surprising!</span></p>
 <ul>
 	<li class="fragment fade-in-then-semi-out" data-fragment-index="1" style="color:rgb(0, 0, 0)">Key point: we <strong><em>need</em></strong> many modes or ROM is useless</li>
 	<li class="fragment fade-in-then-semi-out" data-fragment-index="1" style="color:rgb(0, 0, 0)">Speedup: ROM is 10X faster</li>
-	<li class="fragment fade-in-then-semi-out" data-fragment-index="1">O(1000) reduction in dofs, O(10) in runtime... something wrong?
+	<li class="fragment" data-fragment-index="1">O(1000) reduction in dofs, O(10) in runtime... something wrong?
 	<ul>
-		<li class="fragment" data-fragment-index="2">You might say: "limited" speedup due to 850 modes.</li>
+		<li class="visible">You might say: "limited" speedup due to 850 modes.</li>
 	</ul>
 	</li>
 	<li class="fragment" data-fragment-index="2"><span style="color:#0000CD">Is 850 too much or is it too much for <em>this</em> formulation? </span></li>
@@ -955,9 +965,9 @@ Not surprising!</span></p>
 </div></div></div>
 <div class="sl-block" data-block-type="text" style="height: auto; width: 640px; left: 0px; top: 179.25px;" data-block-id="93cee0afaae803bf894ada9054d8c162" data-name="text-2713d5"><div class="sl-block-style" style="z-index: 12; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: left; line-height: 1.56;" dir="ui" data-has-line-height="">
 <ul>
-	<li class="fragment fade-in-then-semi-out" data-fragment-index="0">High-fidelity: <span style="color:#FF0000"><strong>~3,150,000</strong></span> spatial dofs</li>
-	<li class="fragment fade-in-then-semi-out" data-fragment-index="0">ROM: <span style="color:#0000FF"><strong>~850</strong></span> modes (velocity+stresses)<br>
-	Lots of modes, this is expected.</li>
+	<li class="fade-in-then-semi-out fragment" data-fragment-index="0">High-fidelity: <span style="color:#FF0000"><strong>~3,150,000</strong></span> spatial dofs</li>
+	<li class="fade-in-then-semi-out fragment" data-fragment-index="0">ROM: <span style="color:#0000FF"><strong>~850</strong></span> modes (velocity+stresses)<br>
+	Many modes needed, this is expected.</li>
 </ul>
 </div></div></div>
 <div class="sl-block" data-block-type="text" style="height: auto; width: 301px; left: 618px; top: 193.25px;" data-block-id="d442da4f7f3270d2625802c4ec8a7135" data-name="text-68eb68"><div class="sl-block-style" style="z-index: 13; transform: rotate(0deg);"><div class="sl-block-content fragment fade-in-then-semi-out" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; text-align: center; line-height: 1.56;" dir="ui" data-has-line-height="" data-fragment-index="0">
@@ -987,11 +997,11 @@ Not surprising!</span></p>
 <div class="sl-block" data-block-type="shape" data-name="shape-ed91da" data-block-id="6ad891648a96c7bb59d11089887f6d4a" style="width: 192.619px; height: 263.456px; left: 647.337px; top: 192.459px;"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 14;" data-shape-stroke-color="#ff0000" data-shape-stroke-width="5px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 193 263"><defs><clippath id="shape-mask-2-1638300818074"><rect width="192.619" height="263.456" rx="0" ry="0" fill="rgba(0, 0, 0, 0)" stroke="#ff0000" stroke-width="10"></rect></clippath></defs><rect width="192.619" height="263.456" rx="0" ry="0" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#ff0000" stroke-width="10" clip-path="url(#shape-mask-2-1638300818074)"></rect></svg></div></div>
 </div></div>
 
-<div class="sl-block" data-block-type="text" style="height: auto; width: 787.919px; left: 94.0415px; top: 552px;" data-block-id="d9235689741e9412280b05c3ad8f83da" data-name="text-a99ddc"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; text-align: left; line-height: 1.43;" data-has-line-height="">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 680.919px; left: 141.502px; top: 560px;" data-block-id="d9235689741e9412280b05c3ad8f83da" data-name="text-a99ddc"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; text-align: left; line-height: 1.43;" data-has-line-height="">
 <p>How do we evaluate the efficiency of this kernel?</p>
 </div></div>
 <div class="sl-block" data-block-type="line" data-name="line-11c81f" data-block-id="2f0ec7eed6125e80ea2761229bbee645" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 210.961px; top: 404px;"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="431" data-line-y2="0" data-line-color="#000000" data-line-start-type="none" data-line-end-type="arrow" style="z-index: 17;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="431" height="1" viewbox="0 0 431 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="427" y2="0"></line><line class="line-element" stroke="#000000" stroke-width="2" x1="0" y1="0" x2="427" y2="0"></line><polygon fill="#000000" transform="translate(427,0) rotate(90)" points="0,-4 4,4 -4,4"></polygon></svg></div></div></section><section data-id="f30e6fe2842b6f1c82fd9fb0f7d2f373"><div class="sl-block" data-block-type="text" style="width: 807px; left: 76.5px; top: 32.5px; height: auto;" data-block-id="4cefa71c821af186645df6bdca37e857"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
-<h2>Arithmetic Intensity</h2>
+<h2>Arithmetic Intensity (ai)</h2>
 </div></div>
 <div class="sl-block" data-block-type="math" data-name="math-8b4072" data-block-id="21bae8ed70f4ea47da6db1302ec6304e" style="width: auto; height: auto; left: 152px; top: 201px;"><div class="sl-block-content notranslate" style="z-index: 11; font-size: 75%;"><div class="math-input">\text{arithmetic intensity} = \frac{\text{minimal FLOP-count}}{\text{minimal data movement}}
 </div></div></div>
@@ -1095,7 +1105,7 @@ Not surprising!</span></p>
 </div></div></div></section><section data-id="5e8b22ac1818fabe673425764c98acb6"><div class="sl-block" data-block-type="text" style="width: 960px; left: 0px; top: 33px; height: auto;" data-block-id="769fd9013e80cbbce65cb979274f28ac"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
 <h2>Galerkin Rank-2 formulation</h2>
 </div></div>
-<div class="sl-block" data-block-type="text" style="width: 807px; left: 58px; top: 560px; height: auto;" data-block-id="e1d4700d6197232e5575aa3302587305"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left;">
+<div class="sl-block" data-block-type="text" style="width: 807px; left: 58px; top: 560px; height: auto;" data-block-id="e1d4700d6197232e5575aa3302587305"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left;" data-fragment-index="1">
 <ul>
 	<li>
 	<p>This is useful when we need many solves</p>
@@ -1105,10 +1115,10 @@ Not surprising!</span></p>
 	</li>
 </ul>
 </div></div>
-<div class="sl-block" data-block-type="image" data-name="image-f02742" data-block-id="fe7714ba3545ce3ffa3d80b16f6c0f06" style="width: 584.784px; height: 229.92px; left: 187.608px; top: 280px; min-width: 1px; min-height: 1px;"><div class="sl-block-content" style="z-index: 12;"><img style="left: 0px; top: 0px; width: 719px; height: 230px;" data-natural-width="2500" data-natural-height="800" data-lazy-loaded="" data-crop-x="0" data-crop-y="0" data-crop-width="0.813896" data-crop-height="1" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/4be8778c2539af88b4066e2d62786bd6.png"></div></div>
+<div class="sl-block" data-block-type="image" data-name="image-f02742" data-block-id="fe7714ba3545ce3ffa3d80b16f6c0f06" style="width: 584.784px; height: 229.92px; left: 187.608px; top: 280px; min-width: 1px; min-height: 1px;"><div class="sl-block-content fragment" style="z-index: 12;" data-fragment-index="0"><img style="left: 0px; top: 0px; width: 719px; height: 230px;" data-natural-width="2500" data-natural-height="800" data-lazy-loaded="" data-crop-x="0" data-crop-y="0" data-crop-width="0.813896" data-crop-height="1" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/4be8778c2539af88b4066e2d62786bd6.png"></div></div>
 <div class="sl-block" data-block-type="text" style="width: 807px; left: 58px; top: 183px; height: auto;" data-block-id="1d6ac0d09cfa2ab0dc4b512ae18f0136" data-name="text-ecf260"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; text-align: left;">
 <ul>
-	<li>
+	<li class="fragment" data-fragment-index="0">
 	<p>Let's consider M trajectories simultaneously<br>
 	e.g. different forcing evaluations</p>
 	</li>
@@ -1116,9 +1126,9 @@ Not surprising!</span></p>
 </div></div></section><section data-id="bbc2b6f1c16cebf456d97f4ca30f80f1"><div class="sl-block" data-block-type="text" style="width: 807px; left: 76.5px; top: 42.5px; height: auto;" data-block-id="af4cb2ca2dbdda4152e9f664aa5a2006" data-name="text-e248f1"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
 <h2>Arithmetic Intensity</h2>
 </div></div>
-<div class="sl-block" data-block-type="math" data-name="math-8b4072" style="width: auto; height: auto; left: 35px; top: 479.5px;" data-block-id="19df5122dfccfd031b2e13513a6abc75"><div class="sl-block-content notranslate" style="z-index: 11; font-size: 75%;"><div class="math-input">\text{arithmetic intensity} = \frac{\text{minimal FLOP-count}}{\text{minimal data movement}}
+<div class="sl-block" data-block-type="math" data-name="math-8b4072" style="width: auto; height: auto; left: 73.4995px; top: 479.5px;" data-block-id="19df5122dfccfd031b2e13513a6abc75"><div class="sl-block-content notranslate" style="z-index: 11; font-size: 75%;"><div class="math-input">\text{arithmetic intensity} = \frac{\text{minimal FLOP-count}}{\text{minimal data movement}}
 </div></div></div>
-<div class="sl-block" data-block-type="text" style="height: auto; width: 139px; left: 709px; top: 482px;" data-name="text-056c06" data-origin-id="639e446125db9e102491b724ad28c2f1" data-block-id="4e34afd9c3c301e1b9c71d99b87cc0d9"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: left;">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 139px; left: 747.5px; top: 482px;" data-name="text-056c06" data-origin-id="639e446125db9e102491b724ad28c2f1" data-block-id="4e34afd9c3c301e1b9c71d99b87cc0d9"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: left;">
 <p><span style="font-size:1.2em"><span style="color:#008000"><strong>~ K / 16</strong></span></span></p>
 </div></div>
 <div class="sl-block" data-block-type="image" data-name="image-f02742" style="width: 483.047px; height: 189.92px; left: 238.476px; top: 210px; min-width: 1px; min-height: 1px;" data-block-id="c82888361db4251a5ba37efd6349b0b0"><div class="sl-block-content" style="z-index: 13;"><img style="left: 0px; top: 0px; width: 593px; height: 190px;" data-natural-width="2500" data-natural-height="800" data-lazy-loaded="" data-crop-x="0" data-crop-y="0" data-crop-width="0.813896" data-crop-height="1" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/4be8778c2539af88b4066e2d62786bd6.png"></div></div></section><section data-id="845cc544052da2587af73173f40769a8"><div class="sl-block" data-block-type="text" style="width: 807px; left: 76.5px; top: 33px; height: auto;" data-block-id="f84602b86e91b0db0e455579b75591b7" data-name="text-9af2f5"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
@@ -1157,7 +1167,7 @@ Not surprising!</span></p>
 	<p><span style="color:#0000FF"><span style="font-size:0.7em">M&gt;1: increasing # of threads helps</span></span></p>
 	</li>
 	<li class="fragment" data-fragment-index="2">
-	<p><span style="color:#0000FF"><span style="font-size:0.7em">We can handle large K</span></span></p>
+	<p><span style="color:#0000FF"><span style="font-size:0.7em">A large K is not a problem!</span></span></p>
 	</li>
 </ul>
 </div></div></div>
@@ -1177,10 +1187,10 @@ Not surprising!</span></p>
 </div></div></section><section data-id="52592dc387cdfaf5c1dc04414b6b4bd6"><div class="sl-block" data-block-type="text" data-name="text-b1af4f" data-block-id="fc231882474c3dc34b3b1072a9dd7ba3" style="height: auto; width: 960px; left: 0px; top: 40.5px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
 <h2>When to prefer the Rank2ROM?</h2>
 </div></div>
-<div class="sl-block" data-block-type="text" data-name="text-70df42" data-block-id="334ff80b48d4941878b1b057987c0f9d" style="height: auto; width: 866px; left: 31px; top: 469px;"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left;" data-fragment-index="1">
+<div class="sl-block" data-block-type="text" data-name="text-70df42" data-block-id="334ff80b48d4941878b1b057987c0f9d" style="height: auto; width: 866px; left: 31px; top: 463px;"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left;" data-fragment-index="1">
 <p>What combination of thread count (n) and number of simultaneous trajectories, M, would be the most efficient to obtain those P samples while satisfying the given constraints?</p>
 </div></div>
-<div class="sl-block" data-block-type="text" style="height: auto; width: 866px; left: 31px; top: 196px;" data-block-id="c459ae33e83b6a1438aeee093ec6e3c6" data-name="text-d598d6"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: left; line-height: 1.495;" data-has-line-height="" data-fragment-index="0">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 866px; left: 24px; top: 171px;" data-block-id="c459ae33e83b6a1438aeee093ec6e3c6" data-name="text-d598d6"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: left; line-height: 1.56;" data-has-line-height="" data-fragment-index="0">
 <ul>
 	<li>Suppose: we have a single compute node with 36 cores</li>
 	<li>Want P (large) samples (e.g. forcing realizations)</li>
@@ -1275,7 +1285,7 @@ Not surprising!</span></p>
 <p><span style="font-size:27px">If we increase # of modes (K), things </span><em>improve!</em></p>
 </div></div>
 <div class="sl-block" data-block-type="image" data-name="image-47a911" data-block-id="2efbb3a4e0d90639834001bd88fe147b" style="width: 422.617px; height: 384.622px; left: 28.6915px; top: 231.378px; min-width: 1px; min-height: 1px;"><div class="sl-block-content fragment" style="z-index: 12;" data-fragment-index="0"><img style="left: 0px; top: 0px; width: 507px; height: 385px;" data-natural-width="1778" data-natural-height="1350" data-lazy-loaded="" data-crop-x="0" data-crop-y="0" data-crop-width="0.834286" data-crop-height="1" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/a7568fba19ecdfc6a1fbc343cd651974.png"></div></div>
-<div class="sl-block" data-block-type="image" data-name="image-e01897" data-block-id="98756ecbd55dfb03f2b6cf7d52bbdfe2" style="width: 454.839px; height: 384.622px; left: 492.581px; top: 231.378px; min-width: 1px; min-height: 1px;"><div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="1"><img style="left: -26px; top: -1px; width: 509px; height: 386px;" data-natural-width="1778" data-natural-height="1350" data-crop-x="0.05132" data-crop-y="0.003861" data-crop-width="0.894428" data-crop-height="0.996139" data-lazy-loaded="" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/a629c7b19346952bbdcb84647bc015be.png"></div></div>
+<div class="sl-block" data-block-type="image" data-name="image-e01897" data-block-id="98756ecbd55dfb03f2b6cf7d52bbdfe2" style="width: 454.839px; height: 384.622px; left: 456.581px; top: 231.378px; min-width: 1px; min-height: 1px;"><div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="1"><img style="left: -26px; top: -1px; width: 509px; height: 386px;" data-natural-width="1778" data-natural-height="1350" data-crop-x="0.05132" data-crop-y="0.003861" data-crop-width="0.894428" data-crop-height="0.996139" data-lazy-loaded="" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/a629c7b19346952bbdcb84647bc015be.png"></div></div>
 <div class="sl-block" data-block-type="text" data-name="text-1969cf" data-block-id="6b75ad8d168f07a06ebb3cdd98da479f" style="height: auto; width: 296px; left: 92px; top: 638px;"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;" data-fragment-index="0">
 <p># of modes (K) = 512</p>
 </div></div>
@@ -1285,23 +1295,26 @@ Not surprising!</span></p>
 <div class="sl-block" data-block-type="text" style="height: auto; width: 700px; left: 71px; top: 108.5px;" data-block-id="cdb8953d22b3046e66b53d610585271c" data-name="text-5aca74"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16; text-align: left;" data-fragment-index="0">
 <p><span style="font-size:0.9em">Compute speedup wrt standard Galerkin ROM (M=1)</span></p>
 </div></div>
-<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 320px; top: 197.5px;" data-block-id="fc242ebac3ec0f87fd09ec8de4f1d5bf" data-name="line-1464e0"><div class="sl-block-content fragment" data-line-x1="254" data-line-y1="0" data-line-x2="0" data-line-y2="164" data-line-color="#000000" data-line-start-type="none" data-line-end-type="arrow" style="z-index: 18;" data-fragment-index="1"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="254" height="164" viewbox="0 0 254 164"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="254" y1="0" x2="3.360408715892493" y2="161.8302872858017"></line><line class="line-element" stroke="#000000" stroke-width="2" x1="254" y1="0" x2="3.360408715892493" y2="161.8302872858017"></line><polygon fill="#000000" transform="translate(3.360408715892493,161.8302872858017) rotate(237.151)" points="0,-4 4,4 -4,4"></polygon></svg></div></div>
-<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 574px; top: 197.5px;" data-block-id="dcc7a1eade9630da069b38cedc4a63ce" data-name="line-a2ae83"><div class="sl-block-content fragment" data-line-x1="0" data-line-y1="0" data-line-x2="218" data-line-y2="206" data-line-color="#000000" data-line-start-type="none" data-line-end-type="arrow" style="z-index: 19;" data-fragment-index="1"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="218" height="206" viewbox="0 0 218 206"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="215.09268719201899" y2="203.25272275943078"></line><line class="line-element" stroke="#000000" stroke-width="2" x1="0" y1="0" x2="215.09268719201899" y2="203.25272275943078"></line><polygon fill="#000000" transform="translate(215.09268719201899,203.25272275943078) rotate(133.379)" points="0,-4 4,4 -4,4"></polygon></svg></div></div></section></section><section class="stack" data-id="1f7af5bbff64a322fba022cf49a602f4"><section data-id="c03b21d909231e0d53e840b66c42f79a"><div class="sl-block" data-block-type="text" style="width: 960px; left: 0px; top: 33px; height: auto;" data-block-id="3fca91528994839aae477bd2c3110340"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 320px; top: 197.5px;" data-block-id="fc242ebac3ec0f87fd09ec8de4f1d5bf" data-name="line-1464e0"><div class="sl-block-content fragment" data-line-x1="254" data-line-y1="0" data-line-x2="0" data-line-y2="164" data-line-color="#000000" data-line-start-type="none" data-line-end-type="arrow" style="z-index: 17;" data-fragment-index="1"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="254" height="164" viewbox="0 0 254 164"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="254" y1="0" x2="3.360408715892493" y2="161.8302872858017"></line><line class="line-element" stroke="#000000" stroke-width="2" x1="254" y1="0" x2="3.360408715892493" y2="161.8302872858017"></line><polygon fill="#000000" transform="translate(3.360408715892493,161.8302872858017) rotate(237.151)" points="0,-4 4,4 -4,4"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 574px; top: 197.5px;" data-block-id="dcc7a1eade9630da069b38cedc4a63ce" data-name="line-a2ae83"><div class="sl-block-content fragment" data-line-x1="0" data-line-y1="0" data-line-x2="186.846" data-line-y2="209.87799999999993" data-line-color="#000000" data-line-start-type="none" data-line-end-type="arrow" style="z-index: 18;" data-fragment-index="1"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="186.846" height="209.87799999999993" viewbox="0 0 186.846 209.87799999999993"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="184.18625703268452" y2="206.89039772596547"></line><line class="line-element" stroke="#000000" stroke-width="2" x1="0" y1="0" x2="184.18625703268452" y2="206.89039772596547"></line><polygon fill="#000000" transform="translate(184.18625703268452,206.89039772596547) rotate(138.323)" points="0,-4 4,4 -4,4"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-c921e0" data-block-id="f01b9f6fc57856e3d8196333e7134ccf" style="height: auto; width: 352px; left: 764.5px; top: 387.878px;"><div class="sl-block-style" style="z-index: 19; transform: rotate(-90deg);"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 19;" data-fragment-index="0">
+<p>Greener is better</p>
+</div></div></div></section></section><section class="stack" data-id="1f7af5bbff64a322fba022cf49a602f4"><section data-id="c03b21d909231e0d53e840b66c42f79a"><div class="sl-block" data-block-type="text" style="width: 960px; left: 0px; top: 33px; height: auto;" data-block-id="3fca91528994839aae477bd2c3110340"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
 <h2>Applicable to other LTI systems</h2>
 </div></div>
 <div class="sl-block" data-block-type="text" data-name="text-1e6ac8" data-block-id="69823f31016b0c727d9415a46757ebaa" style="height: auto; width: 960px; left: 0px; top: 195px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left; line-height: 1.56;" data-has-line-height="">
 <ul>
 	<li>
-	<p><span style="color:rgb(0, 0, 0)">Aeroelasticity: d</span>eforming structures modeled as linear, with a nonlinear load; temperature often modeled with the linear heat equations and boundary conditions set by nonlinear temperature distributions and/or heat loads</p>
+	<p><span style="color:#0000CD">Aeroelasticity</span><span style="color:rgb(0, 0, 0)">: d</span>eforming structures modeled as linear, with a nonlinear load; temperature often modeled with the linear heat equations and boundary conditions set by nonlinear temperature distributions and/or heat loads</p>
 	</li>
 	<li>
-	<p>Neutral particle (neutron, photon, etc.) transport</p>
+	<p><span style="color:#0000CD">Neutral particle</span> (neutron, photon, etc.) transport</p>
 	</li>
 	<li>
-	<p>Acoustic waves: modeled with a linear PDE, but can have a number of nonlinear sources (turbulent shear layers from wakes)</p>
+	<p><span style="color:#0000CD">Acoustic waves</span>: modeled with a linear PDE, but can have a number of nonlinear sources (turbulent shear layers from wakes)</p>
 	</li>
 	<li>
-	<p>Linear circuit models</p>
+	<p><span style="color:#0000CD">Linear circuit models</span></p>
 	</li>
 </ul>
 </div></div></section><section data-id="f53417a494a6ca8d555ec07dfe18391d"><div class="sl-block" data-block-type="text" style="width: 807px; left: 76.5px; top: 32.5px; height: auto;" data-block-id="415ff6d62dbb08c303ba22b71cf916c8"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
@@ -1309,13 +1322,13 @@ Not surprising!</span></p>
 </div></div>
 <div class="sl-block" data-block-type="text" data-name="text-1e6ac8" style="height: auto; width: 960px; left: 0px; top: 178px;" data-block-id="5bd6b93aa4c93263b841e64660844827"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left;">
 <ul>
-	<li>
+	<li class="fragment" data-fragment-index="0">
 	<p>What about if the matrix A changes?</p>
 	</li>
-	<li>
+	<li class="fragment" data-fragment-index="0">
 	<p>What about nonlinear problems?</p>
 	</li>
-	<li>
+	<li class="fragment" data-fragment-index="1">
 	<p style="color:rgb(0, 0, 0)">Tensors are getting more attention due to DeepLearning</p>
 
 	<ul>
@@ -1330,31 +1343,31 @@ Not surprising!</span></p>
 </ul>
 </div></div>
 
-<div class="sl-block" data-block-type="text" data-name="text-b48fa2" data-block-id="b621f590a895ad366620f04099229a4a" style="height: auto; width: 214.5px; left: 692.75px; top: 457.017px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<div class="sl-block" data-block-type="text" data-name="text-b48fa2" data-block-id="b621f590a895ad366620f04099229a4a" style="height: auto; width: 214.5px; left: 692.75px; top: 457.017px;"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;" data-fragment-index="1">
 <h3><span style="font-size:1.0em">Rank-3 Galerkin ROM?</span></h3>
 </div></div>
-<div class="sl-block" data-block-type="image" data-name="image-16dbf3" data-block-id="1a3cef082534cd3cf8d0aa7af3381700" style="width: 534.656px; height: 239.966px; left: 132.672px; top: 432.017px; min-width: 1px; min-height: 1px;"><div class="sl-block-content" style="z-index: 13;"><img style="" data-natural-width="1954" data-natural-height="877" data-lazy-loaded="" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/76a7469277b3a6d9284098312f707f46.png"></div></div></section><section data-id="9df5b2be6b19fc59f81748d300648c1b"><div class="sl-block" data-block-type="text" style="width: 807px; left: 76.5px; top: 33px; height: auto;" data-block-id="2e7640fd8db2512de3f65512c377feda"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<div class="sl-block" data-block-type="image" data-name="image-16dbf3" data-block-id="1a3cef082534cd3cf8d0aa7af3381700" style="width: 534.656px; height: 239.966px; left: 132.672px; top: 432.017px; min-width: 1px; min-height: 1px;"><div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="1"><img style="" data-natural-width="1954" data-natural-height="877" data-lazy-loaded="" data-src="for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend/76a7469277b3a6d9284098312f707f46.png"></div></div></section><section data-id="9df5b2be6b19fc59f81748d300648c1b"><div class="sl-block" data-block-type="text" style="width: 807px; left: 76.5px; top: 33px; height: auto;" data-block-id="2e7640fd8db2512de3f65512c377feda"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
 <h2>Conclusions/references</h2>
 </div></div>
-<div class="sl-block" data-block-type="text" style="width: 960px; left: 0px; top: 140px; height: auto;" data-block-id="7ed8386137011337cc9be9ea47e27661"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left; line-height: 1.56;" data-has-line-height="">
+<div class="sl-block" data-block-type="text" style="width: 943px; left: 0px; top: 149px; height: auto;" data-block-id="7ed8386137011337cc9be9ea47e27661"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left; line-height: 1.56;" data-has-line-height="">
 <ul>
-	<li style="color:rgb(0, 0, 0)">(Sometimes) many modes are necessary for accuracy but also provide a computational <span style="color:rgb(0, 0, 0)">advantage</span>
+	<li style="color:rgb(0, 0, 0)">(Sometimes) many modes are necessary for accuracy <em>and</em> provide a computational <span style="color:rgb(0, 0, 0)">advantage</span>
 </li>
 	<li>pROMs can benefit from more work, not just theoretically
 	<ul>
-		<li>Previous formulations can be revisited</li>
+		<li>Previous formulations can (should) be revisited</li>
 	</ul>
 	</li>
-	<li>Leverage advances in <span style="color:rgb(0, 0, 0)">computing, keeping an eye on hardware</span>
+	<li>Leverage advances in <span style="color:rgb(0, 0, 0)">computing, keep an eye on hardware</span>
 </li>
 </ul>
 </div></div>
-<div class="sl-block" data-block-type="text" data-name="text-f39e5a" data-block-id="eff2cfa0e4c6985154ffebbc9fea71bc" style="height: auto; width: 960px; left: 0px; top: 404px;"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: left;" data-fragment-index="0">
+<div class="sl-block" data-block-type="text" data-name="text-f39e5a" data-block-id="eff2cfa0e4c6985154ffebbc9fea71bc" style="height: auto; width: 960px; left: 0px; top: 420px;"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: left;" data-fragment-index="0">
 <ul>
 	<li><span style="color:#0000FF"><em><strong><span style="font-size:0.7em">A compute-bound formulation of Galerkin model reduction for linear time-invariant dynamical systems, F.Rizzi et al, CMAME, 2021</span></strong></em></span></li>
 </ul>
 </div></div>
-<div class="sl-block" data-block-type="text" style="height: auto; width: 960px; left: 0px; top: 490px;" data-block-id="04b58c66783dc4caaaf9cb8a76b78a74" data-name="text-3c5dc7"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; text-align: left;" data-fragment-index="1">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 960px; left: 0px; top: 506px;" data-block-id="04b58c66783dc4caaaf9cb8a76b78a74" data-name="text-3c5dc7"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; text-align: left;" data-fragment-index="1">
 <ul>
 	<li><span style="font-size:0.7em">V. Pereyra et al., Electron. Trans. Numer. Anal. Vol. 30 (2008) 406–41</span></li>
 	<li><span style="font-size:0.7em">E. Phipps et al, ArXiv, 2015 </span></li>
@@ -1434,7 +1447,7 @@ Not surprising!</span></p>
 		</div>
 
 		<script>
-			var SLConfig = {"deck": {"id":2289236,"slug":"for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend","title":"For projection-based ROMs, is a \"large\" (POD) subspace always an enemy? No, sometimes, it can be your friend...","description":"","width":960,"height":700,"margin":0.05,"visibility":"all","published_at":"2021-11-23T09:51:16.245Z","sanitize_messages":null,"thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/a109d11a2eda6e5ea4d666d3e93f6366/thumb.jpg?1638801362","view_count":0,"user":{"id":1300184,"username":"francescorizzi","name":null,"description":null,"thumbnail_url":"https://www.gravatar.com/avatar/1acc77bbeb199d9d87e3ea2120279e56?s=140\u0026d=https%3A%2F%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png","account_type":"lite","team_id":null,"settings":{"id":5147769,"present_controls":true,"present_upsizing":true,"present_pointer":false,"present_notes":true,"default_deck_tag_id":null}},"background_transition":"slide","transition":"slide","theme_id":null,"theme_font":"montserrat","theme_color":"white-blue","auto_slide_interval":0,"comments_enabled":true,"forking_enabled":true,"rolling_links":false,"center":false,"shuffle":false,"should_loop":false,"share_notes":false,"slide_number":true,"slide_count":40,"rtl":false,"version":2,"collaborative":null,"deck_user_editor_limit":1,"data_updated_at":1638801362126,"font_typekit":null,"font_google":null,"time_limit":null,"navigation_mode":"default","upsizing_enabled":true,"notes":{}}};
+			var SLConfig = {"deck": {"id":2289236,"slug":"for-projection-based-roms-is-a-large-pod-subspace-always-an-enemy-no-sometimes-it-can-be-your-friend","title":"For projection-based ROMs, is a \"large\" (POD) subspace always an enemy? No, sometimes, it can be your friend...","description":"","width":960,"height":700,"margin":0.05,"visibility":"all","published_at":"2021-11-23T09:51:16.245Z","sanitize_messages":null,"thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/a109d11a2eda6e5ea4d666d3e93f6366/thumb.jpg?1638802429","view_count":0,"user":{"id":1300184,"username":"francescorizzi","name":null,"description":null,"thumbnail_url":"https://www.gravatar.com/avatar/1acc77bbeb199d9d87e3ea2120279e56?s=140\u0026d=https%3A%2F%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png","account_type":"lite","team_id":null,"settings":{"id":5147769,"present_controls":true,"present_upsizing":true,"present_pointer":false,"present_notes":true,"default_deck_tag_id":null}},"background_transition":"slide","transition":"slide","theme_id":null,"theme_font":"montserrat","theme_color":"white-blue","auto_slide_interval":0,"comments_enabled":true,"forking_enabled":true,"rolling_links":false,"center":false,"shuffle":false,"should_loop":false,"share_notes":false,"slide_number":true,"slide_count":40,"rtl":false,"version":2,"collaborative":null,"deck_user_editor_limit":1,"data_updated_at":1639389730979,"font_typekit":null,"font_google":null,"time_limit":null,"navigation_mode":"default","upsizing_enabled":true,"notes":{}}};
 
 
 			// Use local fonts
